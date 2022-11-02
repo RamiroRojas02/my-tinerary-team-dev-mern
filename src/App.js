@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import city from './api/data-cities/data-city.js'
-import activity from './api/data-cities/data-city-activities.js'
-import users from './api/data-cities/data-usuario.js'
+import city from './api/data-city.js'
+import activity from './api/data-city-activities.js'
+import users from './api/data-usuario.js'
 
 function App() {
   console.log(city);
