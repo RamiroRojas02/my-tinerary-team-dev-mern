@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import city from './api/data-city.js'
+import activity from './api/data-city-activities.js'
+import users from './api/data-usuario.js'
 
 function App() {
+  console.log(city);
+  console.log(activity);
+  console.log(users);
+
   return (
     <div className="App">
       <header className="App-header">
