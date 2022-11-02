@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
+import datosEventos from './api/data-hoteles-eventos';
+import dataAdmin from './api/data-admin';
+import datosHoteles from './api/data-hoteles';
 function App() {
+  console.log(datosEventos)
+  console.log(dataAdmin)
+  console.log(datosHoteles)
   return (
     <div className="App">
       <header className="App-header">
