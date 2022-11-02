@@ -3,10 +3,21 @@ import './App.css';
 import datosEventos from './api/data-hoteles-eventos';
 import dataAdmin from './api/data-admin';
 import datosHoteles from './api/data-hoteles';
+import city from './api/data-city.js'
+import activity from './api/data-city-activities.js'
+import users from './api/data-usuario.js'
+
+  
 function App() {
   console.log(datosEventos)
   console.log(dataAdmin)
   console.log(datosHoteles)
+  console.log(city);
+  console.log(activity);
+  console.log(users);
+
+
+
   return (
     <div className="App">
       <header className="App-header">
