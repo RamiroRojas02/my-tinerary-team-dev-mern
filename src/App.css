@@ -1,38 +1,19 @@
-.App {
-  text-align: center;
+/* CSS HEX */
+:root{
+--header-backround: #99b898;
+--body-background: #fecea8ff;
+--titles: #ff847cff;
+--box-shadow-cards: #e84a5fff;
+--background-footer: #2a363bff;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* SCSS Gradient */
+/* $gradient-top: linear-gradient(0deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-right: linear-gradient(90deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-bottom: linear-gradient(180deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-left: linear-gradient(270deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-top-right: linear-gradient(45deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-bottom-right: linear-gradient(135deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-top-left: linear-gradient(225deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-bottom-left: linear-gradient(315deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+ */
