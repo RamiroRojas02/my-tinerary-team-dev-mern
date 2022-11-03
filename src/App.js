@@ -11,23 +11,24 @@ import FotosCarrousel from "./components/FotosCarrousel";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import Home2 from "./components/Home2";
-import { Route, Router, useNavigate } from "react-router-dom";
+import { Route, Router, Routes, useNavigate } from "react-router-dom";
 import Header from "./components/HeaderComponent";
-import Home1 from './components/Home1'
+import Home1 from "./components/Home1";
+import ScrollToTop from "./components/ScrollToTop";
+import AutoTop from "./components/AutoTop";
 function App() {
-
-  let [state , setState] = useState("navBar-collapse")
-  let menu = () =>{
-    if (state === "navBar-collapse" ) {
-      setState(state = "navBar-expanded")
-    }else if ( state === "navBar-expanded"){
-      setState(state = "navBar-collapse")
+  let [state, setState] = useState("navBar-collapse");
+  let menu = () => {
+    if (state === "navBar-collapse") {
+      setState((state = "navBar-expanded"));
+    } else if (state === "navBar-expanded") {
+      setState((state = "navBar-collapse"));
     }
-    
-  }
+  };
   return (
     <div>
-      <Header click={menu} nav1 = {state}/>
+      <AutoTop />
+      <Header click={menu} nav1={state} />
       <Home1 />
       <Home2 />
     </div>
