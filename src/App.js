@@ -15,7 +15,7 @@ import { Route, Router, Routes, useNavigate } from "react-router-dom";
 import Header from "./components/HeaderComponent";
 import Home1 from "./components/Home1";
 import ScrollToTop from "./components/ScrollToTop";
-import AutoTop from "./components/AutoTop";
+import AutoToTop from "./components/AutoToTop";
 function App() {
   let [state, setState] = useState("navBar-collapse");
   let menu = () => {
@@ -27,7 +27,7 @@ function App() {
   };
   return (
     <div>
-      <AutoTop />
+      <AutoToTop />
       <Header click={menu} nav1={state} />
       <Home1 />
       <Home2 />
