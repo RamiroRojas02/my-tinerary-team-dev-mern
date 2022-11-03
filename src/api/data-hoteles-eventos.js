@@ -23,7 +23,7 @@ let datosEventos=[
         hotelId:"ho2",
         name: "Mozart, luz y sombras",
         description:"The Camerata Mar del Plata will offer a concert entitled 'Mozart, light and shadows' with the special participation of soloist Alexis Nicolet on flute and the artistic company Poiesis Visuales. It will be on Sunday, October 30 at 8:00 p.m. in the Roberto J. Payró room of the Teatro Auditorium, Provincial Center for the Arts as part of the program of the Cultural Institute of the Province of Buenos Aires.",
-        photo:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXtqcRMnP1LCA2TqJN48Hv6BvG5e3WpJ3OAO2q2maBqxkvXS7MisX1fDHP9au3CWpVLAeZCn6JqqQH0cuUyjbG5fCtU4JUetGcok_pPjQzW0i6RdvRgTN9SU3i-3yPc2sOwya07DPQ9bWCe2rDkfommvd_YkO8TNPcARD5zgEOtpfXhXhtIoJgQlVx/s2000/IMG_4494%20Camerata%20Mar%20del%20Plata.jpg",
+        photo:"https://teatrocolon.org.ar/sites/default/files/styles/de2e/public/2019-05/ISATC_ORQUESTA-ACADEMICA%201.jpg?itok=ua5Kb6Wu",
         price:2000,
         date :2022-12-12,
         userId:"userCity2"
@@ -32,7 +32,7 @@ let datosEventos=[
         hotelId:"ho4",
         name: "Devils vs Rangers",
         description:"The Devils-Rangers rivalry is an ice hockey rivalry between the New Jersey Devils and New York Rangers clubs of the National Hockey League. The two teams are called 'Cross River Rivals'",
-        photo:"https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=720&width=1280&source=https%3A%2F%2Fartwork.espncdn.com%2Fevents%2F401357750%2F16x9%2F1280x720_20210928160618.jpg&cb=12&templateId=espn.core.dtc.large.16x9.1&showBadge=true&package=ESPN_PLUS",
+        photo:"https://s.secure.espncdn.com/stitcher/artwork/16x9.jpg?height=500&width=400&source=https%3A%2F%2Fartwork.espncdn.com%2Fevents%2F401357750%2F16x9%2F1280x720_20210928160618.jpg&cb=12&templateId=espn.core.dtc.large.16x9.1&showBadge=true&package=ESPN_PLUS",
         price:5300,
         date :2022-12-12,
         userId:"userCity2"

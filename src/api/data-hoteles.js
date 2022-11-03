@@ -10,7 +10,7 @@ let datosHoteles=[
      },    {
         id:"ho2",
         name:"Sheraton Mar del Plata",
-        photo:["https://lh5.googleusercontent.com/p/AF1QipNpEZ4YcrUOqGVJzBTlMNe1u3nBk1ExR_HeMPEW=w253-h379-k-no","https://lh5.googleusercontent.com/p/AF1QipMyF68cL5Zw5IMfbYkz7eojgKqQiuWN4AFzhBqK=w253-h337-k-no","https://lh5.googleusercontent.com/p/AF1QipOW3qJcovahoxdPe5iERuMCK3_ZVT_A1kSIGF91=w253-h168-k-no"],
+        photo:["https://cf.bstatic.com/xdata/images/hotel/max1024x768/335658011.jpg?k=7744bd54f3b52559e191dc29bb12a8246f97ba9f6c3a822c064515b148cfb376&o=&hp=1","https://lh5.googleusercontent.com/p/AF1QipMyF68cL5Zw5IMfbYkz7eojgKqQiuWN4AFzhBqK=w253-h337-k-no","https://lh5.googleusercontent.com/p/AF1QipOW3qJcovahoxdPe5iERuMCK3_ZVT_A1kSIGF91=w253-h168-k-no"],
         capacity:50000,
         description: "Located on Leandro N. Alem street and in front of the Golf Club Mar del Plata, Sheraton has an exceptional view. A green hopeful and a majestic ocean frame a unique geography for the necessary comfort, being proposed from its first visit, repetition of the experience. The Sheraton Mar del Plata Hotel combines the tranquility of Bahía Playa Grande, the quietness of the links of the Golf Club and the proximity of the sea, with the functionality of a place that offers all the proposals of the big cities.",
         citiId:"Mar-del-Plata-1",//id de la ciudad a la que pertenece , consultar los id con el compañero de trabajo
@@ -50,7 +50,7 @@ let datosHoteles=[
      },    {
         id:"ho7",
         name:"The Langham",
-        photo:["https://www.wikiwand.com/en/The_Langham,_New_York#Media/File:400_Fifth_Ave_May_2017.png","http://dimg04.c-ctrip.com/images/0204t120008vr9efi97A8.jpg","https://assets.langhamhotels.com/is/image/langhamhotelsstage/tlnyc-exterior-01:Medium?wid=2000&hei=1123"],
+        photo:["https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/400_Fifth_Ave_May_2017.png/871px-400_Fifth_Ave_May_2017.png","http://dimg04.c-ctrip.com/images/0204t120008vr9efi97A8.jpg","https://assets.langhamhotels.com/is/image/langhamhotelsstage/tlnyc-exterior-01:Medium?wid=2000&hei=1123"],
         capacity:50000,
         description: "When Gwathmey Siegel — the original architects of The Langham, New York, Fifth Avenue — first drew up the building plans, they aimed to make a mark on the skyline.",
         citiId:"New-York-1",//id de la ciudad a la que pertenece , consultar los id con el compañero de trabajo
