@@ -8,10 +8,7 @@ import dataAdmin from "./api/data-admin";
 import datosHoteles from "./api/data-hoteles";
 import Layout from "./layout/Layout";
 import { useEffect, useState } from "react";
-
-import { Route, Router, Routes, useNavigate } from "react-router-dom";
-
-import Home from "./layout/Home";
+import { ComponentRoutes } from "./ComponentRoutes";
 function App() {
   let [state, setState] = useState("navBar-collapse");
   let menu = () => {
@@ -24,8 +21,9 @@ function App() {
   
   return (
     <Layout menu={menu} state={state}>
-      <Home/>
+      <ComponentRoutes/>
     </Layout>
+    
   );
 }
 

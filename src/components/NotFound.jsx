@@ -1,11 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useNavigate} from "react-router-dom";
 
-export default function NotFound() {
-    let [back1,setBack] = useState("")
-    let back = ()=>{
-      
-    }
-  return (
-    <img src="./img/error404.png" alt="" onClick={back}/>
-  )
+const NotFound=()=> {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    setTimeout(()=>{
+      navigate("/");
+    },3000);
+  },[]);
+  return(<>
+    <div className='divNotFound'>
+      <img src="./img/error404.png" alt="Error" className='imgNotFound'/>
+  </div>
+  </>) 
 }
+export default NotFound;
