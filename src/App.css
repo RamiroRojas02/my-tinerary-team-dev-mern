@@ -29,7 +29,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-grow: 1;
 }
@@ -282,12 +282,17 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     display: block;
   }
   .header {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   .navBar-expanded {
     flex-direction: column;
   }
   .navBar-collapse {
     display: none;
+  }
+}
+@media screen and (max-width: 255px){
+  .header{
+    flex-direction: column;
   }
 }
