@@ -14,7 +14,7 @@ import Home2 from './components/Home2';
 import { Route, Router } from 'react-router-dom';
 function App() {
   return (
-      <Home2/>
+      <Home2/> 
     
   )
 }
