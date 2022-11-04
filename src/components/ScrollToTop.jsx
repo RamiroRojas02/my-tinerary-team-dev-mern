@@ -6,9 +6,8 @@ export default function ScrollToTop() {
   }, []);
 
   return (
-    <div className='scrollToTopDivContainer'>
-      <span>Top of the page</span>
-      <div />
+    
+
       <button className='buttonScroll'
         onClick={() => {
             console.log("se ejecuta scrollToTop")
@@ -17,6 +16,6 @@ export default function ScrollToTop() {
       >
         Scroll To Top
       </button>
-    </div>
+
   );
 }
