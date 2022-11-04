@@ -1,5 +1,5 @@
 import React from 'react'
-import ScrollToTop from './ScrollToTop'
+
 export default function Footer() {
   return (
     <div className='divFooter'>
@@ -14,9 +14,7 @@ export default function Footer() {
         <div className='divFooterChild'><span>Created By:</span>
         <p>Lopez Nicolas & Ramiro Rojas</p>
         </div>
-        <div className='divFooterChild'>
-           <ScrollToTop/>
-        </div>
+        
     </div>
   )
 }
