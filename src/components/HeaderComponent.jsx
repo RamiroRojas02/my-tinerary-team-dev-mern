@@ -5,6 +5,16 @@ export default function HeaderComponent(props) {
 
   return (
     <header className="header">
+      <img
+        onClick={clickUser}
+        className="user"
+        src="/img/user-circle-solid-240.png"
+        alt="user"
+      ></img>
+      <div className={userState}>
+        <a href="/">Sign in</a>
+        <a href="/">Sign Up</a>
+      </div>
       <img className="logo" src="/img/My_Tinerary.png" alt="Logo"></img>
       <img
         onClick={clickNav}
@@ -12,20 +22,8 @@ export default function HeaderComponent(props) {
         src="/img/colapseBar.png"
         alt="bar"
       ></img>
-      <img
-        onClick={clickUser}
-        className="user"
-        src="/img/user-circle-solid-240.png"
-        alt="user"
-      ></img>
-      <div className="dropdown">
-        <NavBar naV={nav1} />
 
-        <div className={userState}>
-          <a href="/">Sign in</a>
-          <a href="/">Sign Up</a>
-        </div>
-      </div>
+      <NavBar naV={nav1} />
     </header>
   );
 }
