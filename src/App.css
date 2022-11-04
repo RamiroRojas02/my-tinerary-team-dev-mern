@@ -247,7 +247,43 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   height: 5rem;
   display: none;
 }
-
+.user-collapse {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+  display: none;
+}
+.user-collapse a {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+}
+.user-expanded a {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+}
+.user-expanded {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.user{
+  height: 5rem;
+}
 @media screen and (max-width: 810px) {
   .Home1 {
     height: auto;
@@ -283,6 +319,8 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   }
   .header {
     flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0;
   }
   .navBar-expanded {
     flex-direction: column;

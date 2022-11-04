@@ -7,24 +7,38 @@ import datosEventos from "./api/data-hoteles-eventos";
 import dataAdmin from "./api/data-admin";
 import datosHoteles from "./api/data-hoteles";
 import Layout from "./layout/Layout";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Route, Router, Routes, useNavigate } from "react-router-dom";
 
 import Home from "./layout/Home";
 function App() {
-  let [state, setState] = useState("navBar-collapse");
+  let [stateNav, setState] = useState("navBar-collapse");
   let menu = () => {
-    if (state === "navBar-collapse") {
-      setState((state = "navBar-expanded"));
-    } else if (state === "navBar-expanded") {
-      setState((state = "navBar-collapse"));
+    if (stateNav === "navBar-collapse") {
+      setState((stateNav = "navBar-expanded"));
+    } else if (stateNav === "navBar-expanded") {
+      setState((stateNav = "navBar-collapse"));
     }
   };
-  
+
+  let [stateUser, setStateUser] = useState("user-collapse");
+  let user = () => {
+    if (stateUser === "user-collapse") {
+      setStateUser((stateUser = "user-expanded"));
+    } else if (stateUser === "user-expanded") {
+      setStateUser((stateUser = "user-collapse"));
+    }
+  };
+
   return (
-    <Layout menu={menu} state={state}>
-      <Home/>
+    <Layout
+      menuEvent={menu}
+      stateNav={stateNav}
+      userEvent={user}
+      stateUser={stateUser}
+    >
+      <Home />
     </Layout>
   );
 }
