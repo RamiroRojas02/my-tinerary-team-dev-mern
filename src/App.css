@@ -319,6 +319,8 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   }
   .header {
     flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0;
   }
   .navBar-expanded {
     flex-direction: column;
