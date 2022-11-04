@@ -7,11 +7,14 @@ import datosEventos from "./api/data-hoteles-eventos";
 import dataAdmin from "./api/data-admin";
 import datosHoteles from "./api/data-hoteles";
 import Layout from "./layout/Layout";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import { ComponentRoutes } from "./ComponentRoutes";
 
 import { Route, Router, Routes, useNavigate } from "react-router-dom";
 
-import Home from "./pages/Home";
+import Home from "./layout/Home";
+
 function App() {
   let [stateNav, setState] = useState("navBar-collapse");
   let menu = () => {
@@ -32,14 +35,17 @@ function App() {
   };
 
   return (
+
     <Layout
       menuEvent={menu}
       stateNav={stateNav}
       userEvent={user}
       stateUser={stateUser}
     >
-      <Home />
+      <ComponentRoutes/>
+
     </Layout>
+    
   );
 }
 
