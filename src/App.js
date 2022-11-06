@@ -13,7 +13,7 @@ import { ComponentRoutes } from "./ComponentRoutes";
 
 import { Route, Router, Routes, useNavigate } from "react-router-dom";
 
-import Home from "./layout/Home";
+import Home from "./pages/Home";
 
 function App() {
   let [stateNav, setState] = useState("navBar-collapse");
