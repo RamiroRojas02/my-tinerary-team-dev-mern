@@ -9,7 +9,7 @@ export default function CityCard(props) {
       <h4>{name}</h4>
       <h4>Population of {population}</h4>
       <h4>Continent: {continent}</h4>
-      <button>Activity</button>
+      <button>Details</button>
     </div>
   );
 }

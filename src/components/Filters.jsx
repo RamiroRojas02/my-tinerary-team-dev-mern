@@ -43,7 +43,7 @@ function checkFilter(arrayfilt) {
     } else {
       cityFilterCheck = array;
     }
-    console.log(cityFilterCheck);
+    
 
     localStorage.setItem("Filt", JSON.stringify(array));
     return cityFilterCheck
@@ -61,7 +61,7 @@ function checkFilter(arrayfilt) {
     filterSearch = filterSearch.filter((e) =>
       e.name.toLocaleLowerCase().includes(searchValue)
     );
-    console.log(filterSearch);
+    
     localStorage.setItem("Filt", JSON.stringify(filterSearch));
     return filterSearch
   };
