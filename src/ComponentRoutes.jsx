@@ -1,19 +1,11 @@
 import React from 'react'
 import  {Routes,Route} from "react-router-dom"
 import NotFound from './components/NotFound'
-
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
-
 import Cities from './pages/Cities'
-
-import SignIn from './layout/SignIn'
-
-
-import Hotels from './pages/Hotels'
 import SignIn from './pages/SignIn'
-
-
+import Hotels from './pages/Hotels'
 export  const ComponentRoutes=()=> {
   return (
     <Routes>
@@ -22,9 +14,7 @@ export  const ComponentRoutes=()=> {
         <Route path='/Hotels' element={<Hotels/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
         <Route path='/Cities' element={<Cities/>}/>
-
         <Route path='/SignIn' element= {<SignIn/>}/>
-
     </Routes>
   )
 }
