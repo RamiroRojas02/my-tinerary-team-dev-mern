@@ -13,8 +13,8 @@ export default function HeaderComponent(props) {
         alt="user"
       ></img>
       <div className={userState}>
-        <a href="/">Sign in</a>
-        <a href="/">Sign Up</a>
+        <a href="/SignIn">Sign in</a>
+        <a href="/SignUp">Sign Up</a>
       </div>
       <img className="logo" src="/img/My_Tinerary.png" alt="Logo"></img>
       <img

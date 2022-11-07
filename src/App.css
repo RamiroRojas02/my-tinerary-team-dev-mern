@@ -100,7 +100,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   width: 100%;
   background-color: var(--background-footer);
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
 
   justify-content: space-around;
   align-items: center;
@@ -152,14 +152,14 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   background-color: #99b898;
   display: flex;
   height: 15vh;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   position: sticky;
   top: 0px;
 }
 
 .logo {
-  width: 10rem;
+  width: 7rem;
   height: 10rem;
   object-fit: scale-down;
 }
@@ -213,12 +213,14 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   height: 25rem;
 }
 .home1Logo img {
+  margin-top: 4rem;
   height: 90%;
   width: 100%;
 }
 .home1Logo p {
   color: #e84a5fff;
   font-size: 1.5rem;
+  margin-top: -4rem;
 }
 .navBar-expanded a {
   background-color: #ff847cff;
@@ -332,7 +334,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: .33rem;
 }
 .user {
   height: 5rem;
@@ -387,6 +389,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   gap: 1;
   justify-content: center;
   align-items: center;
+  background-color: var(--body-background);
 }
 .cardHoteles{
   border-radius: 3rem;
@@ -410,7 +413,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   display:flex;
   height: 100%;
   width: 40%;
-
+}
 .cardHotelesInfo{
   display:flex;
   height: 100%;
@@ -442,7 +445,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   justify-content: center;
 }
 .cardsCities button{
-=======
+
   border-radius: 0rem 0rem 2rem 2rem;
 /*   padding: .5rem; */
 }
@@ -534,6 +537,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   display: flex;
   justify-content: center;
   padding: 1rem;
+  background-color: var(--body-background);
 }
 .g-b{
   height: 30px!important;
@@ -552,7 +556,14 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     width: 30%!important;
   }
 }
-
+@media (max-width:950px){
+  .navBar-collapse {
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
 
 @media screen and (max-width: 810px) {
   .cardHoteles{
@@ -632,11 +643,11 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   }
   .header {
     flex-wrap: wrap;
-    flex-direction: column;
     gap: 0;
   }
   .navBar-expanded {
     flex-direction: column;
+    justify-content: space-evenly!important;
   }
   .navBar-collapse {
     display: none;
