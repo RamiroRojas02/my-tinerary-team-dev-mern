@@ -1,8 +1,8 @@
 import React from "react";
 import NavBar from "./NavBar";
+import { Link as LinkRoute } from "react-router-dom";
 export default function HeaderComponent(props) {
-  let { clickNav, nav1 , userState, clickUser} = props;
-
+  let { clickNav, nav1, userState, clickUser } = props;
 
   return (
     <header className="header">
@@ -13,8 +13,12 @@ export default function HeaderComponent(props) {
         alt="user"
       ></img>
       <div className={userState}>
-        <a href="/SignIn">Sign in</a>
-        <a href="/SignUp">Sign Up</a>
+        <LinkRoute to="/SignIn">
+          Sign in
+        </LinkRoute>
+        <LinkRoute to="/SignUp">
+          Sign Up
+        </LinkRoute>
       </div>
       <img className="logo" src="/img/My_Tinerary.png" alt="Logo"></img>
       <img

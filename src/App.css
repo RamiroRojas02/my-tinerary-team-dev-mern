@@ -645,6 +645,12 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     justify-content: center;
     gap: 2rem;
   }
+  .navBar-expanded{
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
+    gap: 2rem;
+  }
 }
 
 @media screen and (max-width: 810px) {
@@ -710,7 +716,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     gap: 1rem;
   }
 }
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 480px) {
   .sectionHome1 {
     width: 75%;
   }
