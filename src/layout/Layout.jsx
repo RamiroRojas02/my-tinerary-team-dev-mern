@@ -16,7 +16,7 @@ export default function layout(props) {
       <HeaderComponent clickNav={menuEvent} nav1={stateNav} clickUser= {userEvent} userState={stateUser} />
       {props.children}
       <Footer />
-      <ScrollToTop />
+      
     </div>
   );
 }

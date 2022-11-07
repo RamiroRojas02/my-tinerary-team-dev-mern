@@ -25,7 +25,7 @@ export default function Carrousel({estilo1,children,estilo2,estilo3,change,chang
       <PhotosCarrouselCity name={dataCity[1].name} photo={dataCity[1].photo}/>
       <PhotosCarrouselCity name={dataCity[2].name} photo={dataCity[2].photo}/>
       <PhotosCarrouselCity name={dataCity[3].name} photo={dataCity[3].photo}/>            
-      <img  src="./img/chevrons-right-solid-36.png" onClick={change}/>
+      <img className='imgLogo' src="./img/chevrons-right-solid-36.png" onClick={change}/>
       </div>
       <div className={`${estilo3}`}>
       <img className='imgLogo' src="./img/chevrons-left-solid-36.png" onClick={change2}/>
