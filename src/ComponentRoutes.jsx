@@ -5,8 +5,14 @@ import NotFound from './components/NotFound'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 
+import Cities from './pages/Cities'
+
+import SignIn from './layout/SignIn'
+
+
 import Hotels from './pages/Hotels'
 import SignIn from './pages/SignIn'
+
 
 export  const ComponentRoutes=()=> {
   return (
@@ -15,6 +21,7 @@ export  const ComponentRoutes=()=> {
         <Route path="/*" element={<NotFound/>}/>
         <Route path='/Hotels' element={<Hotels/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
+        <Route path='/Cities' element={<Cities/>}/>
 
         <Route path='/SignIn' element= {<SignIn/>}/>
 
