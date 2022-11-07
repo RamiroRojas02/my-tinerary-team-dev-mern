@@ -264,8 +264,8 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 65vh;
-  flex-grow: 1, 2;
+  height: 80vh;
+  flex-grow: 1,2;
   padding: 5rem;
   background-color: var(--body-background);
 }
@@ -275,20 +275,22 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .formSignIn {
   display: flex;
   width: 40%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   border-radius: 2rem;
   flex-grow: 2;
   background-color: #99b898;
 }
-.formSignIn button {
-  width: 30%;
-  height: 15%;
+
+.formSignIn button{
+  width: 80px;
+  height: 20px;
   color: var(--background-footer);
   border: 2px solid var(--background-footer);
   border-radius: 0.5rem;
   background-color: #e84a5f;
+  
 }
 .inputSignIn {
   margin: 1rem;
@@ -365,6 +367,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   align-items: center;
   text-align: center;
 }
+
 .citiesPage {
   width: 100%;
   min-height: 100vh;
@@ -376,15 +379,49 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   width: 100%;
   object-fit: cover;
 }
+.cardsContainerHotels{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1;
+  justify-content: center;
+  align-items: center;
+}
+.cardHoteles{
+  border-radius: 3rem;
+  margin: 1.5rem;
+  display: flex;
+/*   flex-direction: row!important; */
+  flex-wrap: wrap;
+  /* flex-grow: 1,2; */
+  height: 100%!important;
+  width: 25%;
+}
+.cardHoteles img{
+
+  border-radius: 2rem 2rem 0rem 0rem;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
 .cardCity{
   display:flex;
   height: 100%;
   width: 40%;
+
+.cardHotelesInfo{
+  display:flex;
+  height: 100%;
+  width: 100%;
+
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   background-color: var(--box-shadow-cards);
-  border-radius: 2rem 2rem 2rem 2rem;
+
+
 }
 .cardsCities {
   border-radius: 3rem;
@@ -405,11 +442,43 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   justify-content: center;
 }
 .cardsCities button{
+=======
+  border-radius: 0rem 0rem 2rem 2rem;
+/*   padding: .5rem; */
+}
+.cardHotelesInfo h3{
+  background-color: var(--box-shadow-cards);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* border:solid 1px teal; */
+  padding:.5rem;
+}
+.showDescription{
+  display: flex;
+  height: 250px;
+  overflow-y: scroll;
+  width: 100%;
+  scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+  justify-content: center;
+  align-items:center;
+  background-color: var(--background-footer);
+  color: var(--body-background);
+ /*  text-align: center; */
+  padding: 1rem 1rem ;
+}
+.hideDescription{
+  display: none;
+}
+.cardHotelesInfo button {
+
   margin: .5rem;
   padding: .5rem;
   border-radius: .8rem;
   background-color: var(--header-backround);
 }
+
 .filtersCity {
   justify-content: center;
   display: flex;
@@ -460,7 +529,35 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 
   
 
+
+.filters{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.g-b{
+  height: 30px!important;
+
+}
+@media (min-width:1440px) {
+  .cardHoteles{
+    width: 20%!important;
+  }
+  /* .cardsContainerHotels{
+    width: 80%!important;
+  } */
+}
+@media (max-width:1100px) {
+  .cardHoteles{
+    width: 30%!important;
+  }
+}
+
+
 @media screen and (max-width: 810px) {
+  .cardHoteles{
+    width: 40%!important;
+  }
   .Home1 {
     height: auto;
   }
@@ -491,6 +588,29 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     border-radius: 5px;
     font-size: 1.2rem;
   }
+}
+@media (max-width:700px){
+.cardHoteles{
+  width: 60%!important;
+}
+}
+@media (max-width:710px) {
+  .filters{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:1;
+  }
+  .selectBar{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .searchBar{
+    padding: 1rem;
+  }
+  
 }
 @media screen and (max-width: 480px) {
   .header {
