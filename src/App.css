@@ -266,7 +266,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 65vh;
+  height: 80vh;
   flex-grow: 1,2;
   padding: 5rem;
   background-color: var(--body-background);
@@ -277,7 +277,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .formSignIn{
   display: flex;
   width: 40%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   border-radius: 2rem;
@@ -285,12 +285,13 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   background-color: #99b898;
 }
 .formSignIn button{
-  width: 30%;
-  height: 15%;
+  width: 80px;
+  height: 20px;
   color: var(--background-footer);
   border: 2px solid var(--background-footer);
   border-radius: .5rem;
   background-color: #e84a5f;
+  
 }
 .inputSignIn{
   margin: 1rem
@@ -442,6 +443,10 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   display: flex;
   justify-content: center;
   padding: 1rem;
+}
+.g-b{
+  height: 30px!important;
+
 }
 @media (min-width:1440px) {
   .cardHoteles{

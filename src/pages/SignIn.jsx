@@ -15,12 +15,6 @@ export default function LoginPage(f) {
     
   }; 
 
-  const navigate = useNavigate();
-  useEffect(()=>{
-      setTimeout(()=>{
-        navigate("/");
-      },60000);
-    },[]);
   
   const cargar = (e)=>{
     e.preventDefault()
@@ -31,7 +25,7 @@ export default function LoginPage(f) {
 
     <div className="divSignIn">
     
-    <h1>Sign Up Now!</h1>
+    <h1>Sign In Now!</h1>
     <form className='formSignIn'>
       <div className="inputDiv">
         <label>Username:  <input type= "text" name= "username" placeholder='Username' onChange = {handleChange}/></label>
@@ -43,11 +37,12 @@ export default function LoginPage(f) {
     </div>
     
     
-    <button type= "submit" variant= "primary" onClick={cargar}  >
+    <button className="b-b" type= "submit" variant= "primary" onClick={cargar}  >
     
     Log in
     
     </button>
+    <button className="g-b" disabled><img className="googleLogo" src="./img/googleLogo.png" alt="google_logo"></img></button>
     
     </form>
     
