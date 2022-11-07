@@ -4,6 +4,13 @@ import NotFound from './components/NotFound'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import Cities from './pages/Cities'
+
+import NewCity from './pages/NewCity'
+
+
+
+
+import Hotels from './pages/Hotels'
 import SignIn from './pages/SignIn'
 import Hotels from './pages/Hotels'
 import NewHotel from './pages/NewHotels'
@@ -15,6 +22,7 @@ export  const ComponentRoutes=()=> {
         <Route path='/Hotels' element={<Hotels/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
         <Route path='/Cities' element={<Cities/>}/>
+        <Route path='/NewCity' element={<NewCity/>}/>
         <Route path='/SignIn' element= {<SignIn/>}/>
         <Route path='/NewHotel' element={<NewHotel/>}/>
     </Routes>
