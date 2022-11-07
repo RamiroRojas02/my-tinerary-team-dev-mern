@@ -524,7 +524,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .newCityPage{
   width: 100%;
   height: 100vh;
-  background-color: #ff847cff;
+  background-color:  var(--body-background);
   display: flex;
   flex-direction: column;
   justify-content: center;

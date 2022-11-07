@@ -12,7 +12,7 @@ import NewCity from './pages/NewCity'
 
 import Hotels from './pages/Hotels'
 import SignIn from './pages/SignIn'
-import Hotels from './pages/Hotels'
+
 import NewHotel from './pages/NewHotels'
 export  const ComponentRoutes=()=> {
   return (
