@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp'
 import Cities from './pages/Cities'
 import SignIn from './pages/SignIn'
 import Hotels from './pages/Hotels'
+import NewHotel from './pages/NewHotels'
 export  const ComponentRoutes=()=> {
   return (
     <Routes>
@@ -15,6 +16,7 @@ export  const ComponentRoutes=()=> {
         <Route path="/SignUp" element={<SignUp/>}/>
         <Route path='/Cities' element={<Cities/>}/>
         <Route path='/SignIn' element= {<SignIn/>}/>
+        <Route path='/NewHotel' element={<NewHotel/>}/>
     </Routes>
   )
 }
