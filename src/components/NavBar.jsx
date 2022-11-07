@@ -5,7 +5,7 @@ export default function NavBar({naV}) {
     <nav className={`${naV}`} >
         <a href='/'>Home</a>
         <a href='/'>Hotel</a>
-        <a href='/'>City</a>
+        <a href='/Cities'>City</a>
 
 
     </nav>

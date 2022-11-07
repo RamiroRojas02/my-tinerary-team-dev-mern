@@ -4,7 +4,7 @@ import NotFound from './components/NotFound'
 
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
-
+import Cities from './pages/Cities'
 
 import SignIn from './layout/SignIn'
 
@@ -15,6 +15,7 @@ export  const ComponentRoutes=()=> {
         <Route path="/*" element={<NotFound/>}/>
 
         <Route path="/SignUp" element={<SignUp/>}/>
+        <Route path='/Cities' element={<Cities/>}/>
 
         <Route path='/SignIn' element= {<SignIn/>}/>
 
