@@ -25,7 +25,7 @@ export default function LoginPage(f) {
 
     <div className="divSignIn">
     
-    <h1>Sign Up Now!</h1>
+    <h1>Sign In Now!</h1>
     <form className='formSignIn'>
       <div className="inputDiv">
         <label>Username:  <input type= "text" name= "username" placeholder='Username' onChange = {handleChange}/></label>
