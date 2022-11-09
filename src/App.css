@@ -678,7 +678,29 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   font-size: 1.1rem;
   padding: 0.5rem;
 }
-
+.comentSection{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.coment-expand{
+  width: 100%;
+  min-height: 5rem;
+  background-color: #2a363bff;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coment-expand h4{
+  color: white;
+}
+.coment-collapse{
+  display: none;
+}
 
 /* Finish DetailsCity Css */
 @media screen and (min-width: 1600px) {
