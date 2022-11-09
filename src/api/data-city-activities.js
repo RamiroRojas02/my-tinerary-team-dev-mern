@@ -90,7 +90,7 @@ let cityActivities = [
     userId: "userCity2",
   },
   {
-    id: "activity-São-Paulo-2",
+    id: "activity-São-Paulo-1",
     citiId: "São-Paulo-1",
     name: "São Paulo City: 5-Hour Private Tour",
     photo: [
@@ -120,7 +120,7 @@ let cityActivities = [
     userId: "userCity3",
   },
   {
-    id: "activity-Barcelona-2",
+    id: "activity-Barcelona-1",
     citiId: "Barcelona-1",
     name: "Camp Nou and FC Barcelona Museum",
     photo: [
@@ -150,7 +150,7 @@ let cityActivities = [
     userId: "userCity4",
   },
   {
-    id: "activity-Venecia-2",
+    id: "activity-Venecia-1",
     citiId: "Venecia-1",
     name: "Doge's Palace & St. Mark's Basilica with Terrace Access Tour",
     photo: [
