@@ -454,7 +454,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 }
 .cardsCities button{
 
-  border-radius: 0rem 0rem 2rem 2rem;
+  border-radius: 0rem 0rem 1.1rem 1.1rem;
 
 }
 .cardHotelesInfo h3{
@@ -709,7 +709,6 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     height: 500px;
   }
   .cardsCities button{
-    width: 15%;
     height: 3rem;
     font-size: 1.5rem;
   }
