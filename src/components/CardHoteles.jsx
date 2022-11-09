@@ -6,7 +6,7 @@ export default function CardHoteles({id,photo,name,description}) {
         <div className='cardHotelesInfo'>
             <h3>{name}</h3>
             <p className="showDescription">{description}</p>
-            <button>See more about</button>
+            <button>See more about</button>{/* trabaharlo con link     dentro del to le pongo la ruta de /HotelDetails/:{id}*/}
         </div>
     </div>
   )
