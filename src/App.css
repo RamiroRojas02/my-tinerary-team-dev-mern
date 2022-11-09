@@ -414,8 +414,14 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   height: 100%;
   width: 40%;
   flex-direction: column;
+  border-radius: 2rem 2rem 1.1rem 1.1rem;
+  background-color: #e84a5f;
 
 }
+.cardCity button{
+  width: 100%;
+}
+
 .cardHotelesInfo{
   display:flex;
   height: 100%;
@@ -672,6 +678,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   font-size: 1.1rem;
   padding: 0.5rem;
 }
+
 
 /* Finish DetailsCity Css */
 @media screen and (min-width: 1600px) {
