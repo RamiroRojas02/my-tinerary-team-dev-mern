@@ -1,0 +1,979 @@
+/* CSS HEX */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --header-backround: #99b898;
+  --body-background: #fecea8ff;
+  --titles: #ff847cff;
+  --box-shadow-cards: #e84a5f;
+  --background-footer: #2a363bff;
+}
+/* SCSS Gradient */
+/* $gradient-top: linear-gradient(0deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-right: linear-gradient(90deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-bottom: linear-gradient(180deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-left: linear-gradient(270deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-top-right: linear-gradient(45deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-bottom-right: linear-gradient(135deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-top-left: linear-gradient(225deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-bottom-left: linear-gradient(315deg, #99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+$gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2a363bff);
+ */
+
+.home2 {
+  height: 100vh;
+  background-color: var(--body-background);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.home2 h2 {
+  display: flex;
+  color: var(--background-footer);
+  justify-content: center;
+  padding: 2rem 0rem;
+}
+.show {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+/*  .cardCarrousel{
+  display: flex;
+  flex-direction: column; 
+ }*/
+.carrouselImg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0rem 1rem 0rem 0rem;
+}
+.cardCarrousel {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  color: var(--background-footer);
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  border-radius: 0rem 1rem 0rem 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 2px;
+  flex-grow: 1;
+}
+.cardCarrousel:hover {
+  padding: 0;
+  box-shadow: 4px 4px 8px 4px var(--box-shadow-cards);
+  background-color: var(--background-footer);
+  color: var(--body-background);
+  border: black;
+}
+.imgLogoContainer {
+  width: 80px !important;
+}
+.imgLogo {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 5rem;
+  opacity: 20%;
+}
+.divP {
+  display: flex;
+  justify-content: center;
+  border-radius: 0rem 0rem 0rem 1rem;
+}
+.hide {
+  display: none;
+}
+.divFooter {
+  width: 100%;
+  background-color: var(--background-footer);
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+  align-items: center;
+}
+.divFooterChild {
+  color: var(--header-backround);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: column;
+}
+.divFooterChild span {
+  padding: 0.5rem;
+  text-decoration: underline;
+}
+.divFooterChild p {
+  padding: 0.5rem;
+  color: var(--body-background);
+}
+.divFooterChild a {
+  color: var(--body-background);
+  padding: 0.25rem;
+  text-decoration: none;
+}
+
+.scrollToTopDivContainer {
+  /*  border:1px solid black; */
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.scrollToTopDivContainer span {
+  color: var(--header-backround);
+  display: flex;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.scrollToTopDivContainer button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--box-shadow-cards);
+}
+.header {
+  background-color: #99b898;
+  display: flex;
+  height: 15vh;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+}
+
+.logo {
+  width: 7rem;
+  height: 10rem;
+  object-fit: scale-down;
+}
+.Home1 {
+  width: 100%;
+  height: 100vh;
+  background-color: #fecea8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.imgHome1 {
+  width: 25rem;
+  height: 20rem;
+  border-radius: 0rem 1rem 0rem 0rem;
+}
+.sectionHome1 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.sectionCard {
+  padding: 0.3rem;
+  background-color: #ffff;
+  border-radius: 0rem 1rem 0rem 1rem;
+}
+.sectionCard:hover {
+  padding: 0;
+  box-shadow: 4px 4px 8px 4px var(--box-shadow-cards);
+  background-color: var(--background-footer);
+  color: var(--body-background);
+  border: black;
+}
+.navBar-expanded {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  gap: 2rem;
+}
+.navBar-collapse {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  gap: 2rem;
+}
+.home1Logo {
+  height: 25rem;
+}
+.home1Logo img {
+  margin-top: 4rem;
+  height: 90%;
+  width: 100%;
+}
+.home1Logo p {
+  color: #e84a5fff;
+  font-size: 1.5rem;
+  margin-top: -4rem;
+}
+.navBar-expanded a {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+}
+.navBar-collapse a {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.menuNav {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #99b898;
+  height: 5rem;
+  display: none;
+}
+
+.divNotFound {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-background);
+  flex-direction: column;
+  gap: 1rem;
+}
+.divSignIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  flex-grow: 1,2;
+  padding: 5rem;
+  background-color: var(--body-background);
+}
+.divSignIn h1 {
+  flex-grow: 1;
+}
+.formSignIn {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2rem;
+  flex-grow: 2;
+  background-color: #99b898;
+}
+
+.formSignIn button{
+  width: 80px;
+  height: 20px;
+  color: var(--background-footer);
+  border: 2px solid var(--background-footer);
+  border-radius: 0.5rem;
+  background-color: #e84a5f;
+  
+}
+.inputSignIn {
+  margin: 1rem;
+}
+.imgNotFound {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+.user-collapse {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+  display: none;
+}
+.user-collapse a {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+}
+.user-expanded a {
+  background-color: #ff847cff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #2a363bff;
+  font-weight: 700;
+  text-align: center;
+}
+.user-expanded {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .33rem;
+}
+.user {
+  height: 5rem;
+}
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #99b898;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 40%;
+  width: 50%;
+}
+.formRegister label {
+  display: flex;
+  justify-content: space-evenly;
+}
+.formRegister input {
+  border-radius: 5px;
+}
+.googleLogo {
+  height: 100%;
+}
+.btn-google-register {
+  height: 10%;
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.citiesPage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--body-background);
+}
+.cityImage {
+  border-radius: 2rem 2rem 0rem 0rem;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.cardsContainerHotels{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--body-background);
+}
+.cardHoteles{
+  border-radius: 3rem;
+  margin: 1.5rem;
+  display: flex;
+/*   flex-direction: row!important; */
+  flex-wrap: wrap;
+  /* flex-grow: 1,2; */
+  height: 100%!important;
+  width: 25%;
+}
+.cardHoteles img{
+
+  border-radius: 2rem 2rem 0rem 0rem;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cardCity{
+  display:flex;
+  height: 100%;
+  width: 40%;
+  flex-direction: column;
+  border-radius: 2rem 2rem 1.1rem 1.1rem;
+  background-color: #e84a5f;
+
+}
+.cardCity button{
+  width: 100%;
+}
+
+.cardHotelesInfo{
+  display:flex;
+  height: 100%;
+  width: 100%;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--box-shadow-cards);
+
+
+}
+.cardsCities {
+  border-radius: 3rem;
+  gap: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 80%;
+
+
+  
+}
+.cardsCities h4{
+  background-color: var(--box-shadow-cards);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.cardsCities button{
+
+  border-radius: 0rem 0rem 1.1rem 1.1rem;
+
+}
+.cardHotelesInfo h3{
+  background-color: var(--box-shadow-cards);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* border:solid 1px teal; */
+  padding:.5rem;
+}
+.showDescription{
+  display: flex;
+  height: 250px;
+  overflow-y: scroll;
+  width: 100%;
+  scrollbar-color: rgba(0, 0, 0, .5) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+  justify-content: center;
+  align-items:center;
+  background-color: var(--background-footer);
+  color: var(--body-background);
+ /*  text-align: center; */
+  padding: 1rem 1rem ;
+}
+.hideDescription{
+  display: none;
+}
+.cardHotelesInfo button {
+
+  margin: .5rem;
+  padding: .5rem;
+  border-radius: .8rem;
+  background-color: var(--header-backround);
+}
+
+.filtersCity {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 2rem;
+  padding: 1rem;
+  height: 5rem;
+}
+.filtersCity form{
+  height: 100%;
+  
+}
+.CheckBoxCity{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+.checkInput{
+  height: 25px;
+  width: 25px;
+}
+#searchCity {
+  height: 2rem;
+  width: 20%;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+.CheckBoxCity{
+  height: 100%;
+
+}
+
+
+/* NewCities*/
+.newCityPage{
+  width: 100%;
+  height: 100vh;
+  background-color:  var(--body-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.formNewCity{
+  background-color: #99b898;
+  border-radius: 1rem;
+  width: 60%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+
+}
+.formNewCity label{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.newCityPage button{
+  width: 10%;
+  height: 5%;
+  border-radius: 5px;
+  background-color:#fecea8ff
+}
+
+
+/* termina New Cities */
+
+.filters{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--body-background);
+}
+.g-b{
+  height: 30px!important;
+
+}
+
+
+
+.newHotelsPage{
+  background-color: var(--body-background);
+  border: solid 1px green;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.newHotelsPage form{
+  padding: 1rem;
+  background-color: #99b898;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  gap: .5rem;
+}
+.newHotelsPage form input{
+  margin: .3rem;
+  padding: .25rem;
+  width: 100%;
+}
+.labelNewHotels{
+  width: 100%;
+}
+.newHotelsPage button{
+  margin-top: -0.9rem;
+  width: 7rem;
+  border: solid 1px var(--background-footer);
+}
+/* DetailsCity Css */
+.cityDetails{
+  min-height: 100vh;
+  background-color:#fecea8ff;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  align-items: center;
+}
+.detailCityCard{
+  width: 75%;
+  height: 30rem;
+  padding-top: 0.5rem;
+  background-color: #e84a5f;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 4px 4px 8px 4px #2a363bff;
+
+}
+.detailsCityImg{
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+.cityTinerary{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  
+
+}
+.tinerary{
+  padding-top: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #e84a5f;
+  box-shadow: 4px 4px 8px 4px #2a363bff;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+}
+.CollectionTinerary{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 10rem;
+}
+.CollectionTinerary img{
+  width: 30%;
+  height: 100%;
+  border-radius: 1rem;
+}
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+}
+.comentSection{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.coment-expand{
+  width: 100%;
+  min-height: 5rem;
+  background-color: #2a363bff;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coment-expand h4{
+  color: white;
+}
+.coment-collapse{
+  display: none;
+}
+
+/* Finish DetailsCity Css */
+/* Comienza CardDetailsHoteles */
+.divDetailsHotels{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+ /*  height: 100vh; */
+  align-items: center;
+  background-color: var(--body-background);
+}
+
+
+
+.hotelEventsContainer{
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+.divHotelEvents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 40%;
+}
+.divEvents{
+  display:flex;
+
+  height: 80%;
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.divEvents img{
+  display: flex;
+  object-fit: fill;
+  border-radius: 2rem 2rem 0rem 0rem;
+  width: 100%;
+  height: 300px;
+}
+.divEventsImg{
+  width: 100%;
+  height: auto;
+}
+
+.divEventsDescription{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0rem 0rem 2rem 2rem;
+  align-items: center;
+  background-color: #99b898;
+  height:300px;
+  width: 100%;
+}
+/* .divEventsDescription h2,p,span{
+  padding: .25rem;
+} */
+.divEventsDescription h5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 100%;
+  background-color: var(--background-footer);
+  color: var(--titles);
+}
+.divEventsDescription span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 7rem;
+  border-radius: .5rem;
+  box-shadow:0px 2px 2px 0px ;
+  margin-bottom: .1rem;
+    background-color: var(--background-footer);
+  color: var(--titles);
+}
+
+.divCardDetailsHoteles{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 100vh;
+  width: 70%;
+}
+.imgCarrouselDetails{
+  height: 50%;
+  width: 100%;
+   display: flex;
+  justify-content: center   ;
+}
+.divCardDetailsHoteles img{
+  height: 100%;
+  width: 70%;
+  border-radius: 2rem 2rem 0rem 0rem;
+
+}
+.divCardDetailsHotelesDescription{
+  display: flex;
+  border-radius: 0rem 0rem 2rem 2rem;
+  background-color: var(--header-backround);
+  flex-direction: column;
+  height: 50%;
+  width: 70%;
+  justify-content: space-around;
+}
+.divCardDetailsHotelesDescription p{
+  justify-content: center;
+  display: flex;
+}
+.divCardDetailsHotelesDescription h4{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+/*   height: 1.5rem; */
+  width: 100%;
+  background-color: var(--background-footer);
+  color: var(--titles);
+}
+@media screen and (min-width: 1600px) {
+  .cityImage{
+    height: 500px;
+  }
+  .cardsCities button{
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .cardsCities{
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width:1440px) {
+  .cardHoteles{
+    width: 20%!important;
+  }
+  /* .cardsContainerHotels{
+    width: 80%!important;
+  } */
+  .tinerary{
+    width: 70%;
+    
+  }
+  .detailCityCard{
+    width: 50%;
+  }
+}
+@media (max-width:1100px) {
+  .cardHoteles{
+    width: 30%!important;
+  }
+}
+@media (max-width:950px){
+  .navBar-collapse {
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .navBar-expanded{
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .cardHoteles{
+    width: 40%!important;
+  }
+  .Home1 {
+    height: auto;
+  }
+  .home1Logo {
+    height: 20rem;
+  }
+  .sectionHome1 {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .header {
+    height: fit-content;
+  }
+  .filtersCity{
+    height: 3rem;
+  }
+  .checkInput{
+    height: 15px;
+    width: 15px;
+  }
+  .CheckBoxCity{ 
+    font-size: 1.2rem;
+  }
+  #searchCity {
+    height: 1.5rem;
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width:700px){
+.cardHoteles{
+  width: 60%!important;
+}
+}
+@media (max-width:710px) {
+  .filters{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:1;
+  }
+  .selectBar{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .searchBar{
+    padding: 1rem;
+  }
+  
+}
+@media screen and (max-width: 510px) {
+  .CollectionTinerary{
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 0.5rem;
+  }
+  .CollectionTinerary img{
+    width: 75%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .sectionHome1 {
+    width: 75%;
+  }
+  .sectionCard {
+    width: 100%;
+  }
+  .imgHome1 {
+    width: 100%;
+  }
+  .menuNav {
+    display: block;
+  }
+  .header {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .navBar-expanded {
+    flex-direction: column;
+    justify-content: space-evenly!important;
+  }
+  .navBar-collapse {
+    display: none;
+  }
+}
+@media screen and (max-width: 255px) {
+  .header {
+    flex-direction: column;
+  }
+}
