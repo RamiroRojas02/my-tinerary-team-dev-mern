@@ -4,6 +4,7 @@ import NotFound from './components/NotFound'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import Cities from './pages/Cities'
+import CityDetails from './pages/CityDetails'
 
 import NewCity from './pages/NewCity'
 
@@ -27,6 +28,8 @@ export  const ComponentRoutes=()=> {
         <Route path='/SignIn' element= {<SignIn/>}/>
         <Route path='/NewHotel' element={<NewHotel/>}/>
         <Route path='/HotelDetails/:id' element={<DetailsHotels/>}/>
+        <Route path='/CityDetails' element={<CityDetails/>} location=""/>
+
     </Routes>
   )
 }

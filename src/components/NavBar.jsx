@@ -14,7 +14,9 @@ export default function NavBar({ naV }) {
         City
       </LinkRoute>
       <LinkRoute to="/NewHotel">
-       New Hotel
+
+        New Hotel
+
       </LinkRoute>
       <LinkRoute to="/NewCity">
         New City

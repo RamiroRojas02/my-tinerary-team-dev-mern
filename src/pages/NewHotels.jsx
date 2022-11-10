@@ -3,7 +3,11 @@ import React, { useRef } from "react";
 export default function NewHotel() {
   let formNewHotels = useRef(null)
   let newHotels=JSON.parse(localStorage.getItem("newHotels"))|| []
+
+
+  
 let submitHotels = (e) =>{
+
     e.preventDefault()
     let inputs = formNewHotels.current
     let arraysInputs = [...inputs];
