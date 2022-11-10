@@ -704,6 +704,132 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 }
 
 /* Finish DetailsCity Css */
+/* Comienza CardDetailsHoteles */
+.divDetailsHotels{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+ /*  height: 100vh; */
+  align-items: center;
+  background-color: var(--body-background);
+}
+
+
+
+.hotelEventsContainer{
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+.divHotelEvents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 40%;
+}
+.divEvents{
+  display:flex;
+
+  height: 80%;
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.divEvents img{
+  display: flex;
+  object-fit: fill;
+  border-radius: 2rem 2rem 0rem 0rem;
+  width: 100%;
+  height: 300px;
+}
+.divEventsImg{
+  width: 100%;
+  height: auto;
+}
+
+.divEventsDescription{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0rem 0rem 2rem 2rem;
+  align-items: center;
+  background-color: #99b898;
+  height:300px;
+  width: 100%;
+}
+/* .divEventsDescription h2,p,span{
+  padding: .25rem;
+} */
+.divEventsDescription h5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 100%;
+  background-color: var(--background-footer);
+  color: var(--titles);
+}
+.divEventsDescription span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 7rem;
+  border-radius: .5rem;
+  box-shadow:0px 2px 2px 0px ;
+  margin-bottom: .1rem;
+    background-color: var(--background-footer);
+  color: var(--titles);
+}
+
+.divCardDetailsHoteles{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 100vh;
+  width: 70%;
+}
+.imgCarrouselDetails{
+  height: 50%;
+  width: 100%;
+   display: flex;
+  justify-content: center   ;
+}
+.divCardDetailsHoteles img{
+  height: 100%;
+  width: 70%;
+  border-radius: 2rem 2rem 0rem 0rem;
+
+}
+.divCardDetailsHotelesDescription{
+  display: flex;
+  border-radius: 0rem 0rem 2rem 2rem;
+  background-color: var(--header-backround);
+  flex-direction: column;
+  height: 50%;
+  width: 70%;
+  justify-content: space-around;
+}
+.divCardDetailsHotelesDescription p{
+  justify-content: center;
+  display: flex;
+}
+.divCardDetailsHotelesDescription h4{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+/*   height: 1.5rem; */
+  width: 100%;
+  background-color: var(--background-footer);
+  color: var(--titles);
+}
 @media screen and (min-width: 1600px) {
   .cityImage{
     height: 500px;

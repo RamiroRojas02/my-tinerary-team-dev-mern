@@ -55,7 +55,7 @@ let submitHotels = (e) =>{
           <input type="text"></input>
         </label>
       </form>
-      <button onClick={submitHotels} >Submit Hotel</button>
+      <button onClick={submitHotels}>Submit Hotel</button>
     </div>
   );
 }

@@ -51,7 +51,7 @@ let filtrado =()=>{
   return (<>
   <FilterHotels /* searchRef={references} */ /* variable={variable} onChange={filtrado}  *//* search={ searchByInput(datosHoteles)} *//>
     <div className='cardsContainerHotels'>
-      {datosHoteles.map((e)=> <CardHoteles key={e.id} styleDescription={stateToChange}  name={e.name} photo={e.photo[1]} description={e.description}/>)}
+      {datosHoteles.map((e)=> <CardHoteles id={e.id} styleDescription={stateToChange}  name={e.name} photo={e.photo[1]} description={e.description}/>)}
     </div>
   </>)
 }
