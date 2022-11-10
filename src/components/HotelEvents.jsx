@@ -1,29 +1,19 @@
 import React from 'react'
 
-export default function HotelEvents({pictures,names,descrip,date,price}) {
+export default function HotelEvents({pictures,names,descrip,date,price,id}) {
   return (
-    <div>
+    <div className='divHotelEvents'>
         <div className='divEvents'>
-            <h2>Event 1</h2>
-            <img src={pictures} alt={names}/>
+            <div className='divEventsImg'>
+            <img src={pictures} alt={names}/></div>
             <div className='divEventsDescription'>
                 <h5>{names}</h5>
-                <p>{descrip}</p>
+                <p className='pDescription'>{descrip}</p>
                 <p>{date}</p>
-                <span>{price}</span>
+                <span>Price $ {price}</span>
             </div>
         </div>
-        <div className='divEvents'>
-            <h2>Event 2</h2>
-            <img src={pictures} alt={names}/>
-            <div className='divEventsDescription'>
-                <h5>{names}</h5>
-                <p>{descrip}</p>
-                <p>{date}</p>
-                <span>{price}</span>
-            </div>
-        </div>
-    </div>
+</div>
   )
 }
 
