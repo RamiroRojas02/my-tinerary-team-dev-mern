@@ -3,7 +3,11 @@ import React, { useRef } from "react";
 export default function NewHotel() {
   let formNewHotels = useRef(null)
   let newHotels=JSON.parse(localStorage.getItem("newHotels"))|| []
-  let submitHotels = (e) =>{
+
+
+  
+let submitHotels = (e) =>{
+
     e.preventDefault()
     let inputs = formNewHotels.current
     let arraysInputs = [...inputs];
@@ -51,7 +55,7 @@ export default function NewHotel() {
           <input type="text"></input>
         </label>
       </form>
-      <button onClick={submitHotels} >Submit Hotel</button>
+      <button onClick={submitHotels}>Submit Hotel</button>
     </div>
   );
 }
