@@ -8,7 +8,7 @@ let datosEventos=[
         photo:"https://artwork.espncdn.com/programs/73d0b1c2-88ab-4b12-963e-3bf6bce5dc8b/16x9/1280x720_20221012150246.jpg",
         price:1559,
         date :2022-12-12,
-        userId:"userCity1"
+        userId:"    "
     },  {
         id:"eve-2-bar",
         hotelId:"ho1",
@@ -91,7 +91,7 @@ let datosEventos=[
         date :2022-12-12,
         userId:"userCity2"
     },{
-        id:"eve-1-hk",
+        id:"eve-2-hk",
         hotelId:"ho7",
         name: "Enjoy the HKJC horse races from the 2M roof deck.",
         description:"Take a break from sightseeing in the city and experience Hong Kong like a local on a visit to Sha Tin Racecourse, with VIP access included. Explore the popular venue’s parade ring and betting hall with your guide, and receive top tips on betting as you enjoy refreshment between races.",
