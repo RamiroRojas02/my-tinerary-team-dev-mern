@@ -1,57 +1,62 @@
-import React,{useEffect, useRef} from 'react'
-import CardHoteles from '../components/CardHoteles'
-import datosHoteles from '../api/data-hoteles'
-import FilterHotels from "../components/FilterHotels"
-export default function Hotels() { 
-/* 
-let datos = JSON.parse(localStorage.getItem("select"))
-console.table(JSON.parse(localStorage.getItem("select")))
-let variable = useRef() 
-/* let references = useRef() 
-let filtrado =()=>{
-  let arr = []
-  arr = [...variable.current.value]
-  if(arr[0]==="1"){
-    localStorage.setItem("select",JSON.stringify(datosHoteles))
-  }else if (arr[0]==="2"){
-    localStorage.setItem("select",JSON.stringify(aToz))
-  }else if (arr[0]==="3") {
-    localStorage.setItem("select",JSON.stringify(zToa))
-  }
-  console.log(arr)
-}
+import React, { useEffect, useRef, useState } from "react";
+import CardHoteles from "../components/CardHoteles";
+import datosHoteles from "../api/data-hoteles";
+import FilterHotels from "../components/FilterHotels";
+import axios from "axios";
+import apiUrl from "../url";
+export default function Hotels() {
+  const [hotelsState, setState] = useState([]);
 
-  let zToa = [...datosHoteles].sort((a,b)=>{
-    const nombre1 = a.name.toLowerCase();
-    const nombre2 = b.name.toLowerCase();
-    if(nombre2<nombre1){
-      return -1;
-    }
-    if(nombre2>nombre1){
-      return 1;
-    }
-    return 0;
-  })
-  let aToz = [...datosHoteles].sort((a,b)=>{
-    const nombre1 = a.name.toLowerCase();
-    const nombre2 = b.name.toLowerCase();
-    if(nombre1<nombre2){
-      return -1;
-    }
-    if(nombre1>nombre2){
-      return 1;
-    }
-    return 0;
-  })
-  */
- 
- 
-/*   console.log(references.current.value) */
-    let stateToChange="showDescription"
-  return (<>
-  <FilterHotels /* searchRef={references} */ /* variable={variable} onChange={filtrado}  *//* search={ searchByInput(datosHoteles)} *//>
-    <div className='cardsContainerHotels'>
-      {datosHoteles.map((e)=> <CardHoteles id={e.id} styleDescription={stateToChange}  name={e.name} photo={e.photo[1]} description={e.description}/>)}
+  useEffect(() => {
+    axios
+      .get(`${apiUrl}/hotels`)
+      .then((response) => {
+        setState(response.data.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  let selector = useRef();
+
+  let searchBar = useRef();
+  // useEffect(() => {
+    
+  // }, []);
+    const handleChange = () => {
+      
+      let searchValue= searchBar.current.value
+      let selectValue = selector.current.value
+      axios.get(`${apiUrl}/hotels/?order=${selectValue}&name=${searchValue}`)
+      .then(response =>{
+        setState(response.data.response)
+        console.log(response.data.response);
+      })
+      .catch(error =>{
+        console.log(error);
+      })
+    };
+
+  return (
+    <div className="HotelsPage">
+      <FilterHotels
+        searchInput={searchBar}
+        select={selector}
+        onChange={handleChange}
+      />
+      <div className="cardsContainerHotels">
+        {hotelsState.length === 0
+          ? <h1>Hotel Not Found</h1>
+          : hotelsState.map((e) => (
+              <CardHoteles
+                key={e._id}
+                id={e._id}
+                name={e.name}
+                capacity={e.capacity}
+                photo={e.photo}
+              />
+            ))}
+      </div>
     </div>
-  </>)
+  );
 }

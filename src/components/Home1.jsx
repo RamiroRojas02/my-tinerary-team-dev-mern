@@ -2,12 +2,20 @@ import React from "react";
 import CallToAction from "./CallToAction";
 import LogoSlogan from "./LogoSlogan";
 
+
 import dataCity from "../api/data-city";
-import datosHoteles from "../api/data-hoteles";
+
+
 
 import { Link as LinkRoute } from "react-router-dom";
 
-export default function Home1() {
+
+export default function Home1(props) {
+  let {hotel} = props
+  
+  
+
+  
   return (
     <div className="Home1">
       <LogoSlogan></LogoSlogan>
@@ -22,8 +30,8 @@ export default function Home1() {
         <LinkRoute to="Hotels">
           <CallToAction
             section="Hotels"
-            image={datosHoteles[0].photo[0]}
-            name={datosHoteles[0].name}
+            image={hotel.length === 0 ? "loading":hotel[0].photo[0]}
+            name={hotel.length === 0 ? "loading" :hotel[0].name }
           />
         </LinkRoute>
       </div>
