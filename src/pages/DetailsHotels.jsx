@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import datosHoteles from '../api/data-hoteles';
-import datosEventos from '../api/data-hoteles-eventos';
+
 import CardDetailsHoteles from '../components/CardDetailsHoteles'
 import HotelEvents from '../components/HotelEvents'
 import axios from 'axios';
@@ -18,7 +17,8 @@ export default function DetailsHotels() {
       axios
         .get(`${apiUrl}/hotels/${id}`)
         .then((response) => {
-          setStateHotel(response.data.response);
+          let hotelArray = [response.data.response]
+          setStateHotel(hotelArray);
         })
         .catch((err) => {
           console.log(err);
@@ -33,13 +33,14 @@ export default function DetailsHotels() {
       }); 
     }, []);
 
-   console.log(hotelsState);
-   console.log(showsState);
+
+    console.log(hotelsState);
+    console.log(showsState);
 
 
   return (
     <div className='divDetailsHotels'>
-      {hotelsState.length === 0 ? 'Show not found' : hotelsState.map((e)=> <CardDetailsHoteles key={e._id} photos={e.photo}  names={e.name} descriptions={e.description} capacities={e.capacity}/>)}
+      {hotelsState.length === 0 ? 'Hotel not found' : hotelsState.map((e)=> <CardDetailsHoteles key={e._id} photos={e.photo}  names={e.name} descriptions={e.description} capacities={e.capacity}/>)}
       <div className='hotelEventsContainer' >
       {showsState.length === 0 ? 'Show not found' : showsState.map((e)=> <HotelEvents key={e._id} pictures={e.photo}  names={e.name} descrip={e.description} price={e.price}/>)}
       </div>
