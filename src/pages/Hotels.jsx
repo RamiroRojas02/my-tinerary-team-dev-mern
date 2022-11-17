@@ -52,6 +52,7 @@ export default function Hotels() {
                 key={e._id}
                 id={e._id}
                 name={e.name}
+                description={e.description}
                 capacity={e.capacity}
                 photo={e.photo}
               />
