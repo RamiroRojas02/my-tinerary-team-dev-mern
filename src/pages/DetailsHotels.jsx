@@ -1,19 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import datosHoteles from '../api/data-hoteles';
 import datosEventos from '../api/data-hoteles-eventos';
 import CardDetailsHoteles from '../components/CardDetailsHoteles'
 import HotelEvents from '../components/HotelEvents'
+import axios from 'axios';
+import apiUrl from '../url';
+
+
 export default function DetailsHotels() {
-    let id = window.location.search.slice(4);
-   let hotelCardDetailsData= datosHoteles.filter((e)=> e.id ===id)
-   let hotelEventsData= datosEventos.filter((e)=> e.hotelId ===id)
+    let {id} = useParams()
+    const [hotelsState, setStateHotel] = useState([]);
+    const [showsState, setStateShow] = useState([]);
+
+  console.log(id);
+    useEffect(() => {
+      axios
+        .get(`${apiUrl}/hotels/${id}`)
+        .then((response) => {
+          setStateHotel(response.data.response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      axios.get(`${apiUrl}/shows/?hotelId=${id}`)
+      .then((response) => {
+        setStateShow(response.data.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      }); 
+    }, []);
+
+   console.log(hotelsState);
+   console.log(showsState);
+
 
   return (
     <div className='divDetailsHotels'>
-      {hotelCardDetailsData.map((e)=> <CardDetailsHoteles /* displays={} aca va el css con useState */ photos={e.photo}  names={e.name} descriptions={e.description} capacities={e.capacity}/>)}
+      {hotelsState.length === 0 ? 'Show not found' : hotelsState.map((e)=> <CardDetailsHoteles key={e._id} photos={e.photo}  names={e.name} descriptions={e.description} capacities={e.capacity}/>)}
       <div className='hotelEventsContainer' >
-      {hotelEventsData.map((e)=> <HotelEvents /* displays={} aca va el css con useState */ pictures={e.photo}  names={e.name} descrip={e.description} price={e.price}/>)}
+      {showsState.length === 0 ? 'Show not found' : showsState.map((e)=> <HotelEvents key={e._id} pictures={e.photo}  names={e.name} descrip={e.description} price={e.price}/>)}
       </div>
     </div>
   )

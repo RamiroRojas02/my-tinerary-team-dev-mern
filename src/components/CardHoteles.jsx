@@ -9,7 +9,7 @@ export default function CardHoteles(props) {
         <div className='cardHotelesInfo'>
             <h3>{name}</h3>
             <p className="showDescription">capacity: {capacity}</p>
-            <LinkId to={`/HotelDetails?id=${id}`}>
+            <LinkId to={`/HotelDetails/${id}`}>
             <button>See more about</button></LinkId>
         </div>
     </div>
