@@ -9,6 +9,7 @@ import Carrousel from "./Carrousel";
 import FotosCarrousel from "./FotosCarrousel";
 import { useEffect, useState } from "react";
 export default function Home2(props) {
+  let {hotel} = props
   /* CARROUSEL FUNCTIONS */
   let [estilazo1, setEstilazo1] = useState("show");
   let [estilazo2, setEstilazo2] = useState("hide");
@@ -22,7 +23,7 @@ export default function Home2(props) {
     return clearInterval(id);
   }, [estilazo1, estilazo2, estilazo3]);
   let next = () => {
-    console.log(estilazo1);
+
     if (estilazo1 == "show" && estilazo2 == "hide" && estilazo3 == "hide") {
       setEstilazo1((estilazo1 = "hide"));
       setEstilazo2((estilazo2 = "show"));
@@ -77,6 +78,7 @@ export default function Home2(props) {
   return (
     <div className="Home2">
       <Carrousel
+        hotels={hotel}
         estilo1={estilazo1}
         estilo2={estilazo2}
         estilo3={estilazo3}

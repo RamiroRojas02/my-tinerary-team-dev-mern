@@ -25,7 +25,7 @@ let submitHotels = (e) =>{
         
     }
     console.log(hotel);
-    axios.post(apiUrl + '/hotels/', hotel)
+    axios.post(`${apiUrl}/hotels/`, hotel)
       .then(response =>{
         console.log(response);
       })
