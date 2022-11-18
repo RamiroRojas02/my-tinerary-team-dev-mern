@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-
+import axios from 'axios';
+import {BASE_URL} from '../api/url' 
 export default function NewCity() {
   let formNewCity = useRef(null);
-  let newCities = JSON.parse(localStorage.getItem("newCities")) || [];
+ /*  let newCities = JSON.parse(localStorage.getItem("newCities")) || []; */
 
   let submitCity = (e) => {
     let inputs = formNewCity.current;
@@ -16,15 +17,19 @@ export default function NewCity() {
     }
 
     let city = {
-      id: valueInputs[0],
-      continent: valueInputs[1],
       name: valueInputs[2],
+      continent: valueInputs[1],
       photo: valueInputs[3],
       population: valueInputs[4],
       userId: valueInputs[5],
     };
     newCities = newCities.concat(city);
-    localStorage.setItem("newCities", JSON.stringify(newCities));
+    let newCities = { continent,name,photo,population,userId}
+    axios.post(`${BASE_URL}/api/cities`,newCities)
+    .then(res => {
+        console.log(res);
+    })
+/*     localStorage.setItem("newCities", JSON.stringify(newCities)); */
     alert("City Loaded");
   };
   return (
