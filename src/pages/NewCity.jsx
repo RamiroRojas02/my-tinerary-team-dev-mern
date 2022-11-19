@@ -23,9 +23,7 @@ export default function NewCity() {
       population: valueInputs[4],
       userId: valueInputs[5],
     };
-    newCities = newCities.concat(city);
-    let newCities = { continent,name,photo,population,userId}
-    axios.post(`${BASE_URL}/api/cities`,newCities)
+    axios.post(`${BASE_URL}/api/cities`,city)
     .then(res => {
         console.log(res);
     })

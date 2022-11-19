@@ -1,14 +1,20 @@
+import axios from 'axios'
 import React from 'react'
-import Filters from '../components/Filters'
+import FilterSearch from '../components/FilterSearch'
 import dataCity from '../api/data-city'
 import CityCard from '../components/CityCard'
 import { BASE_URL } from '../api/url'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+
+
 export default function Cities() {
-  const [cities,setCities]=useState([])
+  const [cities, setCities] = useState([])
+  const [checkContinent, setCheckContinent] = useState([])//array de los continentes checkeados por el usuario
+  const [filtCity, setFiltCity] = useState("")//palabrita que se va a filtrar 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/cities`)
+      .get(`${BASE_URL}/api/cities`)
       .then((response) => {
         setCities(response.data.response);
       })
@@ -16,24 +22,44 @@ export default function Cities() {
         console.log(err);
       });
   }, []);
-  let continents = cities.map((e)=>e.continent)
+
+  let continents = cities.map((e) => e.continent)
+  //filtrado por busqueda
+  let search = (e) => {
+    let search = e.target.value
+    setFiltCity(search)
+    let query = `${BASE_URL}/api/cities?name=${search}}`
+    axios.get(query)
+      .then(response => setCities(response.data.response))
+      .catch(error => console.log(error))
+  }
 
 
-  const [filtCity,setFiltCity]=useState("")
-  function search(e) {
-      setFiltCity(e.target.value)
-      let query = `${BASE_URL}/api/cities?name=${e.target.value}`
-      axios.get(query)
-          .then(response => setCities(response.data.response))
-          .catch(error => console.log(error))
+
+  //filtrado por check
+  const valueEvent = (e) => {
+
+    if (e.target.checked) {
+      setCheckContinent(checkContinent.concat(e.target.id))
+
+    } else {
+      setCheckContinent(checkContinent.filter(checked => checked != e.target.id))
+
+    }
+    console.log(checkContinent.join("&continent="))
+    
+    let continente = checkContinent.join("&continent=")
+    axios.get(`${BASE_URL}/api/cities?continent=${continente}`)
+      .then(response => response.data.response)
+      .catch(error => console.log(error))
   }
 
   return (
     <div className='citiesPage'>
-        <FiltersSearch continent={continents}/>
-        <div className='cardsCities'>
-            {dataCity.map(e => <CityCard name={e.name} photo={e.photo} population= {e.population} id={e.id} key={e.id} continent={e.continent}/>)}
-        </div>
+      <FilterSearch onChange={valueEvent} continent={continents} search={search} />
+      <div className='cardsCities'>
+        {cities.map((e, index) => <CityCard name={e.name} photo={e.photo} population={e.population} id={e.id} key={index} continent={e.continent} />)}
+      </div>
     </div>
   )
 }

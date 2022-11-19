@@ -2,7 +2,7 @@ import React from "react";
 import { Link as LinkRoute } from "react-router-dom";
 
 export default function CityCard(props) {
-  let { name, photo, population, continent, id,} = props;
+  let { name, photo, population, continent, id} = props;
   return (
     <div className="cardCity" id={id}>
       <img className="cityImage" src={photo} alt={name}></img>
