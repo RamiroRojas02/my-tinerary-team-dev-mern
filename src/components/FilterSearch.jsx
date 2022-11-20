@@ -3,15 +3,15 @@ import CheckBox from './CheckBox';
 
 export default function FilterSearch(props) {
 
-let {search,continent,onChange}=props
-continent = [...new Set(continent)].sort();
-
+let {search,onChange}=props
 return (
         <div className='filtersCity'>
         <div className="CheckBoxCity">
-          {continent.map((check, i) => (
-            <CheckBox onChange={onChange} value={continent} check={check} key={i} />
-          ))} 
+          
+            <CheckBox onChange={onChange} value="Asia" />
+            <CheckBox onChange={onChange} value="Europe" />
+            <CheckBox onChange={onChange} value="South America" />
+            <CheckBox onChange={onChange} value="North America" />  
         </div>
             <input
                 id="searchCity"

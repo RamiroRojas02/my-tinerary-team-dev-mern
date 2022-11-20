@@ -1,8 +1,8 @@
 
 
 export default function CheckBox(props) {
-    let {index, check, onChange} = props
+    let {value, onChange} = props
   return (
-    <label><input className="checkInput" onChange={onChange} key={index} id={check} type="checkbox"></input>{check}</label>
+    <label><input className="checkInput" onChange={onChange} value={value} type="checkbox"></input>{value}</label>
   )
 }

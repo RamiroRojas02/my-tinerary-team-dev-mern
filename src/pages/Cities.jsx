@@ -23,12 +23,12 @@ export default function Cities() {
       });
   }, []);
 
-  let continents = cities.map((e) => e.continent)
   //filtrado por busqueda
   let search = (e) => {
     let search = e.target.value
     setFiltCity(search)
-    let query = `${BASE_URL}/api/cities?name=${search}}`
+    let query = `${BASE_URL}/api/cities?name=${search}&continent=${checkContinent.join("&continent=")}`
+    console.log(query)
     axios.get(query)
       .then(response => setCities(response.data.response))
       .catch(error => console.log(error))
@@ -40,25 +40,31 @@ export default function Cities() {
   const valueEvent = (e) => {
 
     if (e.target.checked) {
-      setCheckContinent(checkContinent.concat(e.target.id))
+      setCheckContinent(checkContinent.concat(e.target.value))
+      console.log(checkContinent)
 
     } else {
-      setCheckContinent(checkContinent.filter(checked => checked != e.target.id))
-
+      setCheckContinent(checkContinent.filter(checked => checked != e.target.value))
+      console.log("se borra")
     }
-    console.log(checkContinent.join("&continent="))
-    
-    let continente = checkContinent.join("&continent=")
-    axios.get(`${BASE_URL}/api/cities?continent=${continente}`)
-      .then(response => response.data.response)
-      .catch(error => console.log(error))
-  }
+    console.log(checkContinent)
 
+  }
+useEffect(()=>{
+  if (checkContinent.length) {
+      let continente = checkContinent.join("&continent=")
+      let query2 = `${BASE_URL}/api/cities?continent=${continente}`
+      console.log(query2)
+      axios.get(query2)
+        .then(response => setCities(response.data.response))
+        .catch(error => console.log(error))
+    } },[checkContinent])  
+/*     */
   return (
     <div className='citiesPage'>
-      <FilterSearch onChange={valueEvent} continent={continents} search={search} />
+      <FilterSearch onChange={valueEvent} search={search} />
       <div className='cardsCities'>
-        {cities.map((e, index) => <CityCard name={e.name} photo={e.photo} population={e.population} id={e.id} key={index} continent={e.continent} />)}
+        {cities.map((e, index) => <CityCard name={e.name} photo={e.photo} population={e.population} id={e._id} key={index} continent={e.continent} />)}
       </div>
     </div>
   )
