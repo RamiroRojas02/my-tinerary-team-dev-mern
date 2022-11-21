@@ -21,8 +21,8 @@ export  const ComponentRoutes=()=> {
         <Route path='/NewCity' element={<NewCity/>}/>
         <Route path='/SignIn' element= {<SignIn/>}/>
         <Route path='/NewHotel' element={<NewHotel/>}/>
-        <Route path='/HotelDetails' element={<DetailsHotels/>} location=""/>
         <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
+        <Route path='/HotelDetails/:id' element={<DetailsHotels/>} location=""/>
     </Routes>
   )
 }
