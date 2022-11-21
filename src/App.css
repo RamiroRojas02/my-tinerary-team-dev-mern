@@ -381,6 +381,10 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   width: 100%;
   object-fit: cover;
 }
+.HotelsPage{
+  min-height: 100vh ;
+  background-color: #fecea8ff;
+}
 .cardsContainerHotels{
   display: flex;
   height: 100%;

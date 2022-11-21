@@ -12,7 +12,7 @@ export default function DetailsHotels() {
     const [hotelsState, setStateHotel] = useState([]);
     const [showsState, setStateShow] = useState([]);
 
-  console.log(id);
+  // console.log(id);
     useEffect(() => {
       axios
         .get(`${apiUrl}/hotels/${id}`)
