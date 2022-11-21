@@ -22,7 +22,7 @@ export  const ComponentRoutes=()=> {
         <Route path='/SignIn' element= {<SignIn/>}/>
         <Route path='/NewHotel' element={<NewHotel/>}/>
         <Route path='/HotelDetails' element={<DetailsHotels/>} location=""/>
-        <Route path='/CityDetails' element={<CityDetails/>} location=""/>
+        <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
     </Routes>
   )
 }
