@@ -6,17 +6,17 @@ import datosEventos from '../api/data-hoteles-eventos'
 
 import FotosCarrousel from './FotosCarrousel'
 import PhotosCarrouselCity from './PhotosCarrouselCity'
-export default function Carrousel({estilo1,children,estilo2,estilo3,change,change2}) {
+export default function Carrousel({estilo1,children,estilo2,estilo3,change,change2,hotels}) {
     return (<> 
       <div className='home2'>
       <h2>Cities and Hotels whith events</h2>
       <div className={` ${estilo1} `}>
         
       <img className='imgLogo' src="./img/chevrons-left-solid-36.png" onClick={change2}/>
-      <FotosCarrousel name={datosHoteles[0].name} photo={datosHoteles[0].photo}/>
-      <FotosCarrousel name={datosHoteles[1].name} photo={datosHoteles[1].photo}/>
-      <FotosCarrousel name={datosHoteles[2].name} photo={datosHoteles[2].photo}/>
-      <FotosCarrousel name={datosHoteles[3].name} photo={datosHoteles[3].photo}/>            
+      <FotosCarrousel name={hotels.length === 0 ? "loading":hotels[0].name} photo={hotels.length === 0 ? "loading":hotels[0].photo}/>
+      <FotosCarrousel name={hotels.length === 0 ? "loading":hotels[1].name} photo={hotels.length === 0 ? "loading":hotels[1].photo}/>
+      <FotosCarrousel name={hotels.length === 0 ? "loading":hotels[2].name} photo={hotels.length === 0 ? "loading":hotels[2].photo}/>
+      <FotosCarrousel name={hotels.length === 0 ? "loading":hotels[3].name} photo={hotels.length === 0 ? "loading":hotels[3].photo}/>            
       <img className='imgLogo' src="./img/chevrons-right-solid-36.png" onClick={change}/>
       </div>
       <div  className={` ${estilo2}  `}>

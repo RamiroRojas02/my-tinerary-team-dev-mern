@@ -1,26 +1,38 @@
 import React, { useRef } from "react";
+import apiUrl from "../url";
+import axios from "axios";
+// import { useEffect } from "react";
 
 export default function NewHotel() {
   let formNewHotels = useRef(null)
-  let newHotels=JSON.parse(localStorage.getItem("newHotels"))|| []
+
 
 
   
 let submitHotels = (e) =>{
-
+    
     e.preventDefault()
     let inputs = formNewHotels.current
     let arraysInputs = [...inputs];
-    let hotels={
+    let hotel={
         cityId: arraysInputs[0].value,
         name:arraysInputs[1].value,
-        photo: arraysInputs[2].value,
+        photo: [arraysInputs[2].value],
         capacity:arraysInputs[3].value,
         description: arraysInputs[4].value,
-        userId:arraysInputs[1].value,
+        userId:arraysInputs[5].value,
+
+        
     }
-    newHotels=newHotels.concat(hotels)
-    localStorage.setItem("newHotels",JSON.stringify(newHotels))
+    console.log(hotel);
+    axios.post(`${apiUrl}/hotels/`, hotel)
+      .then(response =>{
+        console.log(response);
+      })
+      .catch(error =>{
+        console.log(error);
+      })
+
 }
   return (
     <div className="newHotelsPage">
