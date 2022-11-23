@@ -21,6 +21,9 @@ export default function NavBar({ naV }) {
       <LinkRoute to="/NewCity">
         New City
       </LinkRoute>
+      <LinkRoute to="/MyHotels">
+        My Hotels
+      </LinkRoute>
     </nav>
   );
 }
