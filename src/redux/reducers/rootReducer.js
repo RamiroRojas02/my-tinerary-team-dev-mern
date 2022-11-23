@@ -6,4 +6,5 @@ const rootReducer = {
     hotelsReducer
 
 }
+export default rootReducer
 
