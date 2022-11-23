@@ -31,13 +31,16 @@ export default function Hotels() {
 
     };
     let hotelsFilt  = useSelector(store => store.hotelsReducer)
-    let hotels = hotelsFilt.listHotelsFilt
-    let allHotels = useSelector(store => store.hotelsReducer.listHotels)
-    // console.log(hotelsFilt);
+    let hotels = useSelector(store => store.hotelsReducer.listHotels)
+    
+    console.log(hotelsFilt);
     // console.log(allHotels);
-
-    if (hotels.length === 0) {
-      hotels = allHotels
+    console.log(hotels);
+    if (hotelsFilt.listHotelsFilt.length > 0) {
+      hotels = hotelsFilt.listHotelsFilt
+    }
+    if (hotelsFilt.select !== '' || hotelsFilt.search !== '') {
+      hotels = hotelsFilt.listHotelsFilt
     }
     
 
