@@ -4,15 +4,18 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import hotelActions from "../redux/actions/hotelsActions";
 import { useSelector } from "react-redux";
+import {useNavigate} from 'react-router-dom'
+
 
 import Swal from "sweetalert2";
-import {  useNavigate } from "react-router-dom";
+
 
 
 
 export default function NewHotel() {
 
   let navigate = useNavigate()
+
   let formNewHotels = useRef(null)
   const dispatch = useDispatch()
 useEffect(() => {
@@ -51,13 +54,22 @@ let submitHotels = (e) =>{
             title: `${response.data.messagge}`,
             confirmButtonText: 'Go to the Hotel',
             didClose: ()=>{
-              window.location.href = `/HotelDetails/${response.data.id}`
+              navigate('/HotelDetails/'+ response.data.id )
             }
           })
           
         }else{
+          let errors =response.data.messagge
+          errors.map(e => 
+            Swal.fire({
+            icon: 'error',
+            title: `Oops something wrong`,
+            text: `${e.message}`,
+            confirmButtonText: 'Okey',
+            
+        }))
           
-        }
+      }
         
       })
       .catch(error =>{
