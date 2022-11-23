@@ -5,7 +5,7 @@ import { BASE_URL } from '../../api/url'
 const getCity = createAsyncThunk('getCity',async()=>{
     try{
         const response = await axios.get(`${BASE_URL}/api/cities`)
-        return response.data.response
+        return response.data.response//esto seria el payload
 
     }catch(error){
         console.log(error)
@@ -14,19 +14,15 @@ const getCity = createAsyncThunk('getCity',async()=>{
         }
     }
 })
-
-const getCityFilter = createAsyncThunk(
-    "getCitiesFilter",
-    async ({ continent, value }) => {
-      let url = `${BASE_URL}/api/cities?${continent}&name=${value}`;
-  
+/*  */
+const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continente}) => {
+      let url = `${BASE_URL}/api/cities/?${continente}${value}`;
+      
       try {
         const res = await axios.get(url);
-        console.log(res.data.response);
+        console.log(url);
         return {
           city: res.data.response,
-          continent,
-          value,
         };
       } catch (error) {
         console.log(error);
