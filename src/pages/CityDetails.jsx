@@ -1,15 +1,41 @@
-import React, { useState } from "react";
-import dataCity from "../api/data-city";
-import dataCityActivities from "../api/data-city-activities";
+import React, { useState, useEffect} from "react";
+import { useParams } from 'react-router-dom'
 import City from "../components/City";
-import ComentSection from "../components/ComentSection";
-import Tinerary from "../components/Tinerary";
+import { BASE_URL } from '../api/url'
+import axios from "axios";
+import ComentSection from "../components/ComentSection"
+import Tinerary from "../components/Tinerary"
 
 export default function CityDetails() {
-  let id = window.location.search.slice(4);
+  let [city, setCity] = useState([])
+  let [itineraries,setItineraries]=useState([])
+  let {id} = useParams()
+  console.log(id)
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/api/cities/${id}`)
+      .then((response) => {
+        setCity(response.data.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/api/itineraries?cityId=${id}`)
+      .then((response) => {
+        setItineraries(response.data.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(city)
+  console.log(itineraries)
 
-  let city = dataCity.filter((e) => e.id === id);
-  let activities = dataCityActivities.filter((e) => e.citiId === id);
+/*   let city = dataCity.filter((e) => e.id === id); */
+/*   let activities = dataCityActivities.filter((e) => e.citiId === id); */
 
   let [comentState, setComentState] = useState("coment-collapse");
   let coments = () => {
@@ -23,17 +49,15 @@ export default function CityDetails() {
   return (
     <div className="cityDetails">
       <City
-        name={city[0].name}
-        continent={city[0].continent}
-        photo={city[0].photo}
-        population={city[0].population}
+        name={city.name}
+        photo={city.photo}
       />
 
-      <ComentSection event={coments} state={comentState} />
+       <ComentSection event={coments} state={comentState} />
       <h2>Tinerary</h2>
       <div className="cityTinerary">
-        {activities.length ? (
-          activities.map((e) => (
+        {itineraries.length ? (
+          itineraries.map((e) => (
             <Tinerary
               description={e.description}
               price={e.price}
@@ -42,7 +66,7 @@ export default function CityDetails() {
               name={e.name}
               key={e.id}
             />
-          ))
+          )) 
         ) : (
           <h4>No Tinerary</h4>
         )}

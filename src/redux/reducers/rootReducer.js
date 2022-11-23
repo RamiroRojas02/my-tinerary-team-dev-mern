@@ -1,10 +1,9 @@
-import { createReducer } from "@reduxjs/toolkit";
-import hotelsReducer from "./hotelsReducer";
+import hotelsReducer from "./hotelsReducer"
+import cityReducer from "./cityReducer";
 
-const rootReducer = {
+const rootReducer={
+    city:cityReducer,
     hotelsReducer
-
 }
+ export default rootReducer
 
-
-export default rootReducer
