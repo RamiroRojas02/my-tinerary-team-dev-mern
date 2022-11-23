@@ -16,8 +16,7 @@ const getCity = createAsyncThunk('getCity',async()=>{
 })
 /*  */
 const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continente}) => {
-      let url = `${BASE_URL}/api/cities/?${continente}${value}`;
-      
+    let url = `${BASE_URL}/api/cities/?${continente}${value}`;
       try {
         const res = await axios.get(url);
         console.log(url);

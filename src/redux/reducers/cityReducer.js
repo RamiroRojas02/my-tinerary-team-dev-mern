@@ -21,7 +21,7 @@ const cityReducer = createReducer(initialState, (builder)=>{
         console.log(action)
         return {
           ...state,
-          ...action.payload,
+          city:action.payload.city,
         };
       });
 })
