@@ -1,11 +1,28 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import apiUrl from "../url";
 import axios from "axios";
-// import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import hotelActions from "../redux/actions/hotelsActions";
+import { useSelector } from "react-redux";
+
+import Swal from "sweetalert2";
+import {  useNavigate } from "react-router-dom";
+
+
 
 export default function NewHotel() {
-  let formNewHotels = useRef(null)
 
+  let navigate = useNavigate()
+  let formNewHotels = useRef(null)
+  const dispatch = useDispatch()
+useEffect(() => {
+  
+  dispatch(hotelActions.getHotels())
+  
+  
+}, [])
+
+let allHotels = useSelector(store => store.hotelsReducer.listHotels)
 
 
   
@@ -27,7 +44,21 @@ let submitHotels = (e) =>{
     console.log(hotel);
     axios.post(`${apiUrl}/hotels/`, hotel)
       .then(response =>{
-        console.log(response);
+        console.log(response.data);
+        if (response.data.success) {
+          Swal.fire({
+            icon: 'success',
+            title: `${response.data.messagge}`,
+            confirmButtonText: 'Go to the Hotel',
+            didClose: ()=>{
+              window.location.href = `/HotelDetails/${response.data.id}`
+            }
+          })
+          
+        }else{
+          
+        }
+        
       })
       .catch(error =>{
         console.log(error);
@@ -40,7 +71,7 @@ let submitHotels = (e) =>{
       <form ref={formNewHotels} >
         <label className="labelNewHotels">
           City Id:
-          <input type="text"></input>
+          <select>{allHotels.map(e => (<option key={e._id} value={e.cityId._id}>{e.cityId.name}</option>))}</select>
         </label>
         <label className="labelNewHotels">
           Name:
@@ -64,7 +95,8 @@ let submitHotels = (e) =>{
 
         <label className="labelNewHotels">
           User Id:
-          <input type="text"></input>
+          <select>{allHotels.map(e => (<option key={e._id} value={e.userId._id}>{e.userId.name}</option>))}</select>
+
         </label>
       </form>
       <button onClick={submitHotels}>Submit Hotel</button>
