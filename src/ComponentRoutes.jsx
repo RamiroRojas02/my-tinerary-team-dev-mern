@@ -10,6 +10,7 @@ import Hotels from './pages/Hotels'
 import SignIn from './pages/SignIn'
 import NewHotel from './pages/NewHotels'
 import DetailsHotels from './pages/DetailsHotels'
+import MyCities from './pages/MyCities'
 export  const ComponentRoutes=()=> {
   return (
     <Routes>
@@ -23,6 +24,7 @@ export  const ComponentRoutes=()=> {
         <Route path='/NewHotel' element={<NewHotel/>}/>
         <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
         <Route path='/HotelDetails/:id' element={<DetailsHotels/>} location=""/>
+        <Route path='/MyCities' element={<MyCities/>}/>
     </Routes>
   )
 }
