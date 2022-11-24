@@ -3,6 +3,8 @@ import showsActions from "../actions/showsActions";
 
 const { getShows, deleteShow, editShow, getMyShows } = showsActions;
 
+
+
 const initialState = {
   listShows: [],
   loading: false,
@@ -13,7 +15,7 @@ const showsReducer = createReducer(initialState, (builder) => {
     return {
       ...state,
       loading: false,
-      listShows: action.payload.listHotels,
+      listShows: action.payload.listShows,
     };
   });
   builder.addCase(getShows.pending, (state, action) => {
@@ -35,19 +37,21 @@ const showsReducer = createReducer(initialState, (builder) => {
     };
   });
   builder.addCase(editShow.fulfilled, (state, action) => {
-    // console.log(action.payload);
-    // console.log(state);
+    console.log(editShow);
+
+    console.log(action.payload);
+    console.log(state);
     if (action.payload.success) {
-      let hotels = state.listHotels.filter(
+      let shows =  state.listShows.filter(
         (e) => e._id !== action.payload.showUpdate._id
       );
 
-      hotels.push(action.payload.hotelUpdate);
+      shows.push(action.payload.showUpdate);
 
       return {
         ...state,
         loading: false,
-        listShows: hotels,
+        listShows: shows,
       };
     } else {
       return {

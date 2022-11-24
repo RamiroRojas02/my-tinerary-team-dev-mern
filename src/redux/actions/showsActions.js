@@ -11,7 +11,7 @@ const getShows = createAsyncThunk("showssStore", async () => {
 });
 
 
-const getMyShows = createAsyncThunk('myHotels', async(id)=>{
+const getMyShows = createAsyncThunk('myShows', async(id)=>{
   try {
     let res = await axios.get(`${apiUrl}/shows/?userId=${id}`)
     console.log(res.data.response);
@@ -22,16 +22,17 @@ const getMyShows = createAsyncThunk('myHotels', async(id)=>{
     
   }
 })
-const deleteShow = createAsyncThunk("hotelsEliminate", async(id)=>{
+const deleteShow = createAsyncThunk("showsEliminate", async(id)=>{
   let res = await axios.delete(`${apiUrl}/shows/${id}`)
   return {
     eliminate : res.data
   }
   
 })
-const editShow = createAsyncThunk("HotelEdit",async(showToChange)=>{
+const editShow = createAsyncThunk("ShowEdit",async(showToChange)=>{
 
   let {id, show} = showToChange
+  console.log(showToChange);
   try {
     let res= await axios.patch(`${apiUrl}/shows/${id}`,show)
 
@@ -46,11 +47,11 @@ const editShow = createAsyncThunk("HotelEdit",async(showToChange)=>{
   
 } )
 
-const hotelActions = {
+const showActions = {
   getShows,
   deleteShow,
   editShow,
   getMyShows,
 };
 
-export default hotelActions;
+export default showActions;

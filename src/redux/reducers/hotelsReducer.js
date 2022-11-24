@@ -52,8 +52,8 @@ const hotelsReducer = createReducer(initialState, (builder) =>{
         }
     })
     builder.addCase(editHotel.fulfilled, (state,action) =>{
-        // console.log(action.payload);
-        // console.log(state);
+        console.log(action.payload);
+        console.log(state);
         if (action.payload.success) {
             let hotels = state.listHotels.filter( e => e._id !== action.payload.hotelUpdate._id)
 

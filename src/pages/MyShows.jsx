@@ -9,7 +9,8 @@ import MyShowCard from "../components/MyShowCard";
 
 export default function MyHotels() {
     let shows = useSelector(store => store.showsReducer)
-
+    console.log(shows);
+    console.log(showActions);
     const dispatch = useDispatch()
         useEffect(() => {
             dispatch(showActions.getMyShows("6372494878cf1c151a1a4f67"))
