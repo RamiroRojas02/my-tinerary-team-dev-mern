@@ -834,6 +834,79 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   background-color: var(--background-footer);
   color: var(--titles);
 }
+/* clase de la pagina completa de myPage(hotel,city,show,itineraries) */
+.myPage{
+  width: 100%;
+ display:flex;
+ gap: 2rem;
+ flex-direction: column;
+ align-items: center;
+ background-color: var(--body-background);
+}
+
+/* clase del contenedor de cards de myPage */
+.myContainer{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.myPage h1{
+  margin-top: 2rem;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--titles);
+  width: 35%;
+  border-radius: 5rem;
+}
+.myCard h3{
+  color: white;
+}
+.myCard{
+  border: 1px solid black;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:space-evenly;
+  background-color: var(--background-footer);
+  height: 30rem;
+  width: 30rem;
+  border-radius: 3rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.myCard img{
+  object-fit: fill;
+  height: 25rem;
+  width:30rem;
+  border-radius: 5.5px;
+}
+
+.myButtons{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+/*   background-color: var(--background-footer); */
+}
+.editBtn{
+  width: 5rem;
+  height: 2rem;
+  border-radius: 3rem;
+  border-color: black;
+  background-color: rgba(0, 128, 0, 0.381);
+}
+.deleteBtn{
+  width: 5rem;
+  height: 2rem;
+  border-radius: 3rem;
+  border-color: black;
+  background-color: rgba(255, 0, 0, 0.383);
+}
 @media screen and (min-width: 1600px) {
   .cityImage{
     height: 500px;
@@ -949,6 +1022,14 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   }
   .CollectionTinerary img{
     width: 75%;
+  }
+  .myCard{
+    height: 20rem!important;
+    width: 20rem!important;
+  }
+  .myCard img{
+    width: 100%!important;
+    height: 15rem!important;
   }
 }
 @media screen and (max-width: 480px) {
