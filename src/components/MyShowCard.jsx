@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import hotelActions from "../redux/actions/hotelsActions";
+import showActions from "../redux/actions/showsActions";
 import { useNavigate } from "react-router-dom";
 
-export default function MyHotelCard(props) {
+export default function MyShowCard(props) {
   let { name, img, id } = props;
 
   let deleteBtn = useRef();
@@ -14,7 +14,7 @@ export default function MyHotelCard(props) {
 
   let navigate = useNavigate();
 
-  let storeHotels = useSelector((store) => store.hotelsReducer);
+
 
   const editEvent = () => {
     Swal.fire({
@@ -53,10 +53,9 @@ export default function MyHotelCard(props) {
           hotelToChange.hotel.capacityInput = capacityInput.value;
         }
 
-        dispatch(hotelActions.editHotel(hotelToChange));
+        // dispatch(showActions.editShow(hotelToChange));
 
         navigate("/MyHotels");
-        console.log(storeHotels.errors);
       }
     });
   };
@@ -71,9 +70,9 @@ export default function MyHotelCard(props) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your hotel has been deleted.", "success");
-        dispatch(hotelActions.deleteHotel(id));
-        navigate("/MyHotels");
+        Swal.fire("Deleted!", "Your show has been deleted.", "success");
+        dispatch(showActions.deleteShow(id));
+        navigate("/MyShows");
       }
     });
   };

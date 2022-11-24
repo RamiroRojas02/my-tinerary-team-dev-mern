@@ -1,8 +1,9 @@
-import { createReducer } from "@reduxjs/toolkit";
 import hotelsReducer from "./hotelsReducer";
+import showsReducer from './showsReducer'
 
 const rootReducer = {
-    hotelsReducer
+    hotelsReducer,
+    showsReducer
 
 }
 

@@ -6,6 +6,7 @@ const {getHotels, getHotelsFilt, deleteHotel,editHotel,getMyHotels} = hotelActio
 const initialState = {
     listHotels : [],
     listHotelsFilt: [],
+
     loading: false,
     select: "",
     search:"",
