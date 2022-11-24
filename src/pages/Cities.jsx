@@ -8,113 +8,41 @@ import {useDispatch, useSelector} from 'react-redux'
 import cityActions from '../redux/actions/cityActions'
 
 export default function Cities() {
- /*  const [cities, setCities] = useState([])
-  const [checkContinent, setCheckContinent] = useState([]) *///array de los continentes checkeados por el usuario
+   const [value, setValue] = useState('')
+  const [continent, setContinent] = useState([]) ///array de los continentes checkeados por el usuario
   const dispatch= useDispatch()
   const {getCity,getCityFilter}=cityActions
-  const {city} =useSelector((state)=>state.city)
-
-
-/*   useEffect(() => {
-/*     axios
-      .get(`${BASE_URL}/api/cities`)
-      .then((response) => {
-        setCities(response.data.response);
-      })
-      .catch((err) => {
-        console.log(err);
-      }); 
-      dispatch(getCity())
-  }, []);
-  console.log(city)
- */
-  /* const { continent, value } = useSelector((store) => store.cities); */
-
-/*  let [checkb, setChecked] = useState([])
- let searchInput = useRef() */
-
+  const {city} =useSelector((state)=>state.city)//useSelector lee el estado de city desde el store
+  let valores = {} 
  useEffect(() => {
-/*   if (city.length === 0) { */
     dispatch(getCity());
-/*   } */
 }, []);
-/* console.log(continent);
-console.log(value); */
-/* 
-let filter = (event) => {
-  console.log(event);
-  let checks = filterChecks(event);
-  console.log(checks);
-  let text = searchInput.current.value;
-  let urlChecks = checks.map((check) => continent=${check}).join("&");
-  dispatch(getCitiesFilter({ continent: urlChecks, value: text }));
-};
-
-function filterChecks(event) {
-  let arrayCheck = [];
-  if (event.target.checked) {
-    arrayCheck = [...checkb, event.target.value];
-  } else {
-    arrayCheck = checkb.filter((e) => e !== event.target.value);
+  valores = {
+    continente: continent.length>1?"&continent="+continent.join("&continent="):"&continent="+continent.join(""),
+    value: value
   }
-  setChecked(arrayCheck);
-  return arrayCheck;
-}
-
-
- */
-
-
-
-
-
-
-
-
-
-
-  /* let dataSearch ={}
   //filtrado por busqueda
   let search = (e) => {
-    dataSearch = e.target.value
-    let query = `${BASE_URL}/api/cities?name=${search}&continent=${checkContinent.join("&continent=")}`
-    console.log(query)
-/*     axios.get(query)
-      .then(response => setCities(response.data.response))
-      .catch(error => console.log(error)) 
+    setValue("&name="+e.target.value)
   }
-
-
-
   //filtrado por check
   const valueEvent = (e) => {
-
     if (e.target.checked) {
-      setCheckContinent(checkContinent.concat(e.target.value))
-      console.log(checkContinent)
-
+      setContinent(continent.concat(e.target.value))
     } else {
-      setCheckContinent(checkContinent.filter(checked => checked != e.target.value))
-      console.log("se borra")
+      setContinent(continent.filter(checked => checked != e.target.value))
     }
-    console.log(checkContinent)
-
   }
-useEffect(()=>{
-  if (checkContinent.length) {
-      let continente = checkContinent.join("&continent=")
-      let query2 = `${BASE_URL}/api/cities?continent=${continente}`
-      console.log(query2)
-      axios.get(query2)
-        .then(response => setCities(response.data.response))
-        .catch(error => console.log(error))
-    } },[checkContinent])   */
-/*     */
+    useEffect(()=>{
+    dispatch(getCityFilter(valores))
+  },[value,continent])
+
+console.log(valores)
   return (
     <div className='citiesPage'>
-{/*       <FilterSearch onChange={valueEvent} search={search} /> */}
+      <FilterSearch onChange={valueEvent} search={search}/>
       <div className='cardsCities'>
-        {city.map((e, index) => <CityCard name={e.name} photo={e.photo} population={e.population} id={e._id} key={index} continent={e.continent} />)}
+        { city.length===0?<h1>No Cities found</h1>:city.map((e, index) => <CityCard name={e.name} photo={e.photo} population={e.population} id={e._id} key={index} continent={e.continent} />)}
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ return (
         <div className='filtersCity'>
         <div className="CheckBoxCity">
           
-            <CheckBox onChange={onChange} value="Asia" />
+            <CheckBox onChange={onChange} value="Asia"/>
             <CheckBox onChange={onChange} value="Europe" />
             <CheckBox onChange={onChange} value="South America" />
             <CheckBox onChange={onChange} value="North America" />  
