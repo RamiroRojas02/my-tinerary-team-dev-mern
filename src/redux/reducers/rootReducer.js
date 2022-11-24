@@ -1,9 +1,12 @@
 import cityReducer from "./cityReducer";
 import hotelsReducer from "./hotelsReducer";
+import showsReducer from './showsReducer'
+
 import itineraryReducer from "./itineraryReducer";
 const rootReducer = {
-    city: cityReducer,
     hotelsReducer,
+    showsReducer,
+    city: cityReducer,
     itineraryReducer,
 
 }

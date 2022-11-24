@@ -42,6 +42,7 @@ const deleteHotel = createAsyncThunk("hotelsEliminate", async(id)=>{
 const editHotel = createAsyncThunk("HotelEdit",async(hotelToChange)=>{
 
   let {id, hotel} = hotelToChange
+  console.log(hotelToChange);
   try {
     let res= await axios.patch(`${apiUrl}/hotels/${id}`,hotel)
 

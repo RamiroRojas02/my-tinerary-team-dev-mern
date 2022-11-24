@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import hotelActions from "../redux/actions/hotelsActions";
+import showActions from "../redux/actions/showsActions";
 import { useNavigate } from "react-router-dom";
 
-export default function MyHotelCard(props) {
+export default function MyShowCard(props) {
   let { name, img, id } = props;
 
   let deleteBtn = useRef();
@@ -14,7 +14,7 @@ export default function MyHotelCard(props) {
 
   let navigate = useNavigate();
 
-  let storeHotels = useSelector((store) => store.hotelsReducer);
+
 
   const editEvent = () => {
     Swal.fire({
@@ -26,37 +26,44 @@ export default function MyHotelCard(props) {
         '<input placeHolder="Name" id="name" class="swal2-input">' +
         '<input placeHolder="Description" id="description" class="swal2-input">' +
         '<input placeHolder="Photo Url"id="photo" class="swal2-input">' +
-        '<input type="number" placeHolder="Capacity"id="capacity" class="swal2-input">',
+        '<input type="number" placeHolder="Price"id="price" class="swal2-input">'+
+        '<input  placeHolder="Date"id="date" class="swal2-input">',
+
       focusConfirm: false,
     }).then((results) => {
       if (results.isConfirmed) {
         let nameInput = document.getElementById("name");
         let descriptionInput = document.getElementById("description");
         let photoInput = document.getElementById("photo");
-        let capacityInput = document.getElementById("capacity");
+        let priceInput = document.getElementById("price");
+        
+        let dateInput = document.getElementById("date");
 
-        let hotelToChange = {
+
+        let showToChange = {
           id: id,
-          hotel: {},
+          show: {},
         };
 
         if (nameInput.value !== "") {
-          hotelToChange.hotel.name = nameInput.value;
+            showToChange.show.name = nameInput.value;
         }
         if (descriptionInput.value !== "") {
-          hotelToChange.hotel.description = descriptionInput.value;
+            showToChange.show.description = descriptionInput.value;
         }
         if (photoInput.value !== "") {
-          hotelToChange.hotel.photo = [photoInput.value];
+            showToChange.show.photo = [photoInput.value];
         }
-        if (capacityInput.value !== "") {
-          hotelToChange.hotel.capacityInput = capacityInput.value;
+        if (priceInput.value !== "") {
+            showToChange.show.price = priceInput.value;
+        }
+        if (dateInput.value !== "") {
+            showToChange.show.date = dateInput.value;
         }
 
-        dispatch(hotelActions.editHotel(hotelToChange));
+        dispatch(showActions.editShow(showToChange));
 
-        navigate("/MyHotels");
-        console.log(storeHotels.errors);
+        navigate("/MyShows");
       }
     });
   };
@@ -71,9 +78,9 @@ export default function MyHotelCard(props) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your hotel has been deleted.", "success");
-        dispatch(hotelActions.deleteHotel(id));
-        navigate("/MyHotels");
+        Swal.fire("Deleted!", "Your show has been deleted.", "success");
+        dispatch(showActions.deleteShow(id));
+        navigate("/MyShows");
       }
     });
   };

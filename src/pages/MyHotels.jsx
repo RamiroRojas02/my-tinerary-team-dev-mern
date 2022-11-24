@@ -10,7 +10,7 @@ import MyHotelCard from "../components/MyHotelCard";
 export default function MyHotels() {
   let hotels = useSelector(store => store.hotelsReducer)
   
-
+  console.log(hotelActions);
   
     const dispatch = useDispatch()
     useEffect(() => {
