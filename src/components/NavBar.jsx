@@ -14,21 +14,13 @@ export default function NavBar({ naV }) {
         City
       </LinkRoute>
       <LinkRoute to="/NewHotel">
-
         New Hotel
-
       </LinkRoute>
       <LinkRoute to="/NewCity">
         New City
       </LinkRoute>
       <LinkRoute to="/MyHotels">
         My Hotels
-      </LinkRoute>
-      <LinkRoute to="/MyShows">
-        My Shows
-      </LinkRoute>
-      <LinkRoute to="/MyCities">
-        My City
       </LinkRoute>
     </nav>
   );
