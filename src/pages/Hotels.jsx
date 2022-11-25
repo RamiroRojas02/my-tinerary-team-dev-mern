@@ -4,38 +4,45 @@ import datosHoteles from "../api/data-hoteles";
 import FilterHotels from "../components/FilterHotels";
 import axios from "axios";
 import apiUrl from "../url";
+import { useDispatch, useSelector } from "react-redux";
+import hotelActions from "../redux/actions/hotelsActions";
 export default function Hotels() {
-  const [hotelsState, setState] = useState([]);
 
+
+  const dispatch = useDispatch()
   useEffect(() => {
-    axios
-      .get(`${apiUrl}/hotels`)
-      .then((response) => {
-        setState(response.data.response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(hotelActions.getHotels())
   }, []);
   let selector = useRef();
-
   let searchBar = useRef();
-  // useEffect(() => {
-    
-  // }, []);
+
     const handleChange = () => {
       
       let searchValue= searchBar.current.value
       let selectValue = selector.current.value
-      axios.get(`${apiUrl}/hotels/?order=${selectValue}&name=${searchValue}`)
-      .then(response =>{
-        setState(response.data.response)
-        console.log(response.data.response);
-      })
-      .catch(error =>{
-        console.log(error);
-      })
+      
+      let values = {
+        select : selectValue ,
+        search: searchValue
+      }
+
+      dispatch(hotelActions.getHotelsFilt(values))
+
+
     };
+    let hotelsFilt  = useSelector(store => store.hotelsReducer)
+    let hotels = useSelector(store => store.hotelsReducer.listHotels)
+    
+    console.log(hotelsFilt);
+    // console.log(allHotels);
+    console.log(hotels);
+    if (hotelsFilt.listHotelsFilt.length > 0) {
+      hotels = hotelsFilt.listHotelsFilt
+    }
+    if (hotelsFilt.select !== '' || hotelsFilt.search !== '') {
+      hotels = hotelsFilt.listHotelsFilt
+    }
+    
 
   return (
     <div className="HotelsPage">
@@ -45,9 +52,9 @@ export default function Hotels() {
         onChange={handleChange}
       />
       <div className="cardsContainerHotels">
-        {hotelsState.length === 0
+        {hotels.length === 0
           ? <h1>Hotel Not Found</h1>
-          : hotelsState.map((e) => (
+          : hotels.map((e) => (
               <CardHoteles
                 key={e._id}
                 id={e._id}

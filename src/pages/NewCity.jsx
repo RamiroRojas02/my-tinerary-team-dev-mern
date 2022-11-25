@@ -1,9 +1,13 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import {BASE_URL} from '../api/url' 
+import Swal from "sweetalert2";
+
+
 export default function NewCity() {
   let formNewCity = useRef(null);
- /*  let newCities = JSON.parse(localStorage.getItem("newCities")) || []; */
+  let navigate = useNavigate()
 
   let submitCity = (e) => {
     let inputs = formNewCity.current;
@@ -17,27 +21,44 @@ export default function NewCity() {
     }
 
     let city = {
-      name: valueInputs[2],
-      continent: valueInputs[1],
-      photo: valueInputs[3],
-      population: valueInputs[4],
-      userId: valueInputs[5],
+      name: valueInputs[1],
+      continent: valueInputs[0],
+      photo: valueInputs[2],
+      population: valueInputs[3],
+      userId: valueInputs[4],
     };
+    console.log(city)
     axios.post(`${BASE_URL}/api/cities`,city)
     .then(res => {
-        console.log(res);
+      console.log(res);        
+        if (res.data.success) {
+          Swal.fire({
+            icon: 'success',
+            title: 'City created successfully',
+             confirmButtonText: 'Go to the City',
+            didClose: ()=>{
+               navigate('/CityDetails/'+ res.data.id) 
+            } 
+          })
+        }else{
+          let message= (res.data.messagge).map((e)=>e.message)
+          Swal.fire({
+            
+            icon: 'error',
+            title: `${message.join("")}`,
+            confirmButtonText: 'Try Again'
+          })
+        }
     })
-/*     localStorage.setItem("newCities", JSON.stringify(newCities)); */
-    alert("City Loaded");
   };
   return (
     <div className="newCityPage">
       <h1>New City Card</h1>
       <form className="formNewCity" ref={formNewCity}>
-        <label>
+{/*         <label>
           Id:
           <input type="text"></input>
-        </label>
+        </label> */}
         <label>
           Continent:
           <input type="text"></input>

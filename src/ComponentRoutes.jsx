@@ -10,6 +10,12 @@ import Hotels from './pages/Hotels'
 import SignIn from './pages/SignIn'
 import NewHotel from './pages/NewHotels'
 import DetailsHotels from './pages/DetailsHotels'
+import MyCities from './pages/MyCities'
+import MyHotels from './pages/MyHotels'
+import MyShows from './pages/MyShows'
+
+
+import MyItineraries from './pages/MyItineraries'
 export  const ComponentRoutes=()=> {
   return (
     <Routes>
@@ -21,8 +27,13 @@ export  const ComponentRoutes=()=> {
         <Route path='/NewCity' element={<NewCity/>}/>
         <Route path='/SignIn' element= {<SignIn/>}/>
         <Route path='/NewHotel' element={<NewHotel/>}/>
+        <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
         <Route path='/HotelDetails/:id' element={<DetailsHotels/>} location=""/>
-        <Route path='/CityDetails' element={<CityDetails/>} location=""/>
+        <Route path='/MyItineraries' element={<MyItineraries/>} />
+        <Route path='/MyHotels' element={<MyHotels/>} />
+        <Route path='/MyShows' element={<MyShows/>} />
+
+        <Route path='/MyCities' element={<MyCities/>}/>
     </Routes>
   )
 }
