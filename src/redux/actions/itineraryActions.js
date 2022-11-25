@@ -4,7 +4,7 @@ import { BASE_URL } from '../../api/url'
 
   const getMyItineraries = createAsyncThunk('myItineraries', async(id)=>{
     try {
-      let res = await axios.get(`${BASE_URL}/api/itineraries/?userId=${id}`)
+      let res = await axios.get(`${BASE_URL}/itineraries/?userId=${id}`)
       console.log(res);
       return {
         itinerary : res.data.response
@@ -14,7 +14,7 @@ import { BASE_URL } from '../../api/url'
     }
   })
   const deleteItinerary = createAsyncThunk("itinerariesEliminate", async(id)=>{
-    let res = await axios.delete(`${BASE_URL}/api/itineraries/${id}`)
+    let res = await axios.delete(`${BASE_URL}/itineraries/${id}`)
     return {
       eliminate : res.data
     }
@@ -23,7 +23,7 @@ import { BASE_URL } from '../../api/url'
   const editItinerary = createAsyncThunk("ItineraryEdit",async(itineraryToChange)=>{
     let {id, itinerary} = itineraryToChange
     try {
-      let res= await axios.put(`${BASE_URL}/api/itineraries/${id}`,itinerary)
+      let res= await axios.put(`${BASE_URL}/itineraries/${id}`,itinerary)
       console.log(res)
       return {
         messagge : res.data.message,

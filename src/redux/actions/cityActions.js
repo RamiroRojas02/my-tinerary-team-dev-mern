@@ -4,7 +4,7 @@ import { BASE_URL } from '../../api/url'
 
 const getCity = createAsyncThunk('getCity',async()=>{
     try{
-        const response = await axios.get(`${BASE_URL}/api/cities`)
+        const response = await axios.get(`${BASE_URL}/cities`)
         return response.data.response//esto seria el payload
 
     }catch(error){
@@ -16,7 +16,7 @@ const getCity = createAsyncThunk('getCity',async()=>{
 })
 /*  */
 const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continente}) => {
-    let url = `${BASE_URL}/api/cities/?${continente}${value}`;
+    let url = `${BASE_URL}/cities/?${continente}${value}`;
       try {
         const res = await axios.get(url);
         console.log(url);
@@ -33,7 +33,7 @@ const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continent
   );
   const getMyCities = createAsyncThunk('myCities', async(id)=>{
     try {
-      let res = await axios.get(`${BASE_URL}/api/cities/?userId=${id}`)
+      let res = await axios.get(`${BASE_URL}/cities/?userId=${id}`)
       console.log(res.data.response);
       return {
         city : res.data.response
@@ -43,7 +43,7 @@ const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continent
     }
   })
   const deleteCity = createAsyncThunk("citiesEliminate", async(id)=>{
-    let res = await axios.delete(`${BASE_URL}/api/cities/${id}`)
+    let res = await axios.delete(`${BASE_URL}/cities/${id}`)
     return {
       eliminate : res.data
     }
@@ -52,7 +52,7 @@ const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continent
   const editCity = createAsyncThunk("CityEdit",async(cityToChange)=>{
     let {id, city} = cityToChange
     try {
-      let res= await axios.put(`${BASE_URL}/api/cities/${id}`,city)
+      let res= await axios.put(`${BASE_URL}/cities/${id}`,city)
       console.log(res)
       return {
         messagge : res.data.message,
