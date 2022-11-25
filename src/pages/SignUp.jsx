@@ -77,29 +77,32 @@ export default function SignUp() {
     <div className="divNotFound">
       <h1>Sign Up!</h1>
       <form id="form" className="formRegister" onSubmit={register}>
-        <label className="nameLabel">
+        <div className="inputDivForm">
+        <div >
           First Name:<input type="text" ref={name} placeholder="First Name"></input>
-        </label>
-        <label className="lastNameLabel">
+        </div>
+        <div >
           Last Name:<input type="text" ref={lastName} placeholder="Last Name"></input>
-        </label>
-        <label className="ageLabel">
+        </div>
+        <div >
           Age:<input type="number" ref={age} placeholder="Age"></input>
-        </label>
-        <label className="photoLabel">
+        </div>
+        <div>
           Photo URL:<input type="text" ref={photo} placeholder="Photo URL"></input>
-        </label>
-        <label className="emailLabel">
+        </div>
+        <div >
           Email:<input type="email" ref={email} placeholder="Email"></input>
-        </label>
+        </div>
 
-        <label className="passwordLabel">
+        <div >
           Password:
           <input type="password" ref={password} placeholder="******"></input>
-        </label>
-
-        <input type="submit" className="submitRegister" value="send"/* onClick={register} */></input>
+        </div></div>
+        <div className="buttonContainer">
+        <div className="submitButtonForm">
+        <input type="submit" className="submitRegister" value="¡ Register Now !"/* onClick={register} */></input></div>
         <button className="btn-google-register" disabled><img className="googleLogo" src="./img/googleLogo.png" alt="google_logo"></img><p>Register with Google</p></button>
+        </div>
       </form>
     </div>
   );
