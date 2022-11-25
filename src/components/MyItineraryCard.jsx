@@ -40,7 +40,7 @@ export default function MyItineraryCard(props) {
         if (descriptionInput.value !== '') {
           itineraryToChange.itinerary.description = descriptionInput.value
         }
-        if (photoInput.value !== '') {
+            if (photoInput.value !== '') {
           itineraryToChange.itinerary.photo = photoInput.value
         }
         if (priceInput.value !== '') {
