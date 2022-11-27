@@ -6,8 +6,8 @@ import { Link as LinkRoute } from "react-router-dom";
 export default function NavBar({ naV }) {
   const [userRole,setUserRole]=useState()
   let user = {
-    role: "user",
-    logged:false
+    role: "admin",
+    logged:true
   }
   useEffect(()=>{ 
      if(user.role==="admin"&&!!user.logged){

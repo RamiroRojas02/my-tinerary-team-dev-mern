@@ -41,9 +41,8 @@ export default function NewCity() {
             } 
           })
         }else{
-          let message= (res.data.messagge).map((e)=>e.message)
+          let message= (res.data.message).map((e)=>e.message)
           Swal.fire({
-            
             icon: 'error',
             title: `${message.join("")}`,
             confirmButtonText: 'Try Again'

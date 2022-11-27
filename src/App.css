@@ -357,7 +357,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   
  /*  height: 80%; */
   display: flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items: center;
 }
 .inputDivForm{
@@ -388,6 +388,16 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   justify-content: center!important;
   align-items: center;
   height:50%;
+  width: 100%;
+}
+.selectForm{
+  width: 10rem;
+}
+.submitButtonForm2{
+  display: flex;
+  justify-content: center!important;
+  align-items: center!important;
+  height:100%;
   width: 100%;
 }
 .formRegister input {

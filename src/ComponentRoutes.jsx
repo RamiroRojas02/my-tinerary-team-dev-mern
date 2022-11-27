@@ -20,7 +20,7 @@ export  const ComponentRoutes=()=> {
 
   let user = {
     role: "admin",
-    logged:false
+    logged:true
   }
   console.log(!!user.logged&&user.role.includes("admin"))
   return (
