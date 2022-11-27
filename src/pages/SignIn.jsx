@@ -14,11 +14,7 @@ export default function LoginPage() {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
   // console.log(user);
-  let userToken = JSON.parse(localStorage.getItem('token'))
-  if (userToken) {
-    console.log(userToken);
-    dispatch(userActions.signInToken(userToken))
-  }
+  
   const cargar = async(e) => {
     e.preventDefault();
     try {
