@@ -16,7 +16,6 @@ const userReducer= createReducer(initialState,(builder) =>{
         let {success, response,message} = action.payload
         if(success){
             let {user,token}= response
-            console.log(action.payload);
 
             localStorage.setItem('token', JSON.stringify(token))
 
@@ -40,7 +39,21 @@ const userReducer= createReducer(initialState,(builder) =>{
 
 })
     builder.addCase(signInToken.fulfilled,(state,action)=>{
-        console.log(action.payload);
+        let {response,success,token} = action.payload
+        console.log(response);
+
+        if (success) {
+            return{
+                ...state,
+                user: response.user,
+                token: token,
+                success:success
+            }
+        }else{
+            return {
+                message: response
+            }
+        }
     })
 }
 )
