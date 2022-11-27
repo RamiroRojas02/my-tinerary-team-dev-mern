@@ -30,7 +30,7 @@ export default function Cities() {
     if (e.target.checked) {
       setContinent(continent.concat(e.target.value))
     } else {
-      setContinent(continent.filter(checked => checked != e.target.value))
+      setContinent(continent.filter(checked => checked !== e.target.value))
     }
   }
     useEffect(()=>{
