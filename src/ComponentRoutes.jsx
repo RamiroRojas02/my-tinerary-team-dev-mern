@@ -13,6 +13,7 @@ import DetailsHotels from './pages/DetailsHotels'
 import MyCities from './pages/MyCities'
 import MyHotels from './pages/MyHotels'
 import MyShows from './pages/MyShows'
+import MyProfile from './pages/MyProfile'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import MyItineraries from './pages/MyItineraries'
@@ -43,8 +44,10 @@ export  const ComponentRoutes=()=> {
         <Route path="/*" element={<NotFound/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
         
+        <Route element={<ProtectedRoute isAllowed={!user.logged} reDirect='/MyProfile'/>}>
+          <Route path='/SignIn' element= {<SignIn/>}/>
+        </Route>
         
-        <Route path='/SignIn' element= {<SignIn/>}/>
         
         <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
         <Route path='/HotelDetails/:id' element={<DetailsHotels/>} location=""/>
@@ -53,12 +56,16 @@ export  const ComponentRoutes=()=> {
         <Route path='/MyShows' element={<MyShows/>} />
         <Route path='/Cities' element={<Cities/>}/>
         <Route element={<ProtectedRoute  isAllowed={user.role === "admin"} reDirect='/'/>}>
-            
             <Route path='/NewCity' element={<NewCity/>}/>
             <Route path='/MyCities' element={<MyCities/>}/>         
             <Route path='/NewHotel' element={<NewHotel/>}/>
             <Route path='/MyHotels' element={<MyHotels/>} />
         </Route>
+        <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
+
+            <Route path='/MyProfile' element={<MyProfile/>} />
+
+        </Route> 
 
         
     </Routes>

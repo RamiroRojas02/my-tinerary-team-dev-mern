@@ -48,9 +48,38 @@ const signInToken = createAsyncThunk( 'signInToken',async(token)=>{
 
 })
 
+const getMyProfile = createAsyncThunk('My user Profile',async(id)=>{
+    try {
+        let {data} = await axios.get(`${apiUrl}/auth/me/${id}`)
+        return {
+            myUser: {
+                name: data.myUser[0].name,
+                lastName: data.myUser[0].lastName,
+                age: data.myUser[0].age,
+                email: data.myUser[0].email,
+                photo: data.myUser[0].photo ,
+
+            },
+            success: data.success
+        }
+    } catch (error) {
+        
+    }
+})
+const updateMyProfile = createAsyncThunk('Update Profile', async(data)=>{
+    console.log(data);
+    try {
+        // let {data} = await axios.patch(`${apiUrl}/auth/me/:id`)
+    } catch (error) {
+        
+    }
+})
+
 const userActions = {
     signIn,
-    signInToken
+    signInToken,
+    getMyProfile,
+    updateMyProfile
 
 }
 
