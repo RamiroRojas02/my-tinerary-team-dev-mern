@@ -8,8 +8,9 @@ import { useSelector } from 'react-redux'
 
 
 export default function NavBar({ naV }) {
+ 
   const [userRole,setUserRole]=useState()
-  let {user} = useSelector(store=> store.userReducer)
+  let {user,logged,token} = useSelector(store=> store.userReducer)
   useEffect(()=>{ 
      if(user.role==="admin"){
     setUserRole(true)
@@ -22,6 +23,7 @@ export default function NavBar({ naV }) {
 // console.log(userRole)
   return (
     <nav className={`${naV}`}>
+      
       {userRole===null?
         <>
       <LinkRoute to="/">
@@ -81,8 +83,6 @@ export default function NavBar({ naV }) {
       </LinkRoute>
       </>
       }
-      
-
     </nav>
   );
 }

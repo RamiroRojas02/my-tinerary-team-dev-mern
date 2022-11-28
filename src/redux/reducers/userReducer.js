@@ -2,14 +2,15 @@ import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userActions";
 
 
-const {signIn,signInToken,getMyProfile,updateMyProfile }= userActions
+const {signIn,signInToken,getMyProfile,updateMyProfile ,signOut}= userActions
 
 
 const initialState ={
     user:{},
     token: "",
     message:"",
-    myUser:{}
+    myUser:{},
+    logged:false
 }
 
 const userReducer= createReducer(initialState,(builder) =>{
@@ -17,6 +18,7 @@ const userReducer= createReducer(initialState,(builder) =>{
         let {success, response,message} = action.payload
         if(success){
             let {user,token}= response
+            console.log(user)
 
             localStorage.setItem('token', JSON.stringify(token))
 
@@ -25,7 +27,8 @@ const userReducer= createReducer(initialState,(builder) =>{
                 user: user,
                 token: token,
                 success:true,
-                message:message
+                message:message,
+                logged:true
             }
         }else{
 
@@ -47,7 +50,7 @@ const userReducer= createReducer(initialState,(builder) =>{
                 user: response.user,
                 token: token,
                 success:success,
-                logged: 'logged'
+                logged:true
             }
         }else{
             return {
@@ -79,6 +82,25 @@ const userReducer= createReducer(initialState,(builder) =>{
                 myUser,
                 success
             }
+        }
+    })
+    builder.addCase(signOut.fulfilled, (state,action)=>{
+        const {success,response}= action.payload
+        if(success){
+            localStorage.removeItem('token')
+            let newState={
+                ...state,
+                user:{},
+                logged:false,
+                token:''
+            }
+            return newState
+        }else{
+            let newState={
+                ...state,
+                message:response
+            }
+            return newState
         }
     })
 }

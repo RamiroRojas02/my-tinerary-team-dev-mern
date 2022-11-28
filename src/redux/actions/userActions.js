@@ -63,7 +63,24 @@ const getMyProfile = createAsyncThunk('My user Profile',async(id)=>{
             success: data.success
         }
     } catch (error) {
-        
+        const signOut = createAsyncThunk('SignOut', async(token)=>{
+    let url = `${apiUrl}/auth/sign-out`
+    let headers= {headers:{'Authorization' :`Bearer ${token}`}}
+    try{
+        let user = await axios.put(url,null,headers)
+        console.log(user.data)
+        return{
+            success:true,
+            response:user.data.message
+        }
+    }catch(error){
+        return{
+            success: false,
+            response:error.response.data.message
+        }
+    }
+})
+
     }
 })
 const updateMyProfile = createAsyncThunk('Update Profile', async(data)=>{
@@ -85,8 +102,8 @@ const userActions = {
     signIn,
     signInToken,
     getMyProfile,
-    updateMyProfile
-
+    updateMyProfile,
+    signOut
 }
 
 export default userActions
