@@ -20,11 +20,7 @@ export default function NavBar({ naV }) {
     setUserRole(null)
   }
 },[user])
-
-
-
-
-console.log(userRole)
+// console.log(userRole)
   return (
     <nav className={`${naV}`}>
       

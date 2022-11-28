@@ -47,6 +47,26 @@ const signInToken = createAsyncThunk( 'signInToken',async(token)=>{
     }
 
 })
+
+const getMyProfile = createAsyncThunk('My user Profile',async(id)=>{
+    try {
+        let {data} = await axios.get(`${apiUrl}/auth/me/${id}`)
+        return {
+            myUser: {
+                name: data.myUser[0].name,
+                lastName: data.myUser[0].lastName,
+                age: data.myUser[0].age,
+                email: data.myUser[0].email,
+                photo: data.myUser[0].photo ,
+
+            },
+            success: data.success
+        }
+    } catch (error) {
+    
+
+    }
+})
 const signOut = createAsyncThunk('SignOut', async(token)=>{
     let url = `${apiUrl}/auth/sign-out`
     let headers= {headers:{'Authorization' :`Bearer ${token}`}}
@@ -64,10 +84,26 @@ const signOut = createAsyncThunk('SignOut', async(token)=>{
         }
     }
 })
+const updateMyProfile = createAsyncThunk('Update Profile', async(data)=>{
+    let {user , id} = data
+    try {
+        let res = await axios.patch(`${apiUrl}/auth/me/${id}`, user)
+        return {
+            myUser : res.data.newUser,
+            success:true
+        }
+    } catch (error) {
+        return {
+            message: error
+        }
+    }
+})
 
 const userActions = {
     signIn,
     signInToken,
+    getMyProfile,
+    updateMyProfile,
     signOut
 }
 

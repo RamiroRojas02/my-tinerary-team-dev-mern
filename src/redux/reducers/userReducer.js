@@ -2,13 +2,14 @@ import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userActions";
 
 
-const {signIn,signInToken,signOut}= userActions
+const {signIn,signInToken,getMyProfile,updateMyProfile ,signOut}= userActions
 
 
 const initialState ={
     user:{},
     token: "",
     message:"",
+    myUser:{},
     logged:false
 }
 
@@ -29,10 +30,8 @@ const userReducer= createReducer(initialState,(builder) =>{
                 message:message,
                 logged:true
             }
-
-
         }else{
-            console.log(response);
+
             return{
                 ...state,
                 success:false,
@@ -43,7 +42,7 @@ const userReducer= createReducer(initialState,(builder) =>{
 })
     builder.addCase(signInToken.fulfilled,(state,action)=>{
         let {response,success,token} = action.payload
-        console.log(response);
+
 
         if (success) {
             return{
@@ -56,6 +55,32 @@ const userReducer= createReducer(initialState,(builder) =>{
         }else{
             return {
                 message: response
+            }
+        }
+    })
+    builder.addCase(getMyProfile.fulfilled,(state,action)=>{
+        let {success,myUser,response} = action.payload
+        if (success) {
+            return{
+                ...state,
+                myUser: myUser,
+                success: success
+            }
+        }else{
+            return {
+                ...state,
+                message:response
+            }
+        }
+    })
+    builder.addCase(updateMyProfile.fulfilled,(state,action)=>{
+        let {myUser,success} = action.payload
+
+        if (2+3 === 5) {
+            return {
+                ...state,
+                myUser,
+                success
             }
         }
     })
