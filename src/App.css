@@ -923,6 +923,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
  flex-direction: column;
  align-items: center;
  background-color: var(--body-background);
+  padding-top: 1rem;
 }
 
 /* clase del contenedor de cards de myPage */
@@ -1047,6 +1048,8 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   border-radius: 1rem;
   padding: 1rem;
 }
+
+
 
 @media screen and (min-width: 1600px) {
   .cityImage{
