@@ -47,11 +47,28 @@ const signInToken = createAsyncThunk( 'signInToken',async(token)=>{
     }
 
 })
+const signOut = createAsyncThunk('SignOut', async(token)=>{
+    let url = `${apiUrl}/auth/sign-out`
+    let headers= {headers:{'Authorization' :`Bearer ${token}`}}
+    try{
+        let user = await axios.put(url,null,headers)
+        console.log(user.data)
+        return{
+            success:true,
+            response:user.data.message
+        }
+    }catch(error){
+        return{
+            success: false,
+            response:error.response.data.message
+        }
+    }
+})
 
 const userActions = {
     signIn,
-    signInToken
-
+    signInToken,
+    signOut
 }
 
 export default userActions
