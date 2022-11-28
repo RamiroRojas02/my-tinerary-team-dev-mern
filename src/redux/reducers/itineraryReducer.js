@@ -1,7 +1,7 @@
 import {createReducer} from '@reduxjs/toolkit'
 import itineraryActions from '../actions/itineraryActions'
 
-const {editItinerary,deleteItinerary,getMyItineraries}= itineraryActions
+const {editItinerary,deleteItinerary,getMyItineraries,getItineraries}= itineraryActions
 const initialState = {
     itinerary:[],
     errors: []
@@ -48,5 +48,12 @@ const itineraryReducer = createReducer(initialState, (builder)=>{
 
         }
     })
+    .addCase(getItineraries.fulfilled, (state, action) =>{
+
+        return {
+            ...state, 
+            itinerary: action.payload.itinerary,
+        }
+    }) 
 })
 export default itineraryReducer

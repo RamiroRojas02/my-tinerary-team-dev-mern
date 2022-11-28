@@ -13,7 +13,7 @@ export default function CityDetails() {
   console.log(id)
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/api/cities/${id}`)
+      .get(`${BASE_URL}/cities/${id}`)
       .then((response) => {
         setCity(response.data.response);
       })
@@ -23,7 +23,7 @@ export default function CityDetails() {
   }, []);
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/api/itineraries?cityId=${id}`)
+      .get(`${BASE_URL}/itineraries?cityId=${id}`)
       .then((response) => {
         setItineraries(response.data.response);
       })
