@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
-import { Link as LinkRoute } from "react-router-dom";
+import { Link as LinkRoute, Navigate } from "react-router-dom";
 import { useSelector,useDispatch } from 'react-redux'
 import { useState,useEffect } from "react";
 import userActions from "../redux/actions/userActions";
@@ -78,7 +78,12 @@ async function logOut (event){
         </LinkRoute>
         </>
         :
-        <div className="logOutButton" onClick={()=>logOut(token)}>Sign Out</div>
+        <div className="userButtons">
+          <button className="myProfileBtn" onClick={()=>{navigate('/MyProfile')}}>My Profile</button>
+          <div className="logOutButton" onClick={()=>logOut(token)}>Sign Out</div>
+        
+        </div>
+        
         }
         
       </div>

@@ -82,7 +82,7 @@ export default function MyProfileCard() {
         <h5>LastName: {myUser.lastName}</h5>
         <p>Age: {myUser.age}</p>
       </div>
-      <button className="editProfile" onClick={edit}>Edit</button>
+      <button className="editProfile" onClick={edit}>EDIT</button>
     </div>
   );
 }

@@ -63,7 +63,11 @@ const getMyProfile = createAsyncThunk('My user Profile',async(id)=>{
             success: data.success
         }
     } catch (error) {
-        const signOut = createAsyncThunk('SignOut', async(token)=>{
+    
+
+    }
+})
+const signOut = createAsyncThunk('SignOut', async(token)=>{
     let url = `${apiUrl}/auth/sign-out`
     let headers= {headers:{'Authorization' :`Bearer ${token}`}}
     try{
@@ -78,9 +82,6 @@ const getMyProfile = createAsyncThunk('My user Profile',async(id)=>{
             success: false,
             response:error.response.data.message
         }
-    }
-})
-
     }
 })
 const updateMyProfile = createAsyncThunk('Update Profile', async(data)=>{
