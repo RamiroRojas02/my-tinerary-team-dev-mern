@@ -35,6 +35,7 @@ export default function MyHotels() {
       date: valueInputs[5],
       userId: userCurrent.user.id ,
     };
+    console.log(show.hotelId);
     axios.post(`${apiUrl}/shows/`, show)
     .then(res =>{
       // console.log(res.response)
@@ -63,7 +64,7 @@ export default function MyHotels() {
   
   useEffect(() => {
     dispatch(hotelActions.getHotels());
-    dispatch(showActions.getMyShows("6372494878cf1c151a1a4f67"));
+    dispatch(showActions.getMyShows(userCurrent.user.id));
   }, []);
 
   let myShows = shows.listShows;

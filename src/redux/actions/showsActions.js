@@ -13,6 +13,7 @@ const getShows = createAsyncThunk("showssStore", async () => {
 
 const getMyShows = createAsyncThunk('myShows', async(id)=>{
   try {
+    console.log(id);
     let res = await axios.get(`${apiUrl}/shows/?userId=${id}`)
     console.log(res.data.response);
     return {
