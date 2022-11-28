@@ -57,8 +57,8 @@ export default function MyItineraries() {
             title: 'Itinerary created successfully',
             confirmButtonText: 'Continue',
               didClose: ()=>{
-              navigate('/MyItineraries')  
-           } 
+              navigate('/CityDetails/' + itinerary.cityId)  
+          } 
           })
         }
       })

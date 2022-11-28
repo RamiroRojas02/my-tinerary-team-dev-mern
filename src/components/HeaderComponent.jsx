@@ -20,7 +20,6 @@ export default function HeaderComponent(props) {
    setLoggedT(false)
  }
 },[logged])
-console.log(user)
 
 
 async function logOut (event){

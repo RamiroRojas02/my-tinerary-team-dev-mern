@@ -53,6 +53,7 @@ export  const ComponentRoutes=()=> {
         <Route element={<ProtectedRoute isAllowed={!!user.logged&&(user.role.includes("user")||user.role.includes("admin")) } reDirect={"/SignIn"}/>}> 
         <Route path='/MyItineraries' element={<MyItineraries/>} />
         <Route path='/MyShows' element={<MyShows/>} />
+        <Route path='/MyProfile' element={<MyProfile/>} />
         </Route>
         <Route element={<ProtectedRoute  isAllowed={user.role === "admin"} reDirect={'/SignIn'}/>}>
             <Route path='/NewCity' element={<NewCity/>}/>
@@ -60,11 +61,10 @@ export  const ComponentRoutes=()=> {
             <Route path='/NewHotel' element={<NewHotel/>}/>
             <Route path='/MyHotels' element={<MyHotels/>} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
+        {/* <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
 
-            <Route path='/MyProfile' element={<MyProfile/>} />
 
-        </Route> 
+        </Route>  */}
 
         
     </Routes>
