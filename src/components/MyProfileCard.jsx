@@ -6,7 +6,7 @@ import apiUrl from "../url";
 import Swal from "sweetalert2";
 
 export default function MyProfileCard() {
-  let { user, myUser } = useSelector((store) => store.userReducer);
+  let { user, myUser, success } = useSelector((store) => store.userReducer);
 
   const dispatch = useDispatch();
 
@@ -30,20 +30,21 @@ export default function MyProfileCard() {
             let ageInput = document.getElementById("age");
 
             let userNew = {
-                id: user.id
+                id: user.id,
+                user:{} ,
             };
 
             if (nameInput.value !== "") {
-                userNew.name = nameInput.value;
+                userNew.user.name = nameInput.value;
             }
             if (lastNameInput.value !== "") {
-                userNew.lastName = lastNameInput.value;
+                userNew.user.lastName = lastNameInput.value;
             }
             if (photoInput.value !== "") {
-                userNew.photo = photoInput.value;
+                userNew.user.photo = photoInput.value;
             }
             if (ageInput.value !== "") {
-                userNew.age = ageInput.value;
+                userNew.user.age = ageInput.value;
             }
         Swal.fire({
           title: "Are you sure?",
@@ -56,6 +57,12 @@ export default function MyProfileCard() {
         }).then((results) => {
           if (results.isConfirmed) {
             dispatch(userActions.updateMyProfile(userNew));
+            if (success) {
+                Swal.fire({
+                    title: 'Modify successfully',
+                    icon: "success",
+                })
+            }
           }
         });
       }
@@ -67,15 +74,15 @@ export default function MyProfileCard() {
 
   return (
     <div className="profileCard">
-      <section>
-        <img src={myUser.photo} alt={myUser.name}></img>
-      </section>
-      <section>
+      <div className="myProfileImg">
+        <img className="profileImg" src={myUser.photo} alt={myUser.name}></img>
+      </div>
+      <div className="myProfile">
         <h4>Name: {myUser.name} </h4>
         <h5>LastName: {myUser.lastName}</h5>
         <p>Age: {myUser.age}</p>
-      </section>
-      <button onClick={edit}>Edit</button>
+      </div>
+      <button className="editProfile" onClick={edit}>Edit</button>
     </div>
   );
 }

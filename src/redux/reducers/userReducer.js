@@ -27,10 +27,8 @@ const userReducer= createReducer(initialState,(builder) =>{
                 success:true,
                 message:message
             }
-
-
         }else{
-            console.log(response);
+
             return{
                 ...state,
                 success:false,
@@ -41,7 +39,7 @@ const userReducer= createReducer(initialState,(builder) =>{
 })
     builder.addCase(signInToken.fulfilled,(state,action)=>{
         let {response,success,token} = action.payload
-        console.log(response);
+
 
         if (success) {
             return{
@@ -73,10 +71,14 @@ const userReducer= createReducer(initialState,(builder) =>{
         }
     })
     builder.addCase(updateMyProfile.fulfilled,(state,action)=>{
-        
+        let {myUser,success} = action.payload
 
-        return {
-            ...state
+        if (2+3 === 5) {
+            return {
+                ...state,
+                myUser,
+                success
+            }
         }
     })
 }

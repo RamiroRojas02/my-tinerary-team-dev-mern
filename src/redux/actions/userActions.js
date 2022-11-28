@@ -67,11 +67,17 @@ const getMyProfile = createAsyncThunk('My user Profile',async(id)=>{
     }
 })
 const updateMyProfile = createAsyncThunk('Update Profile', async(data)=>{
-    console.log(data);
+    let {user , id} = data
     try {
-        // let {data} = await axios.patch(`${apiUrl}/auth/me/:id`)
+        let res = await axios.patch(`${apiUrl}/auth/me/${id}`, user)
+        return {
+            myUser : res.data.newUser,
+            success:true
+        }
     } catch (error) {
-        
+        return {
+            message: error
+        }
     }
 })
 

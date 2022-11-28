@@ -24,7 +24,6 @@ import userActions from './redux/actions/userActions'
 export  const ComponentRoutes=()=> {
 
   let {user} = useSelector(store=> store.userReducer)
-  console.log(user)
   const dispatch = useDispatch()
   
   useEffect(() => {
