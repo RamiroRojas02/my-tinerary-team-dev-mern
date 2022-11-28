@@ -14,13 +14,13 @@ export default function MyItineraries() {
   let navigate = useNavigate()
   let itineraryStore = useSelector(store => store.itineraryReducer)
   console.log(itineraryStore)
- 
-
+  let userData = useSelector(store=>store.userReducer)
+  console.log()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(cityActions.getCity())
     dispatch(itineraryActions.getItineraries())
-    dispatch(itineraryActions.getMyItineraries("636d5aca61aa2e5d1c58c909"))
+    dispatch(itineraryActions.getMyItineraries(userData.user.id))
   }, []);
   let MyItineraries = itineraryStore.itinerary
   console.log(MyItineraries)
@@ -44,19 +44,20 @@ export default function MyItineraries() {
       photo: [valueInputs[3]],
       duration: valueInputs[4],
       price: valueInputs[5],
-      userId: valueInputs[6],
+      userId:userData.user.id ,
     };
-    console.log(itinerary)
-    axios.post(`${BASE_URL}/api/itineraries/`,itinerary)
+    
+
+    axios.post(`${BASE_URL}/itineraries/`,itinerary)
       .then(res => {
-        console.log(res);
+        console.log(res.data.id);
         if (res.data.success) {
           Swal.fire({
             icon: 'success',
             title: 'Itinerary created successfully',
             confirmButtonText: 'Continue',
               didClose: ()=>{
-              navigate('/MyItineraries') 
+              navigate('/MyItineraries')  
            } 
           })
         }
@@ -64,7 +65,8 @@ export default function MyItineraries() {
       .catch(error =>{
         Swal.fire({
           icon: 'error',
-          title: (error.response.data.message).split(","),
+          title:"You have an error",
+          text : (error.response.data.message).split(","),
           confirmButtonText: 'Try Again',
         })
       }) 
@@ -78,7 +80,9 @@ export default function MyItineraries() {
       <div className='myContainer'>{MyItineraries.length === 0 ? <h2>You don't have Itineraries</h2> : MyItineraries.map(e => <MyItineraryCard key={e._id} id={e._id} name={e.name} img={e.photo} />)}</div>
       <div className="divNotFound">
         <form className="formRegister" ref={formNewItinerary}>
+          <h2>Create your own itinerary!</h2>
         <div className="inputDivForm">
+          
           <div>
           City of Itinerary:
           <select className="selectForm">{MyItinerariesNR.map(e => (<option key={e._id} value={e._id}>{e.name}</option>))}</select>
@@ -102,10 +106,6 @@ export default function MyItineraries() {
           <div>
             price:
             <input type="number"></input>
-          </div>
-          <div>
-            userId:
-            <input type="text"></input>
           </div>
           </div>
           <div className="submitButtomForm2">
