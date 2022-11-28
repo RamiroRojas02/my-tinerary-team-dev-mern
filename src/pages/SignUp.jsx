@@ -57,9 +57,8 @@ export default function SignUp() {
             } else {
               let message = (res.data.messagge).map((e) => e.message)
               Swal.fire({
-
                 icon: 'error',
-                title: `${message.join("")}`,
+                title: `${message.join(",\n")}`,
                 confirmButtonText: 'Try Again'
               })
             }
