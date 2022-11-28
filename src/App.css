@@ -151,11 +151,35 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .header {
   background-color: #99b898;
   display: flex;
-  height: 15vh;
+  height: 20vh;
   justify-content: space-evenly;
   align-items: center;
   position: sticky;
   top: 0px;
+}
+.userData{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+
+}
+.userData img{
+  height: 70%;
+  border-radius: 2rem;
+}
+.userData p{
+  display: flex;
+  justify-content: center;
+  border-bottom: #e84a5f 3px solid;
+}
+.logOutButton{
+  border: 1px black solid;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #e84a5f;
+  color: var(--background-footer);
 }
 
 .logo {
@@ -205,9 +229,10 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 }
 .navBar-collapse {
   display: flex;
-  width: 50%;
+  width: 40%;
+  height: 3rem;
   justify-content: center;
-  gap: 2rem;
+  gap: .5rem;
 }
 .home1Logo {
   height: 25rem;
@@ -232,9 +257,12 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   text-align: center;
 }
 .navBar-collapse a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ff847cff;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
   text-decoration: none;
   color: #2a363bff;
   font-weight: 700;
@@ -1000,7 +1028,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     flex-wrap: wrap;
     width: 60%;
     justify-content: center;
-    gap: 2rem;
+    gap: .5rem;
   }
   .navBar-expanded{
     flex-wrap: wrap;

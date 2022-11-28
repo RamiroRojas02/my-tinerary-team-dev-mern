@@ -2,25 +2,32 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link as LinkRoute } from "react-router-dom";
+import { useSelector } from 'react-redux'
+
+
+
 
 export default function NavBar({ naV }) {
+ 
   const [userRole,setUserRole]=useState()
-  let user = {
-    role: "admin",
-    logged:true
-  }
+  let {user,logged,token} = useSelector(store=> store.userReducer)
   useEffect(()=>{ 
-     if(user.role==="admin"&&!!user.logged){
+     if(user.role==="admin"){
     setUserRole(true)
-  } else if(user.role==="user"&&!!user.logged){
+  } else if(user.role==="user"){
     setUserRole(false)
   }else{
     setUserRole(null)
   }
 },[user])
 
+
+
+
+console.log(userRole)
   return (
     <nav className={`${naV}`}>
+      
       {userRole===null?
         <>
       <LinkRoute to="/">
@@ -80,8 +87,6 @@ export default function NavBar({ naV }) {
       </LinkRoute>
       </>
       }
-      
-
     </nav>
   );
 }
