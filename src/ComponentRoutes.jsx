@@ -50,7 +50,7 @@ export  const ComponentRoutes=()=> {
         <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
         <Route path='/HotelDetails/:id' element={<DetailsHotels/>} location=""/>
         {/* a partir de aca son las que estan protegidas para el usuario */}
-        <Route element={<ProtectedRoute isAllowed={!!user.logged&&(user.role.includes("user")||user.role.includes("admin")) } reDirect={"/SignIn"}/>}> 
+        <Route element={<ProtectedRoute isAllowed={/* !!user.logged&&( */user.role === "user"/* ||user.role.includes("admin")) */ } reDirect={"/SignIn"}/>}> 
         <Route path='/MyItineraries' element={<MyItineraries/>} />
         <Route path='/MyShows' element={<MyShows/>} />
         <Route path='/MyProfile' element={<MyProfile/>} />
@@ -60,6 +60,9 @@ export  const ComponentRoutes=()=> {
             <Route path='/MyCities' element={<MyCities/>}/>         
             <Route path='/NewHotel' element={<NewHotel/>}/>
             <Route path='/MyHotels' element={<MyHotels/>} />
+            <Route path='/MyItineraries' element={<MyItineraries/>} />
+            <Route path='/MyShows' element={<MyShows/>} />
+            <Route path='/MyProfile' element={<MyProfile/>} />
         </Route>
         {/* <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
 

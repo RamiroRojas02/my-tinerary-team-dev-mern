@@ -28,7 +28,7 @@ export default function NewCity() {
       userId: valueInputs[4],
     };
     console.log(city)
-    axios.post(`${BASE_URL}/api/cities`,city)
+    axios.post(`${BASE_URL}/cities`,city)
     .then(res => {
       console.log(res);        
         if (res.data.success) {
