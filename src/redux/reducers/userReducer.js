@@ -18,7 +18,7 @@ const userReducer= createReducer(initialState,(builder) =>{
         let {success, response,message} = action.payload
         if(success){
             let {user,token}= response
-            console.log(user)
+
 
             localStorage.setItem('token', JSON.stringify(token))
 

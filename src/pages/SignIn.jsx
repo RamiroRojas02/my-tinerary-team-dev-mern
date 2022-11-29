@@ -21,7 +21,7 @@ export default function LoginPage() {
     
     let userSign = await dispatch(userActions.signIn(credentials));
     let {message,success,response} = userSign.payload
-      console.log(userSign.payload);
+
     let {user} = response
       if (success) {
       Swal.fire({
@@ -32,7 +32,7 @@ export default function LoginPage() {
         imageHeight: 200,
         imageAlt: `Photo ${user.name}`,
         didClose: ()=>{
-          navigate('/')
+          navigate('/MyProfile')
         }
       })
       

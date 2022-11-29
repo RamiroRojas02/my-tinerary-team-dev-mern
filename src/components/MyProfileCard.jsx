@@ -32,6 +32,7 @@ export default function MyProfileCard() {
             let userNew = {
                 id: user.id,
                 user:{} ,
+                token: JSON.parse(localStorage.getItem('token'))
             };
 
             if (nameInput.value !== "") {
@@ -69,7 +70,13 @@ export default function MyProfileCard() {
     });
   };
   useEffect(() => {
-    dispatch(userActions.getMyProfile(user.id));
+    
+    let data = {
+      id: user.id,
+      token: JSON.parse(localStorage.getItem('token'))
+
+    }
+    dispatch(userActions.getMyProfile(data));
   }, []);
 
   return (
