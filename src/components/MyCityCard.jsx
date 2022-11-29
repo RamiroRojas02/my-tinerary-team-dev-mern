@@ -32,7 +32,9 @@ export default function MyCityCard(props) {
         let populationInput = document.getElementById('population')
         let cityToChange ={
           id : id,
-          city : {}
+          city : {},
+          token : JSON.parse(localStorage.getItem('token'))
+
         }
         if (nameInput.value !== '') {
           cityToChange.city.name = nameInput.value
@@ -66,13 +68,18 @@ export default function MyCityCard(props) {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
+        let data = {
+          token : JSON.parse(localStorage.getItem('token')),
+          id
+
+        }
         if (result.isConfirmed) {
           Swal.fire(
             'Deleted!',
             'Your city has been deleted.',
             'success'
           )
-          dispatch(cityActions.deleteCity(id))
+          dispatch(cityActions.deleteCity(data))
           navigate('/MyCities')
         }
       })

@@ -13,8 +13,9 @@ const getShows = createAsyncThunk("showssStore", async () => {
 
 const getMyShows = createAsyncThunk('myShows', async(id)=>{
   try {
+
     let res = await axios.get(`${apiUrl}/shows/?userId=${id}`)
-    console.log(res.data.response);
+
     return {
         listShows : res.data.response
     }
@@ -22,8 +23,11 @@ const getMyShows = createAsyncThunk('myShows', async(id)=>{
     
   }
 })
-const deleteShow = createAsyncThunk("showsEliminate", async(id)=>{
-  let res = await axios.delete(`${apiUrl}/shows/${id}`)
+const deleteShow = createAsyncThunk("showsEliminate", async(data)=>{
+  let {token, id} =data
+  let header = { headers : { 'Authorization': `Bearer ${token}` }}
+  
+  let res = await axios.delete(`${apiUrl}/shows/${id}`,header)
   return {
     eliminate : res.data
   }
@@ -31,10 +35,12 @@ const deleteShow = createAsyncThunk("showsEliminate", async(id)=>{
 })
 const editShow = createAsyncThunk("ShowEdit",async(showToChange)=>{
 
-  let {id, show} = showToChange
-  console.log(showToChange);
+  let {id, show,token} = showToChange
+  let header = { headers : { 'Authorization': `Bearer ${token}` }}
+
+
   try {
-    let res= await axios.patch(`${apiUrl}/shows/${id}`,show)
+    let res= await axios.patch(`${apiUrl}/shows/${id}`,show,header)
 
     return {
       messagge : res.data.messagge,

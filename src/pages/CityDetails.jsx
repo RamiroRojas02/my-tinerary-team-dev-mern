@@ -10,10 +10,10 @@ export default function CityDetails() {
   let [city, setCity] = useState([])
   let [itineraries,setItineraries]=useState([])
   let {id} = useParams()
-  console.log(id)
+
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/api/cities/${id}`)
+      .get(`${BASE_URL}/cities/${id}`)
       .then((response) => {
         setCity(response.data.response);
       })
@@ -23,7 +23,7 @@ export default function CityDetails() {
   }, []);
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/api/itineraries?cityId=${id}`)
+      .get(`${BASE_URL}/itineraries?cityId=${id}`)
       .then((response) => {
         setItineraries(response.data.response);
       })
@@ -31,8 +31,7 @@ export default function CityDetails() {
         console.log(err);
       });
   }, []);
-  console.log(city)
-  console.log(itineraries)
+
 
 /*   let city = dataCity.filter((e) => e.id === id); */
 /*   let activities = dataCityActivities.filter((e) => e.citiId === id); */

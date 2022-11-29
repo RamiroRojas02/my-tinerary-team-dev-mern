@@ -30,7 +30,7 @@ const hotelsReducer = createReducer(initialState, (builder) =>{
     })
 
     builder.addCase(getHotelsFilt.fulfilled, (state,action) =>{
-        console.log(action);
+
         return{
             ...state,
             loading:false,
@@ -43,7 +43,7 @@ const hotelsReducer = createReducer(initialState, (builder) =>{
     builder.addCase(deleteHotel.fulfilled, (state,action) =>{
 
         let hotels = state.listHotels.filter( e => e._id !== action.payload.eliminate.id)
-        console.log(hotels);
+
         return{
             ...state,
             loading:false,
@@ -52,8 +52,7 @@ const hotelsReducer = createReducer(initialState, (builder) =>{
         }
     })
     builder.addCase(editHotel.fulfilled, (state,action) =>{
-        console.log(action.payload);
-        console.log(state);
+
         if (action.payload.success) {
             let hotels = state.listHotels.filter( e => e._id !== action.payload.hotelUpdate._id)
 

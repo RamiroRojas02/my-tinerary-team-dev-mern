@@ -29,7 +29,7 @@ const showsReducer = createReducer(initialState, (builder) => {
     let shows = state.listShows.filter(
       (e) => e._id !== action.payload.eliminate.id
     );
-    console.log(shows);
+
     return {
       ...state,
       loading: false,
@@ -37,10 +37,7 @@ const showsReducer = createReducer(initialState, (builder) => {
     };
   });
   builder.addCase(editShow.fulfilled, (state, action) => {
-    console.log(editShow);
 
-    console.log(action.payload);
-    console.log(state);
     if (action.payload.success) {
       let shows =  state.listShows.filter(
         (e) => e._id !== action.payload.showUpdate._id

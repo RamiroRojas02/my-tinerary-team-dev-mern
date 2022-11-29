@@ -34,8 +34,7 @@ export default function DetailsHotels() {
     }, []);
 
 
-    console.log(hotelsState);
-    console.log(showsState);
+
 
 
   return (

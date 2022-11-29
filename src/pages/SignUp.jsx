@@ -1,66 +1,107 @@
 import React, { useRef } from "react";
-
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../api/url";
 export default function SignUp() {
+  let navigate = useNavigate()
   let email = useRef(null);
+  let photo = useRef(null);
   let password = useRef(null);
   let name = useRef(null);
   let lastName = useRef(null);
   let age = useRef(null);
 
   let usersRegister = [];
-  let register = () => {
-    if (name.current.value === "") {
-      console.log(email.current.value);
-      return alert("Invalid name");
-    } else if (email.current.value === "" /*||email.current.value*/) {
-      return alert("Invalid Email");
-    } else if (password.current.value === "") {
-      return alert("Invalid Password");
-    } else if (lastName.current.value === "") {
-      return alert("Invalid LastName");
-      
-    }else if(age.current.value=== "" || age.current.value < 18){
-      return alert("Invalid Age");
 
-    }
-    usersRegister = {
-      email: email.current.value,
-      password: password.current.value,
-      name: name.current.value,
-      lastName: lastName.current.value,
-      age: age.current.value,
-    };
 
-    localStorage.setItem("users", JSON.stringify(usersRegister));
-    alert("Registration Successfully");
-    
+  let register = (e) => {
+    e.preventDefault()
+   
+  usersRegister = {
+    email: email.current.value,
+    password: password.current.value,
+    name: name.current.value,
+    photo: photo.current.value,
+    lastName: lastName.current.value,
+    age: age.current.value,
   };
+    Swal.fire({
+      icon: 'question',
+      title: '¿Are you sure to register?',
+      showConfirmButton: 'true',
+      confirmButtonText: 'Yes',
+      showCancelButton: 'true',
+      cancelButtonText: 'No',
+    }).then((result) => { 
+       if (result.isConfirmed) { 
+        axios.post(`${BASE_URL}/auth/SignUp`, usersRegister)
+          .then(res => {
+
+            if (res.data.success) {
+              Swal.fire({
+                icon: 'success',
+                title: 'User created successfully',
+                confirmButtonText: 'Continue',
+                             didClose: ()=>{
+                               navigate('/SignUp') 
+                               email.current.value=""
+                               password.current.value=""
+                               name.current.value=""
+                               photo.current.value=""
+                               lastName.current.value=""
+                               age.current.value=""
+                            }  
+              })
+
+            } else {
+              let message = (res.data.messagge).map((e) => e.message)
+              Swal.fire({
+                icon: 'error',
+                title: `${message.join(",\n")}`,
+                confirmButtonText: 'Try Again'
+              })
+            }
+          })
+        } else {
+        navigate('/')
+    }
+ })
+}
+  
+
+
 
   return (
     <div className="divNotFound">
       <h1>Sign Up!</h1>
-      <form className="formRegister">
-        <label className="NameLabel">
-          Name:<input type="text" ref={name} placeholder="Name"></input>
-        </label>
-        <label className="LastNameLabel">
+      <form id="form" className="formRegister" onSubmit={register}>
+        <div className="inputDivForm">
+        <div >
+          First Name:<input type="text" ref={name} placeholder="First Name"></input>
+        </div>
+        <div >
           Last Name:<input type="text" ref={lastName} placeholder="Last Name"></input>
-        </label>
-        <label className="LastNameLabel">
-          Age:<input type="number" ref={age} placeholder="Last Name"></input>
-        </label>
-
-        <label className="emailLabel">
+        </div>
+        <div >
+          Age:<input type="number" ref={age} placeholder="Age"></input>
+        </div>
+        <div>
+          Photo URL:<input type="text" ref={photo} placeholder="Photo URL"></input>
+        </div>
+        <div >
           Email:<input type="email" ref={email} placeholder="Email"></input>
-        </label>
+        </div>
 
-        <label className="passwordLabel">
+        <div >
           Password:
           <input type="password" ref={password} placeholder="******"></input>
-        </label>
-
-        <button className="submitRegister" onClick={register}>Submit</button>
+        </div></div>
+        <div className="buttonContainer">
+        <div className="submitButtonForm">
+        <input type="submit" className="submitRegister" value="¡ Register Now !"/* onClick={register} */></input></div>
         <button className="btn-google-register" disabled><img className="googleLogo" src="./img/googleLogo.png" alt="google_logo"></img><p>Register with Google</p></button>
+        </div>
       </form>
     </div>
   );

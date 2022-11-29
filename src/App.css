@@ -151,11 +151,35 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .header {
   background-color: #99b898;
   display: flex;
-  height: 15vh;
+  height: 20vh;
   justify-content: space-evenly;
   align-items: center;
   position: sticky;
   top: 0px;
+}
+.userData{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+
+}
+.userData img{
+  height: 70%;
+  border-radius: 2rem;
+}
+.userData p{
+  display: flex;
+  justify-content: center;
+  border-bottom: #e84a5f 3px solid;
+}
+.logOutButton{
+  border: 1px black solid;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #e84a5f;
+  color: var(--background-footer);
 }
 
 .logo {
@@ -205,9 +229,10 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 }
 .navBar-collapse {
   display: flex;
-  width: 50%;
+  width: 40%;
+  height: 3rem;
   justify-content: center;
-  gap: 2rem;
+  gap: .5rem;
 }
 .home1Logo {
   height: 25rem;
@@ -232,9 +257,12 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   text-align: center;
 }
 .navBar-collapse a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ff847cff;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
   text-decoration: none;
   color: #2a363bff;
   font-weight: 700;
@@ -343,26 +371,79 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: center;
+/*   flex-wrap: wrap; */
+  justify-content: space-evenly;
   align-items: center;
   background-color: #99b898;
   padding: 1rem;
   border-radius: 5px;
-  height: 40%;
-  width: 50%;
+  height: 70%;
+  width: 70%;
 }
-.formRegister label {
+.formRegister div {
+  width: 100%;
+  
+ /*  height: 80%; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content:center;
+  align-items: center;
+}
+.inputDivForm{
+  display: flex;
+  flex-direction: column;
+}
+.inputDivForm div{
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  height: 2rem;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+}
+.buttonContainer{
+  height: 6rem!important;
+  display: flex!important;
+  flex-direction: column!important;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.submitButtonForm{
+  display: flex;
+  justify-content: center!important;
+  align-items: center;
+  height:50%;
+  width: 100%;
+}
+.selectForm{
+  width: 10rem;
+}
+.submitButtonForm2{
+  display: flex;
+  justify-content: center!important;
+  align-items: center!important;
+  height:100%;
+  width: 100%;
 }
 .formRegister input {
-  border-radius: 5px;
+  margin:1px;
+  border-radius: .1rem;
+  border-style: none;
+  padding: 5px;
+}
+.submitRegister{
+  height: 100%;
+  width:40%;
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem!important;
 }
 .googleLogo {
   height: 100%;
 }
 .btn-google-register {
-  height: 10%;
+  height: 50%;
   width: 50%;
   justify-content: center;
   display: flex;
@@ -839,9 +920,11 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   width: 100%;
  display:flex;
  gap: 2rem;
+ min-height: 70vh;
  flex-direction: column;
  align-items: center;
  background-color: var(--body-background);
+  padding-top: 1rem;
 }
 
 /* clase del contenedor de cards de myPage */
@@ -907,6 +990,68 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   border-color: black;
   background-color: rgba(255, 0, 0, 0.383);
 }
+.profilePage{
+  height: 72vh;
+  background-color: #fecea8ff;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.profileCard{
+  width: 70%;
+  height: 20rem;
+  background-color: #2a363bff;
+  border-radius: 1rem;
+  display: flex;
+  padding: 1rem;
+
+  
+
+}
+.myProfileImg{
+  height: 100%;
+  width: 40%;
+}
+.profileImg{
+  width: 100%;
+  height: 100%;
+}
+.myProfile{
+  height: 100%;
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #99b898;
+  gap: 1rem;
+  
+}
+.editProfile{
+  height: 10%;
+  width: 5%;
+  background-color: #99b898;
+  border-radius: 5px;
+  border: none;
+  
+}
+.userButtons{
+  display: flex;
+  gap: 1rem;
+}
+.myProfileBtn{
+  background-color: #e84a5f;
+  border: 1px black solid;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+
+
 @media screen and (min-width: 1600px) {
   .cityImage{
     height: 500px;
@@ -945,7 +1090,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     flex-wrap: wrap;
     width: 60%;
     justify-content: center;
-    gap: 2rem;
+    gap: .5rem;
   }
   .navBar-expanded{
     flex-wrap: wrap;

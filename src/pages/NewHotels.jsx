@@ -6,6 +6,8 @@ import hotelActions from "../redux/actions/hotelsActions";
 import { useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
 
+import cityActions from "../redux/actions/cityActions";
+
 
 import Swal from "sweetalert2";
 
@@ -15,18 +17,21 @@ import Swal from "sweetalert2";
 export default function NewHotel() {
 
   let navigate = useNavigate()
+  
 
   let formNewHotels = useRef(null)
   const dispatch = useDispatch()
 useEffect(() => {
+  dispatch(cityActions.getCity())
   
   dispatch(hotelActions.getHotels())
   
   
 }, [])
+let {city} = useSelector(store=> store.city)
 
-let allHotels = useSelector(store => store.hotelsReducer.listHotels)
 
+let userData = useSelector(store=>store.userReducer)
 
   
 let submitHotels = (e) =>{
@@ -40,14 +45,14 @@ let submitHotels = (e) =>{
         photo: [arraysInputs[2].value],
         capacity:arraysInputs[3].value,
         description: arraysInputs[4].value,
-        userId:arraysInputs[5].value,
+        userId:userData.user.id,
 
         
     }
-    console.log(hotel);
+    let token = JSON.parse(localStorage.getItem('token'))
     axios.post(`${apiUrl}/hotels/`, hotel)
       .then(response =>{
-        console.log(response.data);
+
         if (response.data.success) {
           Swal.fire({
             icon: 'success',
@@ -73,7 +78,7 @@ let submitHotels = (e) =>{
         
       })
       .catch(error =>{
-        console.log(error);
+
       })
 
 }
@@ -83,7 +88,7 @@ let submitHotels = (e) =>{
       <form ref={formNewHotels} >
         <label className="labelNewHotels">
           City Id:
-          <select>{allHotels.map(e => (<option key={e._id} value={e.cityId._id}>{e.cityId.name}</option>))}</select>
+          <select>{city.map(e => (<option key={e._id} value={e._id}>{e.name}</option>))}</select>
         </label>
         <label className="labelNewHotels">
           Name:
@@ -103,12 +108,6 @@ let submitHotels = (e) =>{
         <label className="labelNewHotels">
           Description:
           <input type="text"></input>
-        </label>
-
-        <label className="labelNewHotels">
-          User Id:
-          <select>{allHotels.map(e => (<option key={e._id} value={e.userId._id}>{e.userId.name}</option>))}</select>
-
         </label>
       </form>
       <button onClick={submitHotels}>Submit Hotel</button>
