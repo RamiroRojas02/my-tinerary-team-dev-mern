@@ -37,7 +37,7 @@ export default function SignUp() {
        if (result.isConfirmed) { 
         axios.post(`${BASE_URL}/auth/SignUp`, usersRegister)
           .then(res => {
-            console.log(res);
+
             if (res.data.success) {
               Swal.fire({
                 icon: 'success',

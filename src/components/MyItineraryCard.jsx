@@ -32,7 +32,9 @@ export default function MyItineraryCard(props) {
         let priceInput = document.getElementById('price')
         let itineraryToChange ={
           id : id,
-          itinerary : {}
+          itinerary : {},
+          token : JSON.parse(localStorage.getItem('token'))
+
         }
         if (nameInput.value !== '') {
           itineraryToChange.itinerary.name = nameInput.value
@@ -66,13 +68,18 @@ export default function MyItineraryCard(props) {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
+        let data = {
+          token : JSON.parse(localStorage.getItem('token')),
+          id
+
+        }
         if (result.isConfirmed) {
           Swal.fire(
             'Deleted!',
             'Your itinerary has been deleted.',
             'success'
           )
-          dispatch(itineraryActions.deleteItinerary(id))
+          dispatch(itineraryActions.deleteItinerary(data))
           navigate('/MyItineraries')
         }
       })

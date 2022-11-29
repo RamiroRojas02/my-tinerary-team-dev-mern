@@ -8,7 +8,7 @@ const getItineraries = createAsyncThunk("allItineraries", async () => {
     return {
       itinerary : res.data.response
     }}catch(err){
-      console.log(err)
+
       return{
         payload:"Error"
     }
@@ -17,8 +17,9 @@ const getItineraries = createAsyncThunk("allItineraries", async () => {
 
   const getMyItineraries = createAsyncThunk('myItineraries', async(id)=>{
     try {
+
       let res = await axios.get(`${BASE_URL}/itineraries/?userId=${id}`)
-      console.log(res);
+
       return {
         itinerary : res.data.response
       }
@@ -26,18 +27,23 @@ const getItineraries = createAsyncThunk("allItineraries", async () => {
   
     }
   })
-  const deleteItinerary = createAsyncThunk("itinerariesEliminate", async(id)=>{
-    let res = await axios.delete(`${BASE_URL}/itineraries/${id}`)
+  const deleteItinerary = createAsyncThunk("itinerariesEliminate", async(data)=>{
+    let  {id, token} = data
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
+
+    let res = await axios.delete(`${BASE_URL}/itineraries/${id}`,header)
     return {
       eliminate : res.data
     }
   
   })
   const editItinerary = createAsyncThunk("ItineraryEdit",async(itineraryToChange)=>{
-    let {id, itinerary} = itineraryToChange
+    let {id, itinerary,token} = itineraryToChange
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
+
     try {
-      let res= await axios.put(`${BASE_URL}/itineraries/${id}`,itinerary)
-      console.log(res)
+      let res= await axios.put(`${BASE_URL}/itineraries/${id}`,itinerary,header)
+
       return {
         messagge : res.data.message,
         itineraryUpdate : res.data.itinerarySync,

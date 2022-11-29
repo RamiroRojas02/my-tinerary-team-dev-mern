@@ -10,7 +10,7 @@ export default function CityDetails() {
   let [city, setCity] = useState([])
   let [itineraries,setItineraries]=useState([])
   let {id} = useParams()
-  console.log(id)
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}/cities/${id}`)
@@ -31,8 +31,7 @@ export default function CityDetails() {
         console.log(err);
       });
   }, []);
-  console.log(city)
-  console.log(itineraries)
+
 
 /*   let city = dataCity.filter((e) => e.id === id); */
 /*   let activities = dataCityActivities.filter((e) => e.citiId === id); */

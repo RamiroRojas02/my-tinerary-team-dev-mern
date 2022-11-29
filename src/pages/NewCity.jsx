@@ -3,19 +3,21 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import {BASE_URL} from '../api/url' 
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 
 
 export default function NewCity() {
   let formNewCity = useRef(null);
   let navigate = useNavigate()
-
+  let userData = useSelector(store=>store.userReducer)
   let submitCity = (e) => {
     let inputs = formNewCity.current;
     e.preventDefault();
+    
 
     let arraysInputs = [...inputs];
     let valueInputs = arraysInputs.map((e) => e.value);
-    console.log(valueInputs);
+
     if (valueInputs.includes("")) {
       return alert("Data Missing");
     }
@@ -25,12 +27,12 @@ export default function NewCity() {
       continent: valueInputs[0],
       photo: valueInputs[2],
       population: valueInputs[3],
-      userId: valueInputs[4],
+      userId:userData.user.id,
     };
-    console.log(city)
+
     axios.post(`${BASE_URL}/cities`,city)
     .then(res => {
-      console.log(res);        
+      
         if (res.data.success) {
           Swal.fire({
             icon: 'success',
@@ -77,10 +79,7 @@ export default function NewCity() {
           <input type="number"></input>
         </label>
 
-        <label>
-          UserId-Admin:
-          <input type="text"></input>
-        </label>
+        
       </form>
       <button onClick={submitCity}>Done</button>
     </div>

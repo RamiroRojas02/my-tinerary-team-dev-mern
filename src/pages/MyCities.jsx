@@ -6,12 +6,13 @@ import MyCityCard from "../components/MyCityCard";
 
 export default function MyCities() {
   let cityy = useSelector(store => store.city)
-console.log(cityy)
+// console.log(cityy)
 
+  let userData = useSelector(store=>store.userReducer)
 
     const dispatch = useDispatch()
     useEffect(() => {
-      dispatch(cityActions.getMyCities("6372494878cf1c151a1a4f67"))
+      dispatch(cityActions.getMyCities(userData.user.id))
     }, []);
      let myCities= cityy.city 
 
@@ -20,7 +21,7 @@ console.log(cityy)
   return (
     <div className='myPage'>
         <h1>My Cities</h1>
-         <div className='myContainer'>{myCities.length === 0 ? <h2>You don't have Hotels</h2>: myCities.map(e => <MyCityCard key={e._id} id={e._id} name={e.name} img={e.photo} />) }</div>
+         <div className='myContainer'>{myCities.length === 0 ? <h2>You don't have Cities</h2>: myCities.map(e => <MyCityCard key={e._id} id={e._id} name={e.name} img={e.photo} />) }</div>
      </div>
   )
 }

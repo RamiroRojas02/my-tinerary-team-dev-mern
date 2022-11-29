@@ -13,26 +13,26 @@ export default function MyItineraries() {
   let {city} = useSelector(store=> store.city)
   let navigate = useNavigate()
   let itineraryStore = useSelector(store => store.itineraryReducer)
-  console.log(itineraryStore)
+
+
   let userData = useSelector(store=>store.userReducer)
-  console.log()
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(cityActions.getCity())
-    dispatch(itineraryActions.getItineraries())
     dispatch(itineraryActions.getMyItineraries(userData.user.id))
   }, []);
   let MyItineraries = itineraryStore.itinerary
-  console.log(MyItineraries)
+
   let MyItinerariesNR = city
-  console.log(city)
+
   let submitItinerary = (e) => {
     let inputs = formNewItinerary.current;
     e.preventDefault();
 
     let arraysInputs = [...inputs];
     let valueInputs = arraysInputs.map((e) => e.value);
-    console.log(valueInputs);
+
  /*    if (valueInputs.includes("")) {
       return alert("Data Missing");
     }
@@ -46,11 +46,14 @@ export default function MyItineraries() {
       price: valueInputs[5],
       userId:userData.user.id ,
     };
+    let token = JSON.parse(localStorage.getItem('token'))
+
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
     
 
-    axios.post(`${BASE_URL}/itineraries/`,itinerary)
+    axios.post(`${BASE_URL}/itineraries/`,itinerary,header)
       .then(res => {
-        console.log(res.data.id);
+
         if (res.data.success) {
           Swal.fire({
             icon: 'success',
