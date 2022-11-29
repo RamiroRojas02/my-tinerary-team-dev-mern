@@ -24,7 +24,7 @@ const getHotelsFilt = createAsyncThunk("hotelsFilt", async (values) => {
 const getMyHotels = createAsyncThunk('myHotels', async(id)=>{
   try {
     let res = await axios.get(`${apiUrl}/hotels/?userId=${id}`)
-    console.log(res.data.response);
+
     return {
       listHotels : res.data.response
     }
@@ -32,19 +32,30 @@ const getMyHotels = createAsyncThunk('myHotels', async(id)=>{
     
   }
 })
-const deleteHotel = createAsyncThunk("hotelsEliminate", async(id)=>{
-  let res = await axios.delete(`${apiUrl}/hotels/${id}`)
-  return {
+const deleteHotel = createAsyncThunk("hotelsEliminate", async(data)=>{
+  let {id,token} =data
+  let header = { headers : { 'Authorization': `Bearer ${token}` }}
+  console.log(header.headers);
+  try {
+    let res = await axios.delete(`${apiUrl}/hotels/${id}`,header)
+    return {
     eliminate : res.data
   }
+  } catch (error) {
+    
+  }
+  
+  
   
 })
 const editHotel = createAsyncThunk("HotelEdit",async(hotelToChange)=>{
 
-  let {id, hotel} = hotelToChange
-  console.log(hotelToChange);
+  let {id, hotel,token} = hotelToChange
+  let header = { headers : { 'Authorization': `Bearer ${token}` }}
+
+
   try {
-    let res= await axios.patch(`${apiUrl}/hotels/${id}`,hotel)
+    let res= await axios.patch(`${apiUrl}/hotels/${id}`,hotel,header)
 
     return {
       messagge : res.data.messagge,

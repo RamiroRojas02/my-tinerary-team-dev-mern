@@ -8,7 +8,7 @@ const getCity = createAsyncThunk('getCity',async()=>{
         return response.data.response//esto seria el payload
 
     }catch(error){
-        console.log(error)
+
         return{
             payload:"Error"
         }
@@ -19,12 +19,12 @@ const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continent
     let url = `${BASE_URL}/cities/?${continente}${value}`;
       try {
         const res = await axios.get(url);
-        console.log(url);
+
         return {
           city: res.data.response,
         };
       } catch (error) {
-        console.log(error);
+
         return {
           payload: "Error",
         };
@@ -34,7 +34,7 @@ const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continent
   const getMyCities = createAsyncThunk('myCities', async(id)=>{
     try {
       let res = await axios.get(`${BASE_URL}/cities/?userId=${id}`)
-      console.log(res.data.response);
+
       return {
         city : res.data.response
       }
@@ -42,18 +42,23 @@ const getCityFilter = createAsyncThunk("getCitiesFilter",async ({value,continent
   
     }
   })
-  const deleteCity = createAsyncThunk("citiesEliminate", async(id)=>{
-    let res = await axios.delete(`${BASE_URL}/cities/${id}`)
+  const deleteCity = createAsyncThunk("citiesEliminate", async(data)=>{
+    let {token,id}= data
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
+
+    let res = await axios.delete(`${BASE_URL}/cities/${id}`,header)
     return {
       eliminate : res.data
     }
   
   })
   const editCity = createAsyncThunk("CityEdit",async(cityToChange)=>{
-    let {id, city} = cityToChange
+    let {id, city,token} = cityToChange
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
+
     try {
-      let res= await axios.put(`${BASE_URL}/cities/${id}`,city)
-      console.log(res)
+      let res= await axios.put(`${BASE_URL}/cities/${id}`,city,header)
+
       return {
         messagge : res.data.message,
         cityUpdate : res.data.citySync,

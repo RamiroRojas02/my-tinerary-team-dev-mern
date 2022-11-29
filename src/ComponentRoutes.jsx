@@ -25,7 +25,6 @@ export  const ComponentRoutes=()=> {
 
   let {user} = useSelector(store=> store.userReducer)
   const dispatch = useDispatch()
-  
   useEffect(() => {
     let userToken = JSON.parse(localStorage.getItem('token'))
     if (userToken) {
@@ -33,24 +32,24 @@ export  const ComponentRoutes=()=> {
   }
   },[])
   
-
+  console.log(user.role);
   return (
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/*" element={<NotFound/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
         
-        <Route element={<ProtectedRoute isAllowed={!user.logged} reDirect='/MyProfile'/>}>
-          <Route path='/SignIn' element= {<SignIn/>}/>
+        <Route element={<ProtectedRoute isAllowed={user.logged} reDirect={'/MyProfile'}/>}>
         </Route>
         
+          <Route path='/SignIn' element= {<SignIn/>}/>
         
         <Route path='/Hotels' element={<Hotels/>}/>
         <Route path='/Cities' element={<Cities/>}/>
         <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
         <Route path='/HotelDetails/:id' element={<DetailsHotels/>} location=""/>
         {/* a partir de aca son las que estan protegidas para el usuario */}
-        <Route element={<ProtectedRoute isAllowed={!!user.logged&&(user.role.includes("user")||user.role.includes("admin")) } reDirect={"/SignIn"}/>}> 
+        <Route element={<ProtectedRoute isAllowed={user.role === "user"||user.role === "admin"} reDirect={"/SignIn"}/>}> 
         <Route path='/MyItineraries' element={<MyItineraries/>} />
         <Route path='/MyShows' element={<MyShows/>} />
         <Route path='/MyProfile' element={<MyProfile/>} />
@@ -60,6 +59,8 @@ export  const ComponentRoutes=()=> {
             <Route path='/MyCities' element={<MyCities/>}/>         
             <Route path='/NewHotel' element={<NewHotel/>}/>
             <Route path='/MyHotels' element={<MyHotels/>} />
+            <Route path='/MyItineraries' element={<MyItineraries/>} />
+            <Route path='/MyShows' element={<MyShows/>} />
         </Route>
         {/* <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
 

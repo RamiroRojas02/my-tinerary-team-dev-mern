@@ -11,7 +11,7 @@ const cityReducer = createReducer(initialState, (builder)=>{
     builder
     .addCase(getCity.fulfilled,(state,action)=>{//state:estado original
         //action:
-        console.log(action);
+
         return{
             ...state,//le agrego el valor siguiente 
             city:action.payload,//payload :caja que recibe modificaciones que le da las acciones
@@ -19,7 +19,7 @@ const cityReducer = createReducer(initialState, (builder)=>{
         }
     })
     .addCase(getCityFilter.fulfilled, (state, action) => {
-        console.log(action)
+
         return {
           ...state,
           ...action.payload,
@@ -36,7 +36,7 @@ const cityReducer = createReducer(initialState, (builder)=>{
         }
     })
     .addCase(editCity.fulfilled, (state,action) =>{
-            console.log(action.payload)
+
         if (action.payload.success) {
             let cities = state.city.filter( e => e._id !== action.payload.cityUpdate._id)
 
@@ -56,7 +56,7 @@ const cityReducer = createReducer(initialState, (builder)=>{
         
     }) 
     .addCase(getMyCities.fulfilled, (state,action) =>{
-        console.log(action.payload.city)
+
         return{
             ...state,
             city: action.payload.city,

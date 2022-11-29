@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigate } from "react-router-dom"
 import { Outlet } from 'react-router-dom'
 const ProtectedRoute = ({isAllowed, children, reDirect}) => {
-    // console.log(isAllowed);
+    console.log(isAllowed);
     if(!isAllowed){
         return <Navigate to={reDirect}/>
     }

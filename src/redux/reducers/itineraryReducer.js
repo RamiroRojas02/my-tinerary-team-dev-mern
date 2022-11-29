@@ -20,7 +20,7 @@ const itineraryReducer = createReducer(initialState, (builder)=>{
         }
     })
     .addCase(editItinerary.fulfilled, (state,action) =>{
-            console.log(action.payload)
+
         if (action.payload.success) {
             let itineraries = state.itinerary.filter( e => e._id !== action.payload.itineraryUpdate._id)
 
@@ -40,7 +40,7 @@ const itineraryReducer = createReducer(initialState, (builder)=>{
         
     }) 
     .addCase(getMyItineraries.fulfilled, (state,action) =>{
-        console.log(action.payload.city)
+
         return{
             ...state,
             itinerary: action.payload.itinerary,

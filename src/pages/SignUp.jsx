@@ -35,9 +35,9 @@ export default function SignUp() {
       cancelButtonText: 'No',
     }).then((result) => { 
        if (result.isConfirmed) { 
-        axios.post(`${BASE_URL}/api/auth/SignUp`, usersRegister)
+        axios.post(`${BASE_URL}/auth/SignUp`, usersRegister)
           .then(res => {
-            console.log(res);
+
             if (res.data.success) {
               Swal.fire({
                 icon: 'success',

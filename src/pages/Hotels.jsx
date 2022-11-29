@@ -33,9 +33,7 @@ export default function Hotels() {
     let hotelsFilt  = useSelector(store => store.hotelsReducer)
     let hotels = useSelector(store => store.hotelsReducer.listHotels)
     
-    console.log(hotelsFilt);
-    // console.log(allHotels);
-    console.log(hotels);
+
     if (hotelsFilt.listHotelsFilt.length > 0) {
       hotels = hotelsFilt.listHotelsFilt
     }

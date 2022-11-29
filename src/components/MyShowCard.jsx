@@ -43,6 +43,9 @@ export default function MyShowCard(props) {
         let showToChange = {
           id: id,
           show: {},
+          token : JSON.parse(localStorage.getItem('token'))
+
+
         };
 
         if (nameInput.value !== "") {
@@ -68,6 +71,10 @@ export default function MyShowCard(props) {
     });
   };
   const deleteEvent = () => {
+    let data = {
+      id,
+      token : JSON.parse(localStorage.getItem('token'))
+    }
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -79,7 +86,7 @@ export default function MyShowCard(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your show has been deleted.", "success");
-        dispatch(showActions.deleteShow(id));
+        dispatch(showActions.deleteShow(data));
         navigate("/MyShows");
       }
     });

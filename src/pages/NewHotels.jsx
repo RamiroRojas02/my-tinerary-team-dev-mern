@@ -49,10 +49,10 @@ let submitHotels = (e) =>{
 
         
     }
-    console.log(hotel);
+    let token = JSON.parse(localStorage.getItem('token'))
     axios.post(`${apiUrl}/hotels/`, hotel)
       .then(response =>{
-        console.log(response.data);
+
         if (response.data.success) {
           Swal.fire({
             icon: 'success',
@@ -78,7 +78,7 @@ let submitHotels = (e) =>{
         
       })
       .catch(error =>{
-        console.log(error);
+
       })
 
 }

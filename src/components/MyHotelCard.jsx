@@ -38,6 +38,7 @@ export default function MyHotelCard(props) {
         let hotelToChange = {
           id: id,
           hotel: {},
+          token: JSON.parse(localStorage.getItem('token'))
         };
 
         if (nameInput.value !== "") {
@@ -61,6 +62,10 @@ export default function MyHotelCard(props) {
     });
   };
   const deleteEvent = () => {
+    let data ={
+      id: id,
+      token: JSON.parse(localStorage.getItem('token'))
+    }
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -72,7 +77,7 @@ export default function MyHotelCard(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your hotel has been deleted.", "success");
-        dispatch(hotelActions.deleteHotel(id));
+        dispatch(hotelActions.deleteHotel(data));
         navigate("/MyHotels");
       }
     });
