@@ -923,6 +923,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
  min-height: 70vh;
  flex-direction: column;
  align-items: center;
+ justify-content: space-around;
  background-color: var(--body-background);
   padding-top: 1rem;
 }
@@ -939,7 +940,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   margin-bottom: 2rem;
 }
 .myPage h1{
-  margin-top: 2rem;
+
   color:white;
   display:flex;
   justify-content: center;
@@ -950,31 +951,61 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 }
 .myCard h3{
   color: white;
+  border-bottom: .2rem solid var(--box-shadow-cards);
 }
 .myCard{
+  padding: 1rem;
   border: 1px solid black;
   display:flex;
   flex-direction:column;
   align-items: center;
-  justify-content:space-evenly;
+  gap: 2rem;
   background-color: var(--background-footer);
-  height: 30rem;
-  width: 30rem;
+  height: 35rem;
+  width: 25rem;
   border-radius: 3rem;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 .myCard img{
-  object-fit: fill;
-  height: 25rem;
-  width:30rem;
+  object-fit: cover;
+  height: 20rem;
+  width:20rem;
   border-radius: 5.5px;
 }
 
 .myButtons{
   display: flex;
+  height: 3rem;
   width: 100%;
+  align-items: center;
   justify-content: space-evenly;
+  margin: 5px;
 /*   background-color: var(--background-footer); */
+}
+.myReactions{
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    /* margin: 5px; */
+  /*   background-color: var(--background-footer); */
+  
+}
+.reactionDad{
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.reactionChild img{
+  background-color: antiquewhite;
+  border-radius: 1.5rem;
+  border: 4px solid  var(--box-shadow-cards);
+  height: auto;
+  width: auto;
 }
 .editBtn{
   width: 5rem;

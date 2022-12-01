@@ -19,7 +19,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import userActions from './redux/actions/userActions'
-
+import NewReaction from './pages/NewReaction'
 
 export  const ComponentRoutes=()=> {
 
@@ -31,19 +31,14 @@ export  const ComponentRoutes=()=> {
     dispatch(userActions.signInToken(userToken))
   }
   },[])
-  
-  console.log(user.role);
+  let role = user.role
+  console.log(user);
   return (
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/*" element={<NotFound/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
-        
-        <Route element={<ProtectedRoute isAllowed={user.logged} reDirect={'/MyProfile'}/>}>
-        </Route>
-        
-          <Route path='/SignIn' element= {<SignIn/>}/>
-        
+        <Route path='/SignIn' element= {<SignIn/>}/>
         <Route path='/Hotels' element={<Hotels/>}/>
         <Route path='/Cities' element={<Cities/>}/>
         <Route path='/CityDetails/:id' element={<CityDetails/>} location=""/>
@@ -61,6 +56,7 @@ export  const ComponentRoutes=()=> {
             <Route path='/MyHotels' element={<MyHotels/>} />
             <Route path='/MyItineraries' element={<MyItineraries/>} />
             <Route path='/MyShows' element={<MyShows/>} />
+            <Route path='/NewReaction' element={<NewReaction/>}/>
         </Route>
         {/* <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
 

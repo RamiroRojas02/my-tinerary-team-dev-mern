@@ -13,7 +13,7 @@ export default function NewCity() {
   let submitCity = (e) => {
     let inputs = formNewCity.current;
     e.preventDefault();
-    
+
 
     let arraysInputs = [...inputs];
     let valueInputs = arraysInputs.map((e) => e.value);
