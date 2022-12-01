@@ -32,6 +32,7 @@ export default function DetailsHotels() {
         console.log(err);
       }); 
     }, []);
+    console.log(showsState);
 
 
 
@@ -41,7 +42,7 @@ export default function DetailsHotels() {
     <div className='divDetailsHotels'>
       {hotelsState.length === 0 ? 'Hotel not found' : hotelsState.map((e)=> <CardDetailsHoteles key={e._id} photos={e.photo}  names={e.name} descriptions={e.description} capacities={e.capacity}/>)}
       <div className='hotelEventsContainer' >
-      {showsState.length === 0 ? 'Show not found' : showsState.map((e)=> <HotelEvents key={e._id} pictures={e.photo}  names={e.name} descrip={e.description} price={e.price}/>)}
+      {showsState.length === 0 ? 'Show not found' : showsState.map((e)=> <HotelEvents key={e._id} id={e._id} date={e.date} pictures={e.photo}  names={e.name} descrip={e.description} price={e.price}/>)}
       </div>
     </div>
   )

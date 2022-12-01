@@ -69,13 +69,16 @@ export default function MyProfileCard() {
       }
     });
   };
-  useEffect(() => {
-    
-    let data = {
+  let data = {
       id: user.id,
       token: JSON.parse(localStorage.getItem('token'))
-
     }
+  useEffect(() => {
+    
+    
+
+
+
     dispatch(userActions.getMyProfile(data));
   }, []);
 

@@ -19,7 +19,7 @@ const userReducer= createReducer(initialState,(builder) =>{
         if(success){
             let {user,token}= response
 
-
+            console.log(user);
             localStorage.setItem('token', JSON.stringify(token))
 
             return{
@@ -59,6 +59,7 @@ const userReducer= createReducer(initialState,(builder) =>{
         }
     })
     builder.addCase(getMyProfile.fulfilled,(state,action)=>{
+        console.log(action);
         let {success,myUser,response} = action.payload
         if (success) {
             return{
@@ -76,7 +77,7 @@ const userReducer= createReducer(initialState,(builder) =>{
     builder.addCase(updateMyProfile.fulfilled,(state,action)=>{
         let {myUser,success} = action.payload
 
-        if (2+3 === 5) {
+        if (success) {
             return {
                 ...state,
                 myUser,

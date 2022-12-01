@@ -57,7 +57,7 @@ export default function MyHotelCard(props) {
         dispatch(hotelActions.editHotel(hotelToChange));
 
         navigate("/MyHotels");
-        console.log(storeHotels.errors);
+
       }
     });
   };

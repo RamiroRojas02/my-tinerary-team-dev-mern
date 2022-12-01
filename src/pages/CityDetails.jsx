@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import City from "../components/City";
 import { BASE_URL } from '../api/url'
 import axios from "axios";
-import ComentSection from "../components/ComentSection"
+import ComentSection from "../components/Coments"
 import Tinerary from "../components/Tinerary"
 
 export default function CityDetails() {
@@ -36,14 +36,7 @@ export default function CityDetails() {
 /*   let city = dataCity.filter((e) => e.id === id); */
 /*   let activities = dataCityActivities.filter((e) => e.citiId === id); */
 
-  let [comentState, setComentState] = useState("coment-collapse");
-  let coments = () => {
-    if (comentState === "coment-collapse") {
-      setComentState("coment-expand");
-    } else {
-      setComentState("coment-collapse");
-    }
-  };
+  
 
   return (
     <div className="cityDetails">
@@ -52,7 +45,7 @@ export default function CityDetails() {
         photo={city.photo}
       />
 
-       <ComentSection event={coments} state={comentState} />
+       <ComentSection  />
       <h2>Tinerary</h2>
       <div className="cityTinerary">
         {itineraries.length ? (

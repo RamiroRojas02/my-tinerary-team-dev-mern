@@ -10,7 +10,6 @@ export default function MyItineraryCard(props) {
     let editBtn = useRef()
     let dispatch= useDispatch()
     let navigate = useNavigate()
-    let storeItineraries = useSelector(store=> store.itinerary)
 
     const editEvent = () =>{
       Swal.fire({
@@ -34,7 +33,6 @@ export default function MyItineraryCard(props) {
           id : id,
           itinerary : {},
           token : JSON.parse(localStorage.getItem('token'))
-
         }
         if (nameInput.value !== '') {
           itineraryToChange.itinerary.name = nameInput.value
