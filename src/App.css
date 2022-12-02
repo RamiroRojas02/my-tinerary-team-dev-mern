@@ -1027,6 +1027,34 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   color: white;
   border-bottom: .2rem solid var(--box-shadow-cards);
 }
+.h2Reactions{
+  background-color: var(--body-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+.btn-ReactionDelete{
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgb(232,74,95);
+background: linear-gradient(90deg, rgba(232,74,95,1) 0%, rgba(152,184,172,1) 0%, rgba(0,0,0,1) 100%);
+  color: whitesmoke;
+  font-size: medium;
+  border: 2px solid var(--box-shadow-cards);
+}
+.divContainerReaction{
+  padding: 1rem;
+  display: flex;
+  background-color: var(--body-background);
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
 .myCard{
   padding: 1rem;
   border: 1px solid black;

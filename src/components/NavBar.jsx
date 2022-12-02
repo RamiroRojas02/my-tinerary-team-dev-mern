@@ -67,6 +67,9 @@ export default function NavBar({ naV }) {
       <LinkRoute to="/NewReaction">
         New Reactions
       </LinkRoute>
+      <LinkRoute to="/MyReactions">
+        My Reactions
+      </LinkRoute>
       </>
       :<>
       <LinkRoute to="/">
@@ -83,6 +86,9 @@ export default function NavBar({ naV }) {
       </LinkRoute>
       <LinkRoute to="/MyItineraries">
         My Itineraries
+      </LinkRoute>
+      <LinkRoute to="/MyReactions">
+        My Reactions
       </LinkRoute>
       </>
       }

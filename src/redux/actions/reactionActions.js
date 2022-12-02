@@ -4,6 +4,8 @@ import axios from 'axios'
 import { BASE_URL } from '../../api/url'
 
 const getReactionsByEachItinerary = createAsyncThunk('getReactionsByEachItinerary',async(idItinerary)=>{
+    
+    
     try{
         const response = await axios.get(`${BASE_URL}/reactions?itineraryId=${idItinerary}`)
 
@@ -26,7 +28,7 @@ const updateReactions = createAsyncThunk("updateReactions", async (values) => {
     
     let headers = {headers: {'Authorization': `Bearer ${token}`}}
     try{
-        let res = await axios.put(`${BASE_URL}/reactions?name=${name}&itineraryId=${idItinerary}`, null, headers)
+        let res = await axios.put(`${BASE_URL}/reactions/?name=${name}&itineraryId=${idItinerary}`, null, headers)
         console.log(res)
         return {
           reaction: res.data.response
@@ -37,10 +39,22 @@ const updateReactions = createAsyncThunk("updateReactions", async (values) => {
         }
     }
   });
-
+  const reactionByItinerary = createAsyncThunk("reactionByItinerary", async (userId) => {
+    try{
+        let response = await axios.get(`${BASE_URL}/reactions/?userId=${userId}`)
+        console.log(response)
+        return response.data.reaction
+        
+    }catch(error){
+        return{
+            error: 'Error'
+        }
+    }
+  });
 
 const reactionActions={
     getReactionsByEachItinerary,
-    updateReactions
+    updateReactions,
+    reactionByItinerary
 };
 export default reactionActions
