@@ -4,12 +4,18 @@ import reactionActions from '../redux/actions/reactionActions'
 
 export default function Reaction(props) {
     let dispatch = useDispatch()
-    let {id ,name, photo,quantity, itineraryId, reload, token} = props
+    let {id ,name, photo,quantity, showId, reload, token,itineraryId} = props
     let { updateReactions } = reactionActions
+    let user = useSelector(store => store.userReducer)
+
+
+
     let values = {
       name,
-      idItinerary:itineraryId,
-      token
+      itineraryId,
+      showId,
+      token,
+      userId: user.user.id
     }
 
     const clickHandler = () => {
