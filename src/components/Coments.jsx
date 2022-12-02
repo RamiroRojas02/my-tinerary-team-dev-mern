@@ -5,11 +5,18 @@ import commentActions from "../redux/actions/commentActions";
 import MyComment from "./MyComment";
 import Comment from "./Comment";
 
+
+
 export default function ComentSection(props) {
   let { id } = props;
-  let { comments } = useSelector((store) => store.commentReducer);
+
   let { user } = useSelector((store) => store.userReducer);
   let dispatch = useDispatch();
+
+
+  let [commentsState, setComentsState] = useState([])
+  let [update,setUpdate] = useState(false)
+
   let [comentState, setComentState] = useState("coment-collapse");
   let coments = () => {
     if (comentState === "coment-collapse") {
@@ -17,21 +24,37 @@ export default function ComentSection(props) {
     } else {
       setComentState("coment-collapse");
     }
-    dispatch(commentActions.getComments(id));
+    
+    reload()
+
   };
+  
+  let reload = () =>{
+    setUpdate(!update)
+    dispatch(commentActions.getComments(id))
+    .then( res => setComentsState(res.payload.comments) )
+  }
+
+  useEffect(() => {
+    dispatch(commentActions.getComments(id))
+    .then( res => setComentsState(res.payload.comments) )
+  }, [update])
+  
+  
+  
 
   return (
     <div className="comentSection">
       <button onClick={coments}>Show Coments</button>
       <div className={comentState}>
-        <NewComment idShow={id}></NewComment>
+        <NewComment reload={reload} idShow={id}></NewComment>
         
-          {comments.length === 0 ? <h3>No comments</h3> : 
-            comments.map( e =>{
+          {commentsState.length === 0 ? <h3>No comments</h3> : 
+          commentsState.map( e =>{
               if(e.userId._id === user.id){
-                return <MyComment name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
+                return <MyComment date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
               }else{
-                return <Comment name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
+                return <Comment date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
               }
             })}
         

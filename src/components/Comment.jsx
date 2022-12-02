@@ -1,11 +1,11 @@
 import React from 'react'
 
 export default function Comment(props) {
-    let {comment}= props
+    let {comment,photo,name}= props
   return (
-    <div>
-        <img src='' alt=''></img>
-        <p>{comment}</p>
+    <div className='comments'>
+        <img className='commentImg' src={photo} alt={name}></img>
+        <p className='Comment'>{comment}</p>
     </div>
   )
 }

@@ -784,7 +784,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .coment-expand{
   width: 100%;
   min-height: 5rem;
-  background-color: #2a363bff;
+  background-color:#ff847cff;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -824,10 +824,36 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   height: 2rem;
   border-radius: 0.5rem;
 }
-.myComment{
+.myCommentDiv{
   width: 100%;
   display: flex;
   padding: 1rem;
+  gap: 1rem;
+  justify-content: center;
+}
+.myComment{
+  width: 80%;
+  padding-left: 1rem;
+  background-color: #e84a5f;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.comments{
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: center;
+}
+.Comment{
+  width: 100%;
+  padding-left: 1rem;
+  background-color:#fecea8ff;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+
 }
 /* Finish DetailsCity Css */
 /* Comienza CardDetailsHoteles */

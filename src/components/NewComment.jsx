@@ -1,16 +1,19 @@
-import React, {useRef} from 'react'
+import React, {useRef,useEffect,useCallback } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import commentActions from '../redux/actions/commentActions';
 import Swal from 'sweetalert2';
 
 export default function NewComment(props) {
-    let {idShow} = props
+    let {idShow,reload} = props
     let { user } = useSelector((store) => store.userReducer);
 
     const newComent = useRef(null)
 
-    const dispatch = useDispatch()
-    const send = async () =>{
+    const dispatch = useDispatch() 
+    
+      
+    
+    const send =  (() =>{
         let valueInput= newComent.current.value
         
         let currentDate = new Date()
@@ -39,10 +42,11 @@ export default function NewComment(props) {
             if (result.isConfirmed) {
                 dispatch(commentActions.postComment(data))
                 newComent.current.value = ''
+                reload()
             }
           });
         
-    }
+    })
     const reset =()=>{
         let valueInput= newComent.current
         valueInput.value = ''

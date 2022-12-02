@@ -13,7 +13,9 @@ const postComment = createAsyncThunk('createComment', async(data)=>{
 
     try {
         let res = await axios.post(`${apiUrl}/comment/`,comment ,header)
+        console.log(res);
         return{
+            comment: res.data.id,
             success: res.data.success,
             messagge: res.data.messagge
         }

@@ -9,33 +9,38 @@ const {postComment,getComments} = commentActions
 const initialState ={
     success:false,
     message: "",
-    comments: []
+    comments: [],
+    newComment:[]
 }
 
 const commentReducer = createReducer(initialState,(builder)=>{
     builder.addCase(postComment.fulfilled,(state,action)=>{
         console.log(action.payload);
-        let {success,messagge} = action.payload
+        let {success,messagge,comment} = action.payload
+        
             if (success) {
                 Swal.fire("Posted!", "Your comment has been posted.", "success")
+                
+                return {
+                    ...state,
+                    newComment: comment,            
+                    success,
+                    messagge
+            
+        }
             }else{
                 Swal.fire('Error!',`${messagge.map(e => e.message)}`,"error")
+                
             }
-        return {
-            ...state,
-            success,
-            messagge
-            
-
-        }
+        
     })
-    builder.addCase(getComments.fulfilled,(state,action)=>{
-        console.log(action.payload);
-        return {
-            ...state,
-            comments: action.payload.comments
-        }
-    })
+    // builder.addCase(getComments.fulfilled,(state,action)=>{
+    //     console.log(action.payload);
+    //     return {
+    //         ...state,
+    //         comments: action.payload.comments
+    //     }
+    // })
 })
 
 
