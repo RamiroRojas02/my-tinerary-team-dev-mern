@@ -36,7 +36,7 @@ export default function CityDetails() {
 /*   let city = dataCity.filter((e) => e.id === id); */
 /*   let activities = dataCityActivities.filter((e) => e.citiId === id); */
 
-  
+  console.log(itineraries);
 
   return (
     <div className="cityDetails">
@@ -45,7 +45,7 @@ export default function CityDetails() {
         photo={city.photo}
       />
 
-       <ComentSection  />
+       
       <h2>Tinerary</h2>
       <div className="cityTinerary">
         {itineraries.length ? (
@@ -56,7 +56,8 @@ export default function CityDetails() {
               duration={e.duration}
               photo={e.photo}
               name={e.name}
-              key={e.id}
+              key={e._id}
+              id={e._id}
             />
           )) 
         ) : (

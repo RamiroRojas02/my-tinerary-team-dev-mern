@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import Swal from "sweetalert2";
 import apiUrl from "../../url";
 
 
@@ -35,10 +36,36 @@ const getComments = createAsyncThunk('getComments',async(id)=>{
         return error
     }
 })
+const deleteComments = createAsyncThunk('fulminateComment',async(data)=>{
+    let {id,token} = data
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
+    
+      let res = await axios.delete(`${apiUrl}/comment/${id}`,header)
+            return{
+                success: res.data.success
+            }
+    
+})
+const editComment = createAsyncThunk('editComment',async(data)=>{
+    let {id,token,comment} = data
+    let newComment = {
+        comment
+    }
+    
+    let header = { headers : { 'Authorization': `Bearer ${token}` }}
+    let res = await axios.put(`${apiUrl}/comment/${id}`,newComment,header)
+    return{
+        success: res.data.succes
+    }
+
+
+})
 
 const commentActions = {
     postComment,
-    getComments
+    getComments,
+    deleteComments,
+    editComment
 }
 
 export default commentActions

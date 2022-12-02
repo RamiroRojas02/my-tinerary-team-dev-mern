@@ -1,7 +1,9 @@
 import React from "react";
+import ComentSection from "./Coments";
 
 export default function Tinerary(props) {
-  let { photo, name, price, duration, description } = props;
+  let { photo, name, price, duration, description,id } = props;
+  console.log(id);
   return (
     <div className="tinerary">
       <h3>{name}</h3>
@@ -16,6 +18,7 @@ export default function Tinerary(props) {
         <h5>Price: {price} USD</h5>
         <h5>Duration: {duration} Hours</h5>
       </div>
+      <ComentSection id={id}/>
     </div>
   );
 }
