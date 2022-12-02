@@ -25,7 +25,7 @@ console.log(e)
 
 
     let values = {
-     name : e.name,
+      name : e.name,
       idItinerary:e.itineraryId._id,
       token
     }
@@ -59,7 +59,7 @@ console.log(e)
     <>
       <h2 className="h2Reactions">My Reactions</h2>
     <div className="divContainerReaction">
-        {reactionsItinerary>0?<>
+        {/* {reactionsItinerary>0?<> */}
       {reactionsItinerary.map((e) => (
         <div className="myCard">
           <h3>{e.itineraryId?.name}</h3>
@@ -78,7 +78,7 @@ console.log(e)
           </div>
           <button className="btn-ReactionDelete" onClick={(o) => clickHandler(e) } >Delete reaction</button>
         </div>
-      ))}</>:<><h1 className="h1NoReactions">There's no reactions made by you</h1></>}
+      ))}
       </div>
     </>
   );

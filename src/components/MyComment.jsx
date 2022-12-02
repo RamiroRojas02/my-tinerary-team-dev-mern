@@ -63,11 +63,11 @@ export default function MyComment(props) {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: "Yes, edit it!",
           }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(commentActions.editComment(data))
-                Swal.fire("Deleted!", "Your comment has been deleted.", "success");
+                Swal.fire("Edited!", "Your comment has been edited.", "success");
                 
                 
                 reload()
