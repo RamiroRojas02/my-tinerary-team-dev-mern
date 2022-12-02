@@ -15,7 +15,7 @@ export default function Checks() {
     let filtByCheck = checkFilter(dataCity)
     let searchElement = search.current
     let filter = searchFilt(searchElement,filtByCheck)
-    console.log(filter);
+
   }
 
 function checkFilter(arrayfilt) {
@@ -52,7 +52,6 @@ function checkFilter(arrayfilt) {
   function searchFilt(input,array) {
     
     searchValue = input.value
-    console.log(input.value);
     let filterSearch = array
       
     if (checked.length === 0) {

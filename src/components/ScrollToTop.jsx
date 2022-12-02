@@ -10,7 +10,7 @@ export default function ScrollToTop() {
 
       <button className='buttonScroll'
         onClick={() => {
-            console.log("se ejecuta scrollToTop")
+
           window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         }}
       >

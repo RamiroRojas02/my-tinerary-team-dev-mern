@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import hotelActions from "../redux/actions/hotelsActions";
 export default function Hotels() {
 
-
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(hotelActions.getHotels())
