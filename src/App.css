@@ -945,7 +945,13 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
     background-color: var(--background-footer);
   color: var(--titles);
 }
-
+.h1NoReactions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--body-background);
+  height: 100vh;
+}
 .divCardDetailsHoteles{
   display:flex;
   flex-direction: column;

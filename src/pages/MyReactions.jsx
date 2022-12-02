@@ -59,8 +59,8 @@ console.log(e)
     <>
       <h2 className="h2Reactions">My Reactions</h2>
     <div className="divContainerReaction">
-        
-      {reactionsItinerary?.map((e) => (
+        {reactionsItinerary>0?<>
+      {reactionsItinerary.map((e) => (
         <div className="myCard">
           <h3>{e.itineraryId?.name}</h3>
           <img src={e.itineraryId?.photo[0]} alt={e.itineraryId?.name}></img>
@@ -78,7 +78,7 @@ console.log(e)
           </div>
           <button className="btn-ReactionDelete" onClick={(o) => clickHandler(e) } >Delete reaction</button>
         </div>
-      ))}
+      ))}</>:<><h1 className="h1NoReactions">There's no reactions made by you</h1></>}
       </div>
     </>
   );
