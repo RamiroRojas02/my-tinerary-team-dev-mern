@@ -9,8 +9,6 @@ const rootReducer = {
     showsReducer,
     city: cityReducer,
     itineraryReducer,
-    userReducer,
-
+    userReducer
 }
 export default rootReducer
-

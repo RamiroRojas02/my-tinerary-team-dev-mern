@@ -32,7 +32,7 @@ export default function LoginPage() {
         imageHeight: 200,
         imageAlt: `Photo ${user.name}`,
         didClose: ()=>{
-          navigate('/MyProfile')
+          navigate('/')
         }
       })
       

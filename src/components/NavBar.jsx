@@ -64,6 +64,9 @@ export default function NavBar({ naV }) {
       <LinkRoute to="/MyItineraries">
         My Itineraries
       </LinkRoute>
+      <LinkRoute to="/NewReaction">
+        New Reactions
+      </LinkRoute>
       </>
       :<>
       <LinkRoute to="/">

@@ -15,7 +15,7 @@ const initialState ={
 
 const userReducer= createReducer(initialState,(builder) =>{
     builder.addCase(signIn.fulfilled,(state,action)=>{
-        let {success, response,message} = action.payload
+        let {success,response,message} = action.payload
         if(success){
             let {user,token}= response
 

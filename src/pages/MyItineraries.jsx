@@ -80,7 +80,7 @@ export default function MyItineraries() {
   return (
     <div className='myPage'>
       <h1>My Itineraries</h1>
-      <div className='myContainer'>{MyItineraries.length === 0 ? <h2>You don't have Itineraries</h2> : MyItineraries.map(e => <MyItineraryCard key={e._id} id={e._id} name={e.name} img={e.photo} />)}</div>
+      <div className='myContainer'>{MyItineraries.length === 0 ? <h2>You don't have Itineraries</h2> : MyItineraries.map(e => <MyItineraryCard key={e._id} id={e._id} name={e.name} img={e.photo}/>)}</div>
       <div className="divNotFound">
         <form className="formRegister" ref={formNewItinerary}>
           <h2>Create your own itinerary!</h2>
