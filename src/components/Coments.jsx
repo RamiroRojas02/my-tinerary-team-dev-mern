@@ -13,7 +13,6 @@ export default function ComentSection(props) {
   let { user } = useSelector((store) => store.userReducer);
   let dispatch = useDispatch();
 
-
   let [commentsState, setComentsState] = useState([])
   let [update,setUpdate] = useState(false)
 
@@ -28,11 +27,12 @@ export default function ComentSection(props) {
     reload()
 
   };
-  
   let reload = () =>{
+    console.log("hola");
     setUpdate(!update)
     dispatch(commentActions.getComments(id))
     .then( res => setComentsState(res.payload.comments) )
+
   }
 
   useEffect(() => {
@@ -54,6 +54,7 @@ export default function ComentSection(props) {
               if(e.userId._id === user.id){
                 return <MyComment reload={reload} id={e._id} userId={e.userId._id} date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
               }else{
+                
                 return <Comment date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
               }
             })}

@@ -14,13 +14,7 @@ export default function MyItineraryCard(props) {
   let editBtn = useRef()
   let dispatch = useDispatch()
   let navigate = useNavigate()
-  let { user, token } = useSelector(store => store.userReducer)
-  const { getReactionsByEachItinerary } = reactionActions
-  const [reactions, setReactions] = useState()
-  const [update, setUpdate] = useState(false)
-  let reload = () => {
-    setUpdate(!update)
-  }
+
  
   const editEvent = () => {
     Swal.fire({
@@ -103,10 +97,7 @@ export default function MyItineraryCard(props) {
 /*     dispatch(reactionActions.updateReactions(values)) */
   } 
 
-  useEffect(() => {
-    dispatch(getReactionsByEachItinerary(id))
-    .then(res=> setReactions(res.payload.reaction))
-  }, [update])
+  
   return (
     <div className='myCard'>
       <h3>{name}</h3>
@@ -114,15 +105,6 @@ export default function MyItineraryCard(props) {
       <div className="myButtons">
         <button className='editBtn' ref={editBtn} onClick={editEvent}>Edit</button>
         <button className='deleteBtn' ref={deleteBtn} onClick={deleteEvent}>Delete</button>
-      </div>
-      <div className="myReactions">
-        {reactions ? reactions.map(e => {
-          let quantity = e.userId.length
-          return (
-              <Reaction key={e._id} token={token} id={e._id} name={e.name} quantity={quantity} photo={e.userId.includes(user.id)? e.iconBack :e.icon } itineraryId={id} reload={reload}/>
-            )
-            })
-              : ""}
       </div>
     </div>
   )

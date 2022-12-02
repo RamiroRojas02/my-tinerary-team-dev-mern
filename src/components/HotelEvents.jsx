@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import Coments from '../components/Coments'
+import Reaction from "./Reaction";
+import reactionActions from "../redux/actions/reactionActions";
+import { useDispatch, useSelector } from 'react-redux'
 export default function HotelEvents({
   pictures,
   names,
@@ -9,6 +12,28 @@ export default function HotelEvents({
   id,
 }) {
   console.log(id);
+  const { getReactionsByEachItinerary } = reactionActions
+  const [reactions, setReactions] = useState()
+  let { user, token } = useSelector(store => store.userReducer)
+  let dispatch = useDispatch()
+  
+  let data = {
+    showId: id
+  }
+
+  const [update, setUpdate] = useState(false)
+  let reload = () => {
+    console.log('me ejecuto')
+    setUpdate(!update)
+    
+    
+  }
+
+  useEffect(() => {
+    dispatch(getReactionsByEachItinerary(data))
+    .then(res=> setReactions(res.payload.reaction))
+  }, [update])
+
   return (
     <div className="divHotelEvents">
       <div className="divEvents">
@@ -22,6 +47,15 @@ export default function HotelEvents({
           <span>Price $ {price} USD</span>
           <p className="pDescription">{descrip}</p>
         </div>
+      </div>
+      <div className="myReactions">
+        {reactions ? reactions.map(e => {
+          let quantity = e.userId.length
+          return (
+              <Reaction key={e._id} token={token} id={e._id} name={e.name} quantity={quantity} photo={e.userId.includes(user.id)? e.iconBack :e.icon } showId={id} reload={reload}/>
+            )
+            })
+              : null}
       </div>
       <Coments id={id}/>
     </div>

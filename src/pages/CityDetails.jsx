@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import City from "../components/City";
 import { BASE_URL } from '../api/url'
 import axios from "axios";
-import ComentSection from "../components/Coments"
 import Tinerary from "../components/Tinerary"
 
 export default function CityDetails() {
@@ -36,7 +35,7 @@ export default function CityDetails() {
 /*   let city = dataCity.filter((e) => e.id === id); */
 /*   let activities = dataCityActivities.filter((e) => e.citiId === id); */
 
-  console.log(itineraries);
+  // console.log(itineraries);
 
   return (
     <div className="cityDetails">
