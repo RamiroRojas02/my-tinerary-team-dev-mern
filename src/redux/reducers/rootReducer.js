@@ -13,6 +13,6 @@ const rootReducer = {
     userReducer,
     commentReducer
 
+
 }
 export default rootReducer
-
