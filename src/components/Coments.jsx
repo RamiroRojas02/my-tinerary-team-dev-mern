@@ -47,7 +47,7 @@ export default function ComentSection(props) {
     <div className="comentSection">
       <button onClick={coments}>Show Coments</button>
       <div className={comentState}>
-        <NewComment reload={reload} idShow={id}></NewComment>
+        <NewComment reload={reload} id={id}></NewComment>
         
           {commentsState.length === 0 ? <h3>No comments</h3> : 
           commentsState.map( e =>{

@@ -4,7 +4,7 @@ import commentActions from '../redux/actions/commentActions';
 import Swal from 'sweetalert2';
 
 export default function NewComment(props) {
-    let {idShow,reload} = props
+    let {id,reload} = props
     let { user } = useSelector((store) => store.userReducer);
 
     const newComent = useRef(null)
@@ -22,7 +22,7 @@ export default function NewComment(props) {
         
         let comment = {
             userId: user.id,
-            showId: idShow,
+            showId: id,
             date:  today ,
             comment: valueInput
         }
