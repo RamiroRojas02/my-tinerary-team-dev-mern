@@ -807,6 +807,27 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
 .NewComment{
   width: 100%;
   padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.newCommentInput{
+  padding-left: 1rem;
+}
+.imgNewComment{
+  height: 2rem;
+  width: 7%;
+  border-radius: 0.5rem;
+}
+.commentImg{
+  width: 5%;
+  height: 2rem;
+  border-radius: 0.5rem;
+}
+.myComment{
+  width: 100%;
+  display: flex;
+  padding: 1rem;
 }
 /* Finish DetailsCity Css */
 /* Comienza CardDetailsHoteles */
