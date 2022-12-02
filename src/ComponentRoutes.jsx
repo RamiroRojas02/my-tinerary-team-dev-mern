@@ -20,6 +20,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import userActions from './redux/actions/userActions'
 import NewReaction from './pages/NewReaction'
+import MyReactions from './pages/MyReactions'
 
 export  const ComponentRoutes=()=> {
 
@@ -47,6 +48,7 @@ export  const ComponentRoutes=()=> {
         <Route path='/MyItineraries' element={<MyItineraries/>} />
         <Route path='/MyShows' element={<MyShows/>} />
         <Route path='/MyProfile' element={<MyProfile/>} />
+        <Route path='/MyReactions' element={<MyReactions/>} />
         </Route>
         <Route element={<ProtectedRoute  isAllowed={user.role === "admin"} reDirect={'/SignIn'}/>}>
             <Route path='/NewCity' element={<NewCity/>}/>
@@ -57,12 +59,7 @@ export  const ComponentRoutes=()=> {
             <Route path='/MyShows' element={<MyShows/>} />
             <Route path='/NewReaction' element={<NewReaction/>}/>
         </Route>
-        {/* <Route element={<ProtectedRoute isAllowed={!!user.logged} reDirect={'/SignIn'}/>}>
-
-
-        </Route>  */}
-
-        
+       
     </Routes>
   )
 }

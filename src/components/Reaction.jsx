@@ -11,7 +11,7 @@ export default function Reaction(props) {
       idItinerary:itineraryId,
       token
     }
-    console.log(values)
+
     const clickHandler = () => {
       dispatch(updateReactions(values))
       .then(res=> reload())

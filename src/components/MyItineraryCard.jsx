@@ -8,17 +8,15 @@ import { useEffect } from 'react'
 import reactionActions from '../redux/actions/reactionActions'
 export default function MyItineraryCard(props) {
   let { name, img, id } = props
+  
   let deleteBtn = useRef()
   let editBtn = useRef()
   let dispatch = useDispatch()
   let navigate = useNavigate()
   let { user, token } = useSelector(store => store.userReducer)
-  console.log(user.id)
   const { getReactionsByEachItinerary } = reactionActions
   const [reactions, setReactions] = useState()
   const [update, setUpdate] = useState(false)
- /*     setIdIt(id)    let [idIt,setIdIt]=useState("") */
-   let storeItineraries = useSelector(store=> store.itinerary)
   let reload = () => {
     setUpdate(!update)
   }
@@ -81,7 +79,6 @@ export default function MyItineraryCard(props) {
     }).then((result) => {
       let data = {
         token: JSON.parse(localStorage.getItem('token')),
-        id
 
       }
       if (result.isConfirmed) {
