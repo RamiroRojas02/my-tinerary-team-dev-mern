@@ -13,18 +13,16 @@ export default function MyItineraryCard(props) {
   let dispatch = useDispatch()
   let navigate = useNavigate()
   let { user, token } = useSelector(store => store.userReducer)
-  let reactionsI = useSelector(store => store.reactionReducer)
- 
-  /*     setIdIt(id)    let [idIt,setIdIt]=useState("") */
-  /*  let storeItineraries = useSelector(store=> store.itinerary) */
-  let reactionsToMap = reactionsI.reactionsByItinerary
-  console.log(reactionsToMap)
-  async function getReactions(){
-    await dispatch(reactionActions.getReactionsByEachItinerary(id))
+  console.log(user.id)
+  const { getReactionsByEachItinerary } = reactionActions
+  const [reactions, setReactions] = useState()
+  const [update, setUpdate] = useState(false)
+ /*     setIdIt(id)    let [idIt,setIdIt]=useState("") */
+   let storeItineraries = useSelector(store=> store.itinerary)
+  let reload = () => {
+    setUpdate(!update)
   }
-  useEffect(() => {
-    getReactions()
-  }, [])
+ 
   const editEvent = () => {
     Swal.fire({
       title: `Update ${name}`,
@@ -104,6 +102,11 @@ export default function MyItineraryCard(props) {
     } */
 /*     dispatch(reactionActions.updateReactions(values)) */
   } 
+
+  useEffect(() => {
+    dispatch(getReactionsByEachItinerary(id))
+    .then(res=> setReactions(res.payload.reaction))
+  }, [update])
   return (
     <div className='myCard'>
       <h3>{name}</h3>
@@ -113,20 +116,13 @@ export default function MyItineraryCard(props) {
         <button className='deleteBtn' ref={deleteBtn} onClick={deleteEvent}>Delete</button>
       </div>
       <div className="myReactions">
-        {reactionsToMap.map(e => {
-          let userReaction = e.userId.find(x => x === user.id)
-          console.log(userReaction)
+        {reactions ? reactions.map(e => {
           let quantity = e.userId.length
           return (
-            !userReaction ? (
-              <Reaction key={e._id} id={e._id} name={e.name} quantity={quantity} photo={e.icon} onClick={eventBtnReaction} />
-              )
-              :(
-              <Reaction key={e._id} id={e._id} name={e.name} quantity={quantity} photo={e.iconBack} onClick={eventBtnReaction} />
-              )
+              <Reaction key={e._id} token={token} id={e._id} name={e.name} quantity={quantity} photo={e.userId.includes(user.id) ? e.iconBack : e.icon} itineraryId={id} reload={reload}/>
             )
             })
-              }
+              : ""}
       </div>
     </div>
   )

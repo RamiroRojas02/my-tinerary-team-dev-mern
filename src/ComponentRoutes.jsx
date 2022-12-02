@@ -32,7 +32,6 @@ export  const ComponentRoutes=()=> {
   }
   },[])
   let role = user.role
-  console.log(user);
   return (
     <Routes>
         <Route path="/" element={<Home/>}/>

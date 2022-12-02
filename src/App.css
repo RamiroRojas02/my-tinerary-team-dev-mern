@@ -961,7 +961,7 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   align-items: center;
   gap: 2rem;
   background-color: var(--background-footer);
-  height: 35rem;
+  height: 39rem;
   width: 25rem;
   border-radius: 3rem;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -1006,6 +1006,13 @@ $gradient-radial: radial-gradient(#99b898ff, #fecea8ff, #ff847cff, #e84a5fff, #2
   border: 4px solid  var(--box-shadow-cards);
   height: auto;
   width: auto;
+}
+.reactionChild p{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
 }
 .editBtn{
   width: 5rem;

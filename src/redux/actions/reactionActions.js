@@ -5,9 +5,12 @@ import { BASE_URL } from '../../api/url'
 
 const getReactionsByEachItinerary = createAsyncThunk('getReactionsByEachItinerary',async(idItinerary)=>{
     try{
-        const response = await axios.get(`${BASE_URL}/reactions/?itineraryId=${idItinerary}`)
+        const response = await axios.get(`${BASE_URL}/reactions?itineraryId=${idItinerary}`)
+
+        console.log(response.data.reaction) // ME TRAE LAS REACCIONES
+
         return{
-         reaction :response.data.reaction//esto seria el payload
+         reaction:response.data.reaction //esto seria el payload
         }    
 
     }catch(error){
@@ -18,12 +21,20 @@ const getReactionsByEachItinerary = createAsyncThunk('getReactionsByEachItinerar
     }
 })
 const updateReactions = createAsyncThunk("updateReactions", async (values) => {
-    let { name, idItinerary } = values;
-    debugger
-    let res = await axios.get(`${BASE_URL}/reactions/?name=${name}&itineraryId=${idItinerary}`)
-      
-    return {
-      reactionUpdated : res.data.response,
+
+    let { name, idItinerary, token } = values;
+    
+    let headers = {headers: {'Authorization': `Bearer ${token}`}}
+    try{
+        let res = await axios.put(`${BASE_URL}/reactions?name=${name}&itineraryId=${idItinerary}`, null, headers)
+        console.log(res)
+        return {
+          reaction: res.data.response
+        }
+    }catch(error){
+        return{
+            error: 'Error'
+        }
     }
   });
 
