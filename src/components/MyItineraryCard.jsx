@@ -119,7 +119,7 @@ export default function MyItineraryCard(props) {
         {reactions ? reactions.map(e => {
           let quantity = e.userId.length
           return (
-              <Reaction key={e._id} token={token} id={e._id} name={e.name} quantity={quantity} photo={e.userId.includes(user.id) ? e.iconBack : e.icon} itineraryId={id} reload={reload}/>
+              <Reaction key={e._id} token={token} id={e._id} name={e.name} quantity={quantity} photo={e.userId.includes(user.id)? e.iconBack :e.icon } itineraryId={id} reload={reload}/>
             )
             })
               : ""}
