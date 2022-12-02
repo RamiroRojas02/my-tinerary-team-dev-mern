@@ -52,7 +52,7 @@ export default function ComentSection(props) {
           {commentsState.length === 0 ? <h3>No comments</h3> : 
           commentsState.map( e =>{
               if(e.userId._id === user.id){
-                return <MyComment date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
+                return <MyComment reload={reload} id={e._id} userId={e.userId._id} date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
               }else{
                 return <Comment date={e.date} name= {e.name} photo={e.userId.photo} comment={e.comment} key={e._id}/>
               }
