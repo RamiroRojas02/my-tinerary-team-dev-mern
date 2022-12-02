@@ -9,7 +9,7 @@ const signIn = createAsyncThunk('signIn', async (data)=>{
     try {
         let user = await axios.post(`${apiUrl}/auth/signin`,data)   
         if (user.data.success) {
-
+            console.log(user.data);
             return{
                 success:true,
                 response: user.data.response,
@@ -50,6 +50,7 @@ const signInToken = createAsyncThunk( 'signInToken',async(token)=>{
 
 const getMyProfile = createAsyncThunk('My user Profile',async(data)=>{
     let {token,id} = data
+    console.log(data);
     let header = { headers : { 'Authorization': `Bearer ${token}` }}
     
     try {

@@ -1,22 +1,32 @@
-import React from 'react'
-
-export default function HotelEvents({pictures,names,descrip,date,price,id}) {
+import React from "react";
+import Coments from '../components/Coments'
+export default function HotelEvents({
+  pictures,
+  names,
+  descrip,
+  date,
+  price,
+  id,
+}) {
+  console.log(id);
   return (
-    <div className='divHotelEvents'>
-        <div className='divEvents'>
-            <div className='divEventsImg'>
-            <img src={pictures} alt={names}/></div>
-            <div className='divEventsDescription'>
-                <h5>{names}</h5>
-                <p className='pDescription'>{descrip}</p>
-                <p>{date}</p>
-                <span>Price $ {price}</span>
-            </div>
+    <div className="divHotelEvents">
+      <div className="divEvents">
+        <div className="divEventsImg">
+          <img src={pictures} alt={names} />
+          
         </div>
-</div>
-  )
+        <div className="divEventsDescription">
+          <h5>{names}</h5>
+          <p>{date}</p>
+          <span>Price $ {price} USD</span>
+          <p className="pDescription">{descrip}</p>
+        </div>
+      </div>
+      <Coments id={id}/>
+    </div>
+  );
 }
-
 
 /* name: "Barcelona vs Real Madrid",
         description:"this war clash between the two most emblematic soccer teams in Spain",

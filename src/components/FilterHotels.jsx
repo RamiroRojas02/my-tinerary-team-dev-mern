@@ -5,7 +5,7 @@ export default function FilterHotels(props) {
 let {select, searchInput,onChange} = props
 
 let values = useSelector(store => store.hotelsReducer)
-console.log(values);
+
 
 let asc = false
 let desc = false

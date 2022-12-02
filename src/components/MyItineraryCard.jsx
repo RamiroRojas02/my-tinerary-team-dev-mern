@@ -7,6 +7,7 @@ import Reaction from './Reaction'
 import { useEffect } from 'react'
 import reactionActions from '../redux/actions/reactionActions'
 export default function MyItineraryCard(props) {
+
   let { name, img, id } = props
   let deleteBtn = useRef()
   let editBtn = useRef()
@@ -36,11 +37,13 @@ export default function MyItineraryCard(props) {
         '<input type="number" placeHolder="Price"id="price" class="swal2-input">',
       focusConfirm: false,
     }).then(results => {
+
       if (results.isConfirmed) {
         let nameInput = document.getElementById('name')
         let descriptionInput = document.getElementById('description')
         let photoInput = document.getElementById('photo')
         let priceInput = document.getElementById('price')
+
         let itineraryToChange = {
           id: id,
           itinerary: {},

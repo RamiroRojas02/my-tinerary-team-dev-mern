@@ -48,7 +48,7 @@ export default function Home2(props) {
     clearInterval(id);
   };
   let prev = () => {
-    console.log(estilazo1);
+
     if (estilazo1 === "show" && estilazo2 === "hide" && estilazo3 === "hide") {
       setEstilazo1((estilazo1 = "hide"));
       setEstilazo2((estilazo2 = "hide"));
