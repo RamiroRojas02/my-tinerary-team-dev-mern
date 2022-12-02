@@ -37,7 +37,7 @@ export default function Cities() {
     dispatch(getCityFilter(valores))
   },[value,continent])
 
-console.log(valores)
+
   return (
     <div className='citiesPage'>
       <FilterSearch onChange={valueEvent} search={search}/>
