@@ -32,7 +32,7 @@ export default function DetailsHotels() {
         console.log(err);
       }); 
     }, []);
-    console.log(showsState);
+    // console.log(showsState);
 
 
 

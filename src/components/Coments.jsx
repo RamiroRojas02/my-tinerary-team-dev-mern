@@ -13,8 +13,8 @@ export default function ComentSection(props) {
   let { user } = useSelector((store) => store.userReducer);
   let dispatch = useDispatch();
 
-  let [commentsState, setComentsState] = useState([])
-  let [update,setUpdate] = useState(false)
+  const [commentsState, setComentsState] = useState([])
+  const [update,setUpdate] = useState(false)
 
   let [comentState, setComentState] = useState("coment-collapse");
   let coments = () => {
@@ -41,7 +41,7 @@ export default function ComentSection(props) {
   }, [update])
   
   
-  
+  console.log(commentsState);
 
   return (
     <div className="comentSection">
